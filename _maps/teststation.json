@@ -1,0 +1,12 @@
+{
+	"version": 1,
+	"map_name": "Teststation",
+	"map_path": "map_files/teststation",
+	"map_file": "teststation.dmm",
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	}
+}
