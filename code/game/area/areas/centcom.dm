@@ -301,3 +301,12 @@ The areas used here are STRICTLY on the CC Z level.
 
 /area/centcom/asteroid/nearstation/bomb_site
 	name = "\improper Bomb Testing Asteroid"
+
+/area/centcom/ffazone
+	name = "Murderzone"
+	icon_state = "unknown"
+	requires_power = FALSE
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+	has_gravity = STANDARD_GRAVITY
+	flags_1 = NONE

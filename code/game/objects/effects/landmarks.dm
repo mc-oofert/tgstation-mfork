@@ -402,6 +402,15 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	GLOB.tdomeadmin += loc
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/ffaspawn
+	name = "ffa spawn"
+	icon_state = "x"
+
+/obj/effect/landmark/ffaspawn/Initialize(mapload)
+	..()
+	GLOB.ffa_spawnpoints += loc
+	return INITIALIZE_HINT_QDEL
+
 //generic event spawns
 /obj/effect/landmark/event_spawn
 	name = "generic event spawn"

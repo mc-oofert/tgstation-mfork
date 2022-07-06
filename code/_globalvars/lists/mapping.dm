@@ -118,6 +118,7 @@ GLOBAL_LIST_EMPTY(deathsquadspawn)
 GLOBAL_LIST_EMPTY(emergencyresponseteamspawn)
 GLOBAL_LIST_EMPTY(ruin_landmarks)
 GLOBAL_LIST_EMPTY(bar_areas)
+GLOBAL_LIST_EMPTY(ffa_spawnpoints) //list of random spawnpoints for the FFA minigame
 
 //away missions
 GLOBAL_LIST_EMPTY(vr_spawnpoints)
