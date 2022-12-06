@@ -179,7 +179,7 @@
 	name = "tram call button"
 	desc = "A small device used to bring trams to you."
 	///for finding the landmark initially - should be the exact same as the landmark's destination id.
-	var/initial_id
+	var/initial_destination
 	///ID to link to allow us to link to one specific tram in the world
 	var/specific_lift_id = MAIN_STATION_TRAM
 	///this is our destination's landmark, so we only have to find it the first time.
@@ -193,7 +193,7 @@
 	. = ..()
 	//find where the tram needs to go to (our destination). only needs to happen the first time
 	for(var/obj/effect/landmark/tram/our_destination as anything in GLOB.tram_landmarks[specific_lift_id])
-		if(our_destination.destination_id == initial_id)
+		if(our_destination.destination_id == initial_destination)
 			to_where = WEAKREF(our_destination)
 			break
 
@@ -208,10 +208,9 @@
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 2 SECONDS)
 
 	var/datum/lift_master/tram/tram
-	for(var/datum/lift_master/tram/possible_match as anything in GLOB.active_lifts_by_type[TRAM_LIFT_ID])
-		if(possible_match.specific_lift_id == specific_lift_id)
-			tram = possible_match
-			break
+	for(var/datum/lift_master/tram/possible_match as anything in GLOB.active_lifts_by_type[specific_lift_id])
+		tram = possible_match
+		break
 
 	if(!tram)
 		say("The tram is not responding to call signals. Please send a technician to repair the internals of the tram.")

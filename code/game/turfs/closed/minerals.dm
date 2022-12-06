@@ -328,6 +328,11 @@
 		/turf/closed/mineral/gibtonite/volcanic = 4,
 	)
 
+/turf/closed/mineral/random/volcanic/teststation
+	turf_type = /turf/open/misc/asteroid/basalt/teststation
+	baseturfs = /turf/open/misc/asteroid/basalt/teststation
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+
 /turf/closed/mineral/random/snow
 	name = "snowy mountainside"
 	icon = MAP_SWITCH('icons/turf/walls/mountain_wall.dmi', 'icons/turf/mining.dmi')

@@ -1,3 +1,6 @@
+/obj/effect/landmark/chamberspawn
+	name = "teststation landmark"
+
 GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 
 /client/proc/secrets() //Creates a verb for admins to open up the ui
@@ -124,7 +127,16 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 
 		if("ctfbutton")
 			toggle_id_ctf(holder, "centcom")
-
+		if("testreset")
+			var/turf/corner = locate(/obj/effect/landmark/chamberspawn) in world
+			var/datum/map_template/tp = SSmapping.map_templates["admin_tr.dmm"]
+			for(var/i in GLOB.areas_by_type[/area/misc/testroom/chamber])
+				if(istype(i, /obj))
+					if(!istype(i, /obj/machinery/camera) && (istype(i, /obj/effect/decal) || !istype(i, /obj/effect)))
+						qdel(i) //Clear objects
+				if(istype(i,/mob/living))
+					qdel(i) //Clear mobs
+			tp.load(corner)
 		if("tdomereset")
 			var/delete_mobs = tgui_alert(usr,"Clear all mobs?","Confirm",list("Yes","No","Cancel"))
 			if(delete_mobs == "Cancel")
@@ -353,8 +365,23 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Fix All Lights"))
 			message_admins("[key_name_admin(holder)] fixed all lights")
 			for(var/obj/machinery/light/L in GLOB.machines)
-				L.fix()
-				stoplag()
+				if(is_station_level(L.z))
+					L.fix()
+					stoplag()
+			for(var/obj/structure/light_construct/C in world)
+				if(is_station_level(C.z))
+					var/obj/machinery/light/new_light
+					if(!istype(C, /obj/machinery/light/floor))
+						switch(C.fixture_type)
+							if("tube")
+								new_light = new /obj/machinery/light/built(C.loc)
+							if("bulb")
+								new_light = new /obj/machinery/light/small/built(C.loc)
+						new_light.setDir(C.dir)
+						new_light.fix()
+					else
+						new_light = new /obj/machinery/light/built(C.loc)
+					qdel(C)
 		if("customportal")
 			if(!is_funmin)
 				return

@@ -161,6 +161,26 @@
 /area/lavaland/surface/outdoors
 	name = "Lavaland Wastes"
 	outdoors = TRUE
+/area/lavaland/surface/outdoors/teststation/
+	always_unpowered = FALSE
+	requires_power = FALSE
+	power_environ = TRUE
+	power_equip = TRUE
+	power_light = TRUE
+	name = "Test-Station 39 Outdoors"
+	map_generator = /datum/map_generator/cave_generator/teststation
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED
+	outdoors = TRUE
+/area/lavaland/surface/outdoors/teststation/underground
+	name = "Test-Station 39 Underground"
+	icon_state = "danger"
+	area_flags = VALID_TERRITORY | UNIQUE_AREA  | CAVES_ALLOWED | FLORA_ALLOWED
+	map_generator = /datum/map_generator/cave_generator/teststation
+/area/lavaland/surface/outdoors/teststation/outskirts
+	name = "Test-Station 39 Outskirts"
+	icon_state = "unexplored"
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
+	map_generator = /datum/map_generator/cave_generator/teststation
 
 /area/lavaland/surface/outdoors/unexplored //monsters and ruins spawn here
 	icon_state = "unexplored"

@@ -1,0 +1,299 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"b" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/shuttle/arrival)
+"c" = (
+/obj/machinery/door/airlock/survival_pod/glass,
+/turf/open/floor/plating,
+/area/shuttle/arrival)
+"d" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/shuttle/arrival)
+"e" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/shuttle/arrival)
+"f" = (
+/obj/item/beacon,
+/obj/structure/closet/syndicate/resources/everything,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/arrival)
+"g" = (
+/obj/machinery/light/directional/north,
+/obj/structure/table/reinforced/ctf,
+/obj/item/storage/box/debugtools,
+/obj/structure/sign/poster/contraband/gorlex_recruitment{
+	pixel_y = 31
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"i" = (
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"j" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/structure/sign/poster/official/wtf_is_co2{
+	pixel_y = 32
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"l" = (
+/obj/machinery/requests_console/directional/north{
+	department = "Arrival shuttle"
+	},
+/obj/machinery/light/directional/north,
+/obj/structure/table/reinforced/ctf,
+/obj/item/storage/box/debugtools,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"m" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"n" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/right{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"p" = (
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"q" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"s" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"t" = (
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/arrival)
+"u" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 4
+	},
+/obj/docking_port/mobile/arrivals,
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"v" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"w" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/obj/structure/sign/poster/contraband/syndiemoth{
+	pixel_y = -32
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"y" = (
+/obj/machinery/light/directional/south,
+/obj/structure/table/reinforced/ctf,
+/obj/item/storage/box/debugtools,
+/obj/structure/sign/poster/contraband/syndicate_recruitment{
+	pixel_y = -32
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"z" = (
+/obj/item/radio/intercom/directional/south,
+/obj/machinery/light/directional/south,
+/obj/structure/table/reinforced/ctf,
+/obj/item/storage/box/debugtools,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"A" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/left{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"H" = (
+/obj/structure/closet/syndicate/resources/everything,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/arrival)
+"I" = (
+/obj/structure/table/reinforced/ctf,
+/obj/item/storage/box/debugtools,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"L" = (
+/obj/structure/table/reinforced/ctf,
+/obj/item/gun/ballistic/automatic/l6_saw/unrestricted,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"M" = (
+/obj/structure/table/reinforced/ctf,
+/obj/effect/spawner/random/food_or_drink/pizzaparty,
+/obj/effect/spawner/random/food_or_drink/pizzaparty,
+/obj/effect/spawner/random/food_or_drink/pizzaparty,
+/obj/effect/spawner/random/food_or_drink/pizzaparty,
+/obj/effect/spawner/random/food_or_drink/pizzaparty,
+/obj/effect/spawner/random/food_or_drink/pizzaparty,
+/obj/effect/spawner/random/food_or_drink/pizzaparty,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+"T" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/thunderdrome{
+	pixel_y = -32
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/arrival)
+
+(1,1,1) = {"
+a
+b
+d
+d
+d
+b
+a
+"}
+(2,1,1) = {"
+a
+b
+j
+i
+T
+b
+a
+"}
+(3,1,1) = {"
+a
+b
+q
+t
+w
+b
+a
+"}
+(4,1,1) = {"
+b
+e
+p
+t
+v
+e
+b
+"}
+(5,1,1) = {"
+b
+M
+i
+t
+i
+L
+b
+"}
+(6,1,1) = {"
+c
+i
+t
+t
+t
+i
+c
+"}
+(7,1,1) = {"
+b
+g
+t
+H
+t
+y
+b
+"}
+(8,1,1) = {"
+d
+I
+t
+H
+t
+I
+d
+"}
+(9,1,1) = {"
+d
+I
+t
+f
+t
+I
+d
+"}
+(10,1,1) = {"
+d
+I
+t
+H
+t
+I
+d
+"}
+(11,1,1) = {"
+d
+I
+t
+H
+t
+I
+d
+"}
+(12,1,1) = {"
+b
+l
+t
+H
+t
+z
+b
+"}
+(13,1,1) = {"
+c
+i
+i
+i
+i
+i
+c
+"}
+(14,1,1) = {"
+b
+m
+m
+m
+m
+m
+b
+"}
+(15,1,1) = {"
+b
+n
+s
+u
+s
+A
+b
+"}

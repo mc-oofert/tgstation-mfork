@@ -90,12 +90,12 @@ STATION_GOAL_BUDGET 1
 REPEATED_MODE_ADJUST 45 30 10
 
 ## The amount of time it takes for the emergency shuttle to be called, from round start.
-SHUTTLE_REFUEL_DELAY 12000
+SHUTTLE_REFUEL_DELAY 0
 
 ## Variables calculate how number of antagonists will scale to population.
 ## Used as (Antagonists = Population / Coeff)
 ## Set to 0 to disable scaling and use default numbers instead.
-TRAITOR_SCALING_COEFF 6
+TRAITOR_SCALING_COEFF 0
 BROTHER_SCALING_COEFF 6
 CHANGELING_SCALING_COEFF 6
 
@@ -443,9 +443,9 @@ REACTIONARY_EXPLOSIONS
 ## Small (3, 7, 14)
 #BOMBCAP 14
 ## Default (5, 10, 20) (recommended if you enable REACTIONARY_EXPLOSIONS above)
-BOMBCAP 20
+#BOMBCAP 20
 ## LagHell (7, 14, 28)
-#BOMBCAP 28
+BOMBCAP 50
 
 
 ## Lavaland "Budget"

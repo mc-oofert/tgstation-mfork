@@ -28,9 +28,3 @@
 	static_lighting = FALSE
 	base_lighting_alpha = 255
 	has_gravity = STANDARD_GRAVITY
-
-/area/misc/testroom
-	requires_power = FALSE
-	has_gravity = STANDARD_GRAVITY
-	name = "Test Room"
-	icon_state = "test_room"

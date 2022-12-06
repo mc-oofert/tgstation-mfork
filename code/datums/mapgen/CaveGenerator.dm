@@ -83,7 +83,9 @@
 
 	for(var/i in turfs) //Go through all the turfs and generate them
 		var/turf/gen_turf = i
-
+		if(!istype(gen_turf,/turf/open/genturf))
+			CHECK_TICK
+			continue
 		var/closed = string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x] != "0"
 		var/turf/new_turf = pick(closed ? closed_turf_types : open_turf_types)
 

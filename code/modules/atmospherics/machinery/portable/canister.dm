@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	greyscale_colors = "#ffff00#000000"
 	density = TRUE
 	volume = 2000
-	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 100, BOMB = 10, BIO = 0, FIRE = 80, ACID = 50)
+	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
 	max_integrity = 300
 	integrity_failure = 0.4
 	pressure_resistance = 7 * ONE_ATMOSPHERE
@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	///Minimum pressure allower for release_pressure var
 	var/can_min_release_pressure = (ONE_ATMOSPHERE * 0.1)
 	///Maximum amount of external heat that the canister can handle before taking damage
-	var/temperature_resistance = 1000 + T0C
+	var/temperature_resistance = 355000 + T0C
 	///Initial temperature gas mixture
 	var/starter_temp
 	// Prototype vars
@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 	///Window overlay showing the gas inside the canister
 	var/image/window
 
-	var/shielding_powered = FALSE
+	var/shielding_powered = TRUE
 
 	var/obj/item/stock_parts/cell/internal_cell
 

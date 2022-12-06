@@ -62,7 +62,7 @@
 			target_plating.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 	if(isfloorturf(exposed_turf) && prob(reac_volume))
 		var/turf/open/floor/target_floor = exposed_turf
-		target_floor.make_plating()
+		target_floor.break_tile_to_plating()
 	else if(prob(reac_volume))
 		exposed_turf.burn_tile()
 	if(isfloorturf(exposed_turf))

@@ -133,6 +133,11 @@ GLOBAL_LIST_EMPTY(dug_up_basalt)
 	initial_gas_mix = AIRLESS_ATMOS
 	worm_chance = 0
 
+/turf/open/misc/asteroid/basalt/teststation
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/basalt/teststation
+	worm_chance = 0
+
 /turf/open/misc/asteroid/basalt/Initialize(mapload)
 	. = ..()
 	set_basalt_light(src)

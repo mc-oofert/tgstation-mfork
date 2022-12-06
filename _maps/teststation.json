@@ -1,0 +1,35 @@
+{
+	"version": 1,
+	"map_name": "Teststation",
+	"map_path": "map_files/teststation",
+	"map_file": "teststation.dmm",
+	"space_ruin_levels": 1,
+	"space_empty_levels": 0,
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	},
+	"traits": [
+		{
+			"Up": 1,
+			"Mining": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Lava Ruins": true,
+			"Baseturf": "/turf/open/misc/asteroid/basalt/teststation",
+			"No Parallax": true
+		},
+		{
+			"Down": -1,
+			"Mining": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Lava Ruins": true,
+			"Weather_Ashstorm": true,
+			"Baseturf": "/turf/open/openspace",
+			"No Parallax": true
+		}
+	]
+}

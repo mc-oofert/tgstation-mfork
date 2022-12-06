@@ -49,7 +49,12 @@
 /obj/item/storage/box/debugtools
 	name = "box of debug tools"
 	icon_state = "syndiebox"
-
+/obj/item/storage/box/debugtools/Initialize(mapload)
+	..()
+	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	atom_storage.max_total_storage = 500
+	atom_storage.max_slots = 500
+	atom_storage.allow_big_nesting = TRUE
 /obj/item/storage/box/debugtools/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/card/emag=1,

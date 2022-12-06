@@ -1,0 +1,657 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"b" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/button/door/directional/north{
+	id = "testshut2"
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"c" = (
+/obj/effect/turf_decal/syndicateemblem/top/left,
+/obj/item/beacon,
+/obj/effect/landmark/navigate_destination,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"f" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"g" = (
+/obj/machinery/door/airlock/centcom,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"h" = (
+/obj/effect/spawner/structure/window/reinforced/indestructible,
+/turf/open/floor/plating/indestructible,
+/area/misc/testroom/chamber)
+"i" = (
+/obj/effect/landmark/start/assistant/override,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"j" = (
+/obj/item/radio/intercom/directional/south{
+	canhear_range = 15
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"k" = (
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"l" = (
+/obj/effect/turf_decal/syndicateemblem/top/middle,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"m" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "testshut2"
+	},
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"n" = (
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"o" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"p" = (
+/turf/closed/indestructible/syndicate,
+/area/misc/testroom/chamber)
+"q" = (
+/obj/item/beacon,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"r" = (
+/obj/item/radio/intercom/directional/north,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"s" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "testshut2"
+	},
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"t" = (
+/obj/effect/turf_decal/syndicateemblem/middle/right,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"u" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "testshut"
+	},
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"v" = (
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"w" = (
+/obj/machinery/camera/autoname/directional/south,
+/mob/living/carbon/human/dummy/consistent,
+/obj/item/radio/intercom/directional/south{
+	canhear_range = 15
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"x" = (
+/obj/machinery/camera/autoname/directional/north,
+/obj/item/radio/intercom/directional/west{
+	pixel_y = -11
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"y" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"A" = (
+/obj/machinery/camera/autoname/directional/north,
+/obj/item/radio/intercom/directional/east,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"B" = (
+/obj/effect/turf_decal/syndicateemblem/bottom/right,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"E" = (
+/obj/machinery/door/airlock/centcom,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"G" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/button/door/directional/north{
+	id = "testshut"
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"H" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"J" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"K" = (
+/obj/machinery/light,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"L" = (
+/obj/machinery/door/airlock/centcom,
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"N" = (
+/obj/item/beacon,
+/obj/effect/landmark/navigate_destination,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"O" = (
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "testshut"
+	},
+/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"P" = (
+/obj/effect/turf_decal/syndicateemblem/middle/left,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"Q" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"S" = (
+/obj/effect/turf_decal/syndicateemblem/top/right,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"U" = (
+/obj/effect/turf_decal/syndicateemblem/bottom/middle,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"V" = (
+/obj/effect/turf_decal/syndicateemblem/middle/middle,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"X" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"Y" = (
+/obj/effect/turf_decal/syndicateemblem/bottom/left,
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+"Z" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/indestructible/white,
+/area/misc/testroom/chamber)
+
+(1,1,1) = {"
+p
+p
+E
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(2,1,1) = {"
+p
+a
+a
+a
+H
+a
+n
+a
+a
+H
+a
+X
+X
+g
+"}
+(3,1,1) = {"
+p
+y
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+K
+p
+"}
+(4,1,1) = {"
+m
+a
+X
+f
+J
+a
+a
+a
+a
+J
+f
+X
+a
+h
+"}
+(5,1,1) = {"
+m
+a
+X
+i
+a
+a
+a
+a
+a
+a
+a
+X
+a
+p
+"}
+(6,1,1) = {"
+m
+a
+X
+a
+a
+a
+a
+a
+a
+a
+a
+X
+k
+p
+"}
+(7,1,1) = {"
+m
+a
+X
+a
+a
+a
+c
+P
+Y
+a
+a
+X
+a
+p
+"}
+(8,1,1) = {"
+m
+a
+X
+a
+a
+a
+l
+V
+U
+a
+a
+X
+j
+p
+"}
+(9,1,1) = {"
+m
+a
+X
+a
+a
+a
+S
+t
+B
+a
+a
+X
+a
+p
+"}
+(10,1,1) = {"
+m
+a
+X
+Z
+Q
+a
+a
+a
+a
+Q
+Z
+X
+a
+p
+"}
+(11,1,1) = {"
+s
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+a
+h
+"}
+(12,1,1) = {"
+p
+b
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+K
+p
+"}
+(13,1,1) = {"
+p
+A
+a
+a
+o
+a
+a
+a
+a
+o
+a
+a
+q
+p
+"}
+(14,1,1) = {"
+p
+p
+h
+h
+p
+h
+h
+h
+h
+p
+h
+p
+E
+p
+"}
+(15,1,1) = {"
+p
+x
+a
+a
+H
+a
+a
+a
+a
+H
+a
+a
+q
+p
+"}
+(16,1,1) = {"
+p
+G
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+K
+p
+"}
+(17,1,1) = {"
+O
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+a
+p
+"}
+(18,1,1) = {"
+u
+a
+X
+f
+J
+a
+a
+a
+a
+J
+f
+X
+a
+p
+"}
+(19,1,1) = {"
+u
+a
+X
+a
+a
+a
+a
+a
+a
+a
+a
+X
+a
+p
+"}
+(20,1,1) = {"
+u
+a
+X
+a
+a
+a
+a
+a
+a
+a
+a
+X
+a
+p
+"}
+(21,1,1) = {"
+u
+a
+X
+a
+a
+a
+N
+a
+a
+a
+a
+X
+w
+p
+"}
+(22,1,1) = {"
+u
+a
+X
+a
+a
+a
+a
+a
+a
+a
+a
+X
+a
+p
+"}
+(23,1,1) = {"
+u
+a
+X
+a
+a
+a
+a
+a
+a
+a
+a
+X
+a
+p
+"}
+(24,1,1) = {"
+u
+a
+X
+Z
+Q
+a
+a
+a
+a
+Q
+Z
+X
+a
+p
+"}
+(25,1,1) = {"
+p
+y
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+K
+p
+"}
+(26,1,1) = {"
+p
+r
+a
+a
+o
+a
+v
+a
+a
+o
+a
+a
+a
+p
+"}
+(27,1,1) = {"
+p
+p
+h
+h
+p
+L
+p
+p
+p
+p
+L
+p
+p
+p
+"}

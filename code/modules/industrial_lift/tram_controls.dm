@@ -34,9 +34,8 @@
  * Locates tram parts in the lift global list after everything is done.
  */
 /obj/machinery/computer/tram_controls/proc/find_tram()
-	for(var/datum/lift_master/lift as anything in GLOB.active_lifts_by_type[TRAM_LIFT_ID])
-		if(lift.specific_lift_id == specific_lift_id)
-			tram_ref = WEAKREF(lift)
+	for(var/datum/lift_master/lift as anything in GLOB.active_lifts_by_type[specific_lift_id])
+		tram_ref = WEAKREF(lift)
 
 /obj/machinery/computer/tram_controls/ui_state(mob/user)
 	return GLOB.not_incapacitated_state

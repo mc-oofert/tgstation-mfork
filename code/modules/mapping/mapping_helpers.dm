@@ -716,7 +716,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 
 /obj/effect/mapping_helpers/trapdoor_placer/LateInitialize()
 	var/turf/component_target = get_turf(src)
-	component_target.AddComponent(/datum/component/trapdoor, starts_open = FALSE, conspicuous = FALSE)
+	component_target.AddComponent(/datum/component/trapdoor, starts_open = FALSE)
 	qdel(src)
 
 /obj/effect/mapping_helpers/ztrait_injector
