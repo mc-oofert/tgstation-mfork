@@ -4404,8 +4404,8 @@
 /area/misc/testroom/science/genetics)
 "rk" = (
 /obj/structure/table/reinforced/ctf,
-/obj/item/gun/ballistic/revolver/detective,
-/obj/item/gun/ballistic/revolver/detective,
+/obj/item/gun/ballistic/revolver/c38/detective,
+/obj/item/gun/ballistic/revolver/c38/detective,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/indestructible/white,
@@ -6084,7 +6084,7 @@
 /area/misc/testroom/stairway)
 "yc" = (
 /obj/effect/turf_decal/box/red,
-/obj/vehicle/sealed/mecha/combat/marauder/seraph{
+/obj/vehicle/sealed/mecha/marauder/seraph{
 	internals_req_access = null;
 	operation_req_access = null
 	},
@@ -8512,7 +8512,7 @@
 /area/misc/testroom/cargo)
 "Hm" = (
 /obj/structure/bed/dogbed/ian,
-/mob/living/simple_animal/pet/dog/corgi/ian,
+/mob/living/basic/pet/dog/corgi/ian,
 /turf/open/floor/indestructible/carpet,
 /area/misc/testroom/hop)
 "Hn" = (
