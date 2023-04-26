@@ -363,9 +363,7 @@
 "bK" = (
 /mob/living/carbon/human/species/monkey,
 /obj/item/food/grown/banana,
-/obj/structure/window/reinforced/plasma{
-	dir = 4
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/grass,
 /area/misc/testroom/science/genetics)
 "bL" = (
@@ -514,9 +512,7 @@
 /turf/open/floor/plating/indestructible,
 /area/lavaland/surface/outdoors/teststation/underground)
 "co" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /obj/machinery/atmospherics/pipe/smart/manifold/orange/visible,
 /obj/structure/cable,
@@ -764,9 +760,7 @@
 /obj/machinery/cell_charger{
 	pixel_y = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted,
 /turf/open/floor/indestructible/dark,
 /area/misc/testroom/bridge)
@@ -809,7 +803,6 @@
 /area/misc/testroom/armory)
 "dD" = (
 /obj/machinery/computer/shuttle/ferry/request{
-	time_to_screwdrive = 20500000;
 	allow_silicons = 1
 	},
 /obj/machinery/light/directional/north,
@@ -951,7 +944,7 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/arrivals)
 "eh" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/light/directional/north,
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/halls/command)
@@ -1073,10 +1066,8 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/Bar)
 "eM" = (
-/obj/structure/window/reinforced/plasma,
-/obj/structure/window/reinforced/plasma{
-	dir = 4
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
 	},
@@ -1203,7 +1194,7 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/commandstorage)
 "fl" = (
-/mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper,
+/mob/living/basic/syndicate/ranged/shotgun/space/stormtrooper,
 /turf/open/indestructible/dark,
 /area/lavaland/surface/outdoors/teststation/underground)
 "fm" = (
@@ -1273,7 +1264,7 @@
 /turf/open/floor/indestructible/wood,
 /area/misc/testroom/cabin1)
 "fC" = (
-/obj/structure/window/reinforced/plasma,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
 /obj/machinery/power/energy_accumulator/grounding_rod/anchored,
 /obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
 	dir = 1
@@ -1347,7 +1338,7 @@
 /area/misc/testroom/maintenance/central)
 "fT" = (
 /obj/structure/table/wood,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/food/peanut_butter_banana_sandwich,
 /turf/open/floor/indestructible/carpet,
 /area/misc/testroom/hop)
@@ -1975,9 +1966,7 @@
 /turf/open/floor/indestructible/regular,
 /area/misc/testroom/dorms)
 "iu" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
 /mob/living/simple_animal/hostile/retaliate/clown/lube,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
@@ -2056,11 +2045,8 @@
 /turf/open/floor/plating/indestructible,
 /area/lavaland/surface/outdoors/teststation/underground)
 "iF" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north{
 	pixel_y = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -2789,7 +2775,7 @@
 /turf/open/floor/plating/indestructible,
 /area/misc/testroom/maintenance/central)
 "kW" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/halls/command)
@@ -2893,12 +2879,8 @@
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/recharger,
 /obj/item/restraints/handcuffs,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/indestructible/dark,
 /area/misc/testroom/bridge)
 "lr" = (
@@ -2908,8 +2890,7 @@
 /obj/item/mmi,
 /obj/item/mmi,
 /obj/item/mmi,
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	pixel_y = 1
 	},
 /obj/item/reagent_containers/spray/cleaner,
@@ -2961,9 +2942,7 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/medical)
 "lH" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
 	},
@@ -3161,13 +3140,9 @@
 	name = "Upload Console Window";
 	req_access = list("ai_upload")
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/flasher/directional/south{
 	id = "AI"
 	},
@@ -3236,9 +3211,7 @@
 /turf/open/floor/catwalk_floor/iron_dark/teststation,
 /area/lavaland/surface/outdoors/teststation/underground)
 "mN" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 9
@@ -3303,8 +3276,7 @@
 /obj/structure/displaycase/captain{
 	pixel_y = 5
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	pixel_y = 1
 	},
 /turf/open/floor/indestructible/carpet,
@@ -3321,7 +3293,7 @@
 /area/misc/testroom)
 "nb" = (
 /obj/structure/table/wood,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/assembly/flash/handheld,
 /turf/open/floor/indestructible/carpet,
 /area/misc/testroom/hop)
@@ -3811,8 +3783,6 @@
 /obj/structure/plasticflaps/opaque,
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=4";
-	dir = 4;
-	freq = 1400;
 	location = "Bridge"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4137,75 +4107,75 @@
 /obj/item/clothing/suit/utility/fire/atmos,
 /obj/item/clothing/suit/utility/fire/atmos,
 /obj/item/clothing/suit/utility/fire/atmos,
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/clothing/head/utility/hardhat/atmos{
+/obj/item/clothing/head/utility/hardhat/welding/atmos{
 	pixel_x = 3;
 	pixel_y = 15
 	},
@@ -4236,7 +4206,7 @@
 /turf/open/indestructible/dark,
 /area/misc/testroom/cargo)
 "qB" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 1
 	},
 /turf/open/floor/indestructible/dark,
@@ -4591,7 +4561,7 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/chamber)
 "rZ" = (
-/mob/living/simple_animal/hostile/syndicate/melee/sword/space/stormtrooper,
+/mob/living/basic/syndicate/melee/sword/space/stormtrooper,
 /turf/open/indestructible/dark,
 /area/lavaland/surface/outdoors/teststation/underground)
 "sa" = (
@@ -4616,16 +4586,10 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/toxatmos)
 "se" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 8
-	},
-/obj/structure/window/reinforced/plasma{
-	dir = 1
-	},
-/obj/structure/window/reinforced/plasma{
-	dir = 4
-	},
-/obj/structure/window/reinforced/plasma,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
 /mob/living/carbon/human/species/monkey/angry,
 /obj/item/claymore,
 /turf/open/floor/indestructible/white,
@@ -4922,9 +4886,9 @@
 /area/misc/testroom/maintenance/dorms)
 "tu" = (
 /obj/structure/table/reinforced/ctf,
-/obj/item/gun/ballistic/rifle/boltaction/brand_new,
-/obj/item/gun/ballistic/rifle/boltaction/brand_new,
-/obj/item/gun/ballistic/rifle/boltaction/brand_new,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/gun/ballistic/rifle/boltaction,
+/obj/item/gun/ballistic/rifle/boltaction,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/indestructible/white,
@@ -5230,7 +5194,7 @@
 /turf/open/floor/indestructible/dark,
 /area/misc/testroom/hop)
 "uL" = (
-/obj/structure/window/reinforced/plasma,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
 /obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
 	dir = 1
@@ -5980,23 +5944,19 @@
 	pixel_x = -4;
 	pixel_y = 9
 	},
-/obj/item/clothing/gloves/color/latex{
+/obj/item/clothing/gloves/latex{
 	pixel_x = 4;
 	pixel_y = 9
 	},
-/obj/item/clothing/gloves/color/latex{
+/obj/item/clothing/gloves/latex{
 	pixel_x = 4;
 	pixel_y = 9
 	},
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/science/genetics)
 "xM" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 8
-	},
-/obj/structure/window/reinforced/plasma{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
 /mob/living/simple_animal/hostile/retaliate/clown,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
@@ -6032,9 +5992,7 @@
 /turf/closed/indestructible/syndicate,
 /area/misc/testroom/dorms)
 "xT" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/computer/communications{
 	dir = 1
 	},
@@ -6317,7 +6275,7 @@
 /area/misc/testroom/halls)
 "yX" = (
 /obj/structure/table/wood,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/item/flashlight/lamp/green{
 	pixel_x = -12;
 	pixel_y = 5
@@ -6960,9 +6918,7 @@
 /area/misc/testroom/medical)
 "Bm" = (
 /obj/structure/closet/secure_closet/exile,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/bot{
 	dir = 1
 	},
@@ -7224,10 +7180,8 @@
 /turf/open/floor/indestructible/regular,
 /area/misc/testroom/dorms)
 "Cl" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 8
-	},
-/obj/structure/window/reinforced/plasma,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
 /mob/living/simple_animal/hostile/retaliate/clown,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
@@ -7411,9 +7365,7 @@
 /turf/open/misc/asteroid/basalt/teststation,
 /area/lavaland/surface/outdoors/teststation)
 "CT" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 8
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
 /mob/living/simple_animal/hostile/retaliate/clown,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
@@ -7446,9 +7398,9 @@
 /area/lavaland/surface/outdoors/teststation/underground)
 "Da" = (
 /obj/item/kirbyplants/random,
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/misc/grass,
 /area/lavaland/surface/outdoors/teststation/underground)
 "Db" = (
@@ -7970,7 +7922,7 @@
 "Fd" = (
 /obj/structure/table/wood/fancy/blue,
 /obj/effect/spawner/random/aimodule/neutral,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/door/window/left/directional/west{
 	dir = 4;
 	layer = 3.1;
@@ -8089,9 +8041,7 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/armory)
 "FG" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/machinery/atmospherics/pipe/smart/manifold/orange/visible,
 /obj/structure/cable,
@@ -8127,7 +8077,7 @@
 /area/misc/testroom/coldroom)
 "FO" = (
 /obj/effect/turf_decal/tile/red/opposingcorners,
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 8
 	},
 /turf/open/floor/indestructible/white,
@@ -8281,7 +8231,7 @@
 /turf/open/floor/indestructible/carpet,
 /area/misc/testroom/captain)
 "Go" = (
-/mob/living/simple_animal/hostile/syndicate/space,
+/mob/living/basic/syndicate/space,
 /turf/open/indestructible/dark,
 /area/lavaland/surface/outdoors/teststation/underground)
 "Gp" = (
@@ -8559,9 +8509,7 @@
 /turf/open/floor/indestructible/dark,
 /area/misc/testroom/robotics)
 "Hw" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
@@ -8653,10 +8601,8 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/medical)
 "HO" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/table,
 /obj/item/pen{
 	pixel_x = -4;
@@ -8860,7 +8806,7 @@
 "IH" = (
 /obj/structure/table/wood/fancy/red,
 /obj/effect/spawner/random/aimodule/harmful,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/door/window/left/directional/west{
 	dir = 8;
 	layer = 3.1;
@@ -9016,7 +8962,7 @@
 /area/lavaland/surface/outdoors/teststation/underground)
 "Jk" = (
 /obj/effect/landmark/tram{
-	destination_id = "sm";
+	platform_code = "sm";
 	name = "Engine Room";
 	specific_lift_id = "engineer"
 	},
@@ -9686,7 +9632,7 @@
 /turf/open/floor/indestructible/carpet,
 /area/misc/testroom/captain)
 "LM" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 1
 	},
@@ -9749,9 +9695,7 @@
 /turf/closed/indestructible/syndicate,
 /area/misc/testroom/auxtool)
 "LX" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/landmark/start/captain,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -9795,13 +9739,9 @@
 	name = "Cyborg Upload Console Window";
 	req_access = list("ai_upload")
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/flasher/directional/south{
 	id = "AI"
 	},
@@ -10165,9 +10105,7 @@
 /area/misc/testroom/armory)
 "NI" = (
 /obj/machinery/computer/communications,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 4
 	},
@@ -10237,8 +10175,7 @@
 /obj/machinery/computer/operating{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
+/obj/structure/window/reinforced/spawner/directional/north{
 	pixel_y = 1
 	},
 /obj/effect/turf_decal/stripes/red/line{
@@ -10457,7 +10394,7 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/dbgroom)
 "OL" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/halls/command)
 "OM" = (
@@ -10731,7 +10668,7 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/halls)
 "PX" = (
-/obj/structure/window/reinforced/plasma,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
 /mob/living/simple_animal/hostile/retaliate/clown,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
@@ -11111,7 +11048,7 @@
 	dir = 1;
 	id = "QMLoad"
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
@@ -11513,15 +11450,15 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/toxatmos)
 "Ta" = (
-/obj/item/clothing/gloves/color/chief_engineer,
-/obj/item/clothing/gloves/color/chief_engineer,
-/obj/item/clothing/gloves/color/chief_engineer,
-/obj/item/clothing/gloves/color/chief_engineer,
-/obj/item/clothing/gloves/color/chief_engineer,
-/obj/item/clothing/gloves/color/chief_engineer,
-/obj/item/clothing/gloves/color/chief_engineer,
-/obj/item/clothing/gloves/color/chief_engineer,
-/obj/item/clothing/gloves/color/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
+/obj/item/clothing/gloves/chief_engineer,
 /obj/structure/table/reinforced/ctf,
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 4
@@ -11678,7 +11615,7 @@
 /turf/open/floor/plating/indestructible,
 /area/misc/testroom/robotics)
 "TL" = (
-/obj/structure/window/reinforced/plasma,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
 /obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 10
@@ -11985,7 +11922,7 @@
 	specific_lift_id = "engineer"
 	},
 /obj/effect/landmark/tram{
-	destination_id = "atmos";
+	platform_code = "atmos";
 	name = "Near Atmospherics";
 	specific_lift_id = "engineer"
 	},
@@ -12143,12 +12080,8 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/armory)
 "VP" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 4
-	},
-/obj/structure/window/reinforced/plasma{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
 	},
@@ -12917,9 +12850,7 @@
 /turf/open/indestructible/dark,
 /area/misc/testroom)
 "Yo" = (
-/obj/structure/window/reinforced/plasma{
-	dir = 4
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/indestructible/white{
 	icon_state = "engine"
 	},
@@ -13257,7 +13188,7 @@
 /turf/open/floor/indestructible/white,
 /area/misc/testroom/chamber)
 "ZH" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
 	dir = 4
 	},

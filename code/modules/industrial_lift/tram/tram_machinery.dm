@@ -732,7 +732,7 @@ GLOBAL_LIST_EMPTY(tram_doors)
 
 /obj/machinery/button/tram/setup_device()
 	var/obj/item/assembly/control/tram/tram_device = device
-	tram_device.initial_id = id
+	tram_device.initial_destination = id
 	tram_device.specific_lift_id = lift_id
 	return ..()
 

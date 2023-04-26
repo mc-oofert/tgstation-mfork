@@ -195,7 +195,7 @@
 	. = ..()
 	//find where the tram needs to go to (our destination). only needs to happen the first time
 	for(var/obj/effect/landmark/tram/our_destination as anything in GLOB.tram_landmarks[specific_lift_id])
-		if(our_destination.platform_code == initial_id)
+		if(our_destination.platform_code == initial_destination)
 			destination_platform = WEAKREF(our_destination)
 			break
 

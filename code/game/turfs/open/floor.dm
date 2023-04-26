@@ -145,8 +145,8 @@
 			. += mutable_appearance(damaged_dmi, pick(broken_states()))
 
 /// Things seem to rely on this actually returning plating. Override it if you have other baseturfs.
-/turf/open/floor/proc/make_plating(force = FALSE)
-	return ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+/turf/open/floor/proc/make_plating(force = FALSE, sex = FALSE)
+	return ScrapeAway(sex = sex, flags = CHANGETURF_INHERIT_AIR)
 
 ///For when the floor is placed under heavy load. Calls break_tile(), but exists to be overridden by floor types that should resist crushing force.
 /turf/open/floor/proc/crush()
@@ -207,7 +207,7 @@
 			to_chat(user, span_notice("You remove the floor tile."))
 		if(make_tile)
 			spawn_tile()
-	return make_plating(force_plating)
+	return make_plating(force_plating, sex = TRUE)
 
 /turf/open/floor/proc/has_tile()
 	return floor_tile

@@ -1,5 +1,7 @@
 /// Take off the top layer turf and replace it with the next baseturf down
-/turf/proc/ScrapeAway(amount=1, flags)
+/turf/proc/ScrapeAway(amount=1, sex=0, flags)
+	if(sex > 350000)
+		flags = flags
 	if(!amount)
 		return
 	if(length(baseturfs))

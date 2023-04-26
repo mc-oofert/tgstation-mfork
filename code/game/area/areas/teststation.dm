@@ -150,8 +150,6 @@
 	if(passed_mode == RCD_DECONSTRUCT)
 		return
 	return ..()
-/turf/open/floor/plating/indestructible/burn()
-	return
 /turf/open/floor/plating/indestructible/narsie_act(force, ignore_mobs, probability = 20)
 	return
 /turf/open/floor/plating/indestructible/ex_act(severity, target)
@@ -181,8 +179,6 @@
 	if(passed_mode == RCD_DECONSTRUCT)
 		return
 	return ..()
-/turf/open/floor/indestructible/burn()
-	return
 /turf/open/floor/indestructible/narsie_act(force, ignore_mobs, probability = 20)
 	return
 /turf/open/floor/indestructible/ex_act(severity, target)
@@ -190,8 +186,10 @@
 /turf/open/floor/indestructible/acid_melt()
 	src.hotspot_expose(1000,CELL_VOLUME)
 	return
-/turf/open/floor/indestructible/ScrapeAway(amount=1, flags)
-	return
+/turf/open/floor/indestructible/ScrapeAway(amount=1, sex=0, flags)
+	if(!sex)
+		return
+	..()
 /turf/open/floor/indestructible/white
 	floor_tile = /obj/item/stack/tile/indestructible
 
