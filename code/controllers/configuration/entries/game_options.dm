@@ -319,7 +319,6 @@
 /datum/config_entry/string/overflow_job
 	default = JOB_ASSISTANT
 
-/datum/config_entry/flag/starlight
 /datum/config_entry/flag/grey_assistants
 
 /datum/config_entry/number/lavaland_budget
@@ -381,6 +380,11 @@
 
 /datum/config_entry/flag/shift_time_realtime
 
+/datum/config_entry/number/shift_time_start_hour
+	default = 12
+	min_val = 0
+	max_val = 23
+
 /datum/config_entry/number/monkeycap
 	default = 64
 	min_val = 0
@@ -414,3 +418,4 @@
 
 /datum/config_entry/flag/disallow_circuit_sounds
 
+/datum/config_entry/flag/give_tutorials_without_db
