@@ -1,0 +1,83 @@
+{
+	"version": 1,
+	"map_name": "Tenstation",
+	"map_path": "map_files/tenstation",
+	"map_file": "tenstation.dmm",
+	"traits": [
+		{
+			"Up": true,
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		}
+	]
+}
