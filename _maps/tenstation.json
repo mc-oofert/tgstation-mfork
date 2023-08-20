@@ -3,6 +3,8 @@
 	"map_name": "Tenstation",
 	"map_path": "map_files/tenstation",
 	"map_file": "tenstation.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
 	"traits": [
 		{
 			"Up": true,
