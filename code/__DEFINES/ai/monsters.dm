@@ -191,3 +191,6 @@
 #define BB_MOOK_MUSIC_AUDIENCE "music_audience"
 /// the bonfire we will light up
 #define BB_MOOK_BONFIRE_TARGET "bonfire_target"
+
+/// the superjail missile burst key
+#define BB_SUPERJAIL_MISSILEBURST_ABILITY "missileburst"

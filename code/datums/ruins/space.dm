@@ -477,3 +477,10 @@
 	suffix = "infested_frigate.dmm"
 	name = "SYN-C Brutus"
 	description = "This wasn't an outbreak, this was a repelled attack."
+
+/datum/map_template/ruin/space/superjail
+	id = "superjail"
+	suffix = "superjail.dmm"
+	name = "NT Superjail"
+	description = "This wasn't an outbreak, this was a repelled attack."
+	always_place = TRUE

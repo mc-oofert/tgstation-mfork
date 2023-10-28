@@ -1,0 +1,136 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/indestructible,
+/area/misc/testroom)
+"f" = (
+/obj/structure/superjail_generator,
+/turf/open/floor/circuit,
+/area/misc/testroom)
+"q" = (
+/mob/living/basic/boss/super_jail,
+/turf/open/floor/circuit,
+/area/misc/testroom)
+"O" = (
+/turf/open/floor/circuit,
+/area/misc/testroom)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+O
+O
+O
+O
+O
+O
+O
+O
+a
+"}
+(3,1,1) = {"
+a
+O
+O
+O
+f
+O
+O
+O
+O
+a
+"}
+(4,1,1) = {"
+a
+O
+O
+O
+O
+O
+O
+O
+O
+a
+"}
+(5,1,1) = {"
+a
+O
+O
+O
+q
+O
+O
+O
+O
+a
+"}
+(6,1,1) = {"
+a
+O
+O
+O
+O
+O
+O
+O
+O
+a
+"}
+(7,1,1) = {"
+a
+O
+O
+O
+f
+O
+O
+O
+O
+a
+"}
+(8,1,1) = {"
+a
+O
+O
+O
+O
+O
+O
+O
+O
+a
+"}
+(9,1,1) = {"
+a
+O
+O
+O
+O
+O
+O
+O
+O
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
