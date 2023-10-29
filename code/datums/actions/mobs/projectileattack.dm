@@ -119,10 +119,12 @@
 	projectile_sound = 'sound/magic/clockwork/invoke_general.ogg'
 	/// Whether or not the attack is the enraged form
 	var/enraged = FALSE
+	/// delay between shots
+	var/fire_delay = 0.1 SECONDS
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/spiral_shots/attack_sequence(mob/living/firer, atom/target)
 	if(enraged)
-		SLEEP_CHECK_DEATH(1 SECONDS, firer)
+		SLEEP_CHECK_DEATH(fire_delay * 10, firer)
 		INVOKE_ASYNC(src, PROC_REF(create_spiral_attack), firer, target, TRUE)
 		create_spiral_attack(firer, target, FALSE)
 		return
@@ -141,7 +143,7 @@
 			counter = 16
 		shoot_projectile(firer, target, counter * 22.5, firer, null, null)
 		playsound(get_turf(firer), projectile_sound, 20, TRUE)
-		SLEEP_CHECK_DEATH(0.1 SECONDS, firer)
+		SLEEP_CHECK_DEATH(fire_delay, firer)
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/spiral_shots/colossus
 	cooldown_time = 1.5 SECONDS

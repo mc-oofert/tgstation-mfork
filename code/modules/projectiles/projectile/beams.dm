@@ -80,6 +80,21 @@
 	stamina = 45
 	weak_against_armour = FALSE
 
+/obj/projectile/beam/laser/hitscan
+	damage = 30
+	hitscan = TRUE
+	impact_effect_type = null
+	hitscan_light_intensity = 3
+	hitscan_light_range = 0.75
+	hitscan_light_color_override = COLOR_RED
+	muzzle_flash_intensity = 6
+	muzzle_flash_range = 2
+	muzzle_flash_color_override = COLOR_RED
+	impact_light_intensity = 7
+	impact_light_range = 2.5
+	impact_light_color_override = COLOR_RED
+	hit_prone_targets = TRUE
+
 /obj/projectile/beam/weak
 	damage = 15
 

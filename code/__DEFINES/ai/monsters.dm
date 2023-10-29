@@ -194,3 +194,7 @@
 
 /// the superjail missile burst key
 #define BB_SUPERJAIL_MISSILEBURST_ABILITY "missileburst"
+/// the superjail laser burst key
+#define BB_SUPERJAIL_LASERBURST_ABILITY "laserburst"
+/// the superjail laser spiral key
+#define BB_SUPERJAIL_LASERSPIRAL_ABILITY "laserspiral"

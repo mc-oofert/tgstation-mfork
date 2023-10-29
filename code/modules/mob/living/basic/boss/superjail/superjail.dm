@@ -2,7 +2,7 @@
 	name = "Shield Generator"
 	desc = "Powers the shields of the Superjail. Destroying these might be a bad idea."
 	density = TRUE
-	max_integrity = 100
+	max_integrity = 50
 	anchored = TRUE
 	icon = 'icons/mob/simple/hivebot.dmi'
 	icon_state = "pow_gen"
@@ -67,6 +67,12 @@
 	var/datum/action/cooldown/mob_cooldown/missile_burst/burst = new(src)
 	burst.Grant(src)
 	ai_controller.set_blackboard_key(BB_SUPERJAIL_MISSILEBURST_ABILITY, burst)
+	var/datum/action/cooldown/mob_cooldown/laser_burst/laserburst = new(src)
+	laserburst.Grant(src)
+	ai_controller.set_blackboard_key(BB_SUPERJAIL_LASERBURST_ABILITY, laserburst)
+	var/datum/action/cooldown/mob_cooldown/projectile_attack/spiral_shots/laser/spiral = new(src)
+	spiral.Grant(src)
+	ai_controller.set_blackboard_key(BB_SUPERJAIL_LASERSPIRAL_ABILITY, spiral)
 
 /mob/living/basic/boss/super_jail/emp_reaction(severity)
 	switch(severity)

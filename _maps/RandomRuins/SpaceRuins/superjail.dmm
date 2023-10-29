@@ -6,6 +6,9 @@
 /obj/structure/superjail_generator,
 /turf/open/floor/circuit,
 /area/misc/testroom)
+"n" = (
+/turf/template_noop,
+/area/template_noop)
 "q" = (
 /mob/living/basic/boss/super_jail,
 /turf/open/floor/circuit,
@@ -15,30 +18,75 @@
 /area/misc/testroom)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
 "}
 (2,1,1) = {"
+n
+n
 a
-O
-O
-O
-O
-O
-O
-O
-O
 a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+n
 "}
 (3,1,1) = {"
+n
+a
+a
+O
+O
+O
+O
+O
+O
+O
+O
+O
+a
+a
+n
+"}
+(4,1,1) = {"
+n
+a
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+a
+n
+"}
+(5,1,1) = {"
+n
 a
 O
 O
@@ -47,10 +95,15 @@ f
 O
 O
 O
+f
+O
+O
 O
 a
+n
 "}
-(4,1,1) = {"
+(6,1,1) = {"
+n
 a
 O
 O
@@ -60,10 +113,34 @@ O
 O
 O
 O
+O
+O
+O
 a
+n
 "}
-(5,1,1) = {"
+(7,1,1) = {"
+n
 a
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+a
+n
+"}
+(8,1,1) = {"
+n
+a
+O
+O
 O
 O
 O
@@ -72,9 +149,12 @@ O
 O
 O
 O
+O
 a
+n
 "}
-(6,1,1) = {"
+(9,1,1) = {"
+n
 a
 O
 O
@@ -84,9 +164,31 @@ O
 O
 O
 O
+O
+O
+O
 a
+n
 "}
-(7,1,1) = {"
+(10,1,1) = {"
+n
+a
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+a
+n
+"}
+(11,1,1) = {"
+n
 a
 O
 O
@@ -95,10 +197,15 @@ f
 O
 O
 O
+f
+O
+O
 O
 a
+n
 "}
-(8,1,1) = {"
+(12,1,1) = {"
+n
 a
 O
 O
@@ -108,9 +215,15 @@ O
 O
 O
 O
+O
+O
+O
 a
+n
 "}
-(9,1,1) = {"
+(13,1,1) = {"
+n
+a
 a
 O
 O
@@ -120,9 +233,14 @@ O
 O
 O
 O
+O
 a
+a
+n
 "}
-(10,1,1) = {"
+(14,1,1) = {"
+n
+n
 a
 a
 a
@@ -133,4 +251,24 @@ a
 a
 a
 a
+a
+n
+n
+"}
+(15,1,1) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
 "}
