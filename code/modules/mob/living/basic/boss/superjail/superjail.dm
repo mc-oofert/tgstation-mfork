@@ -33,9 +33,9 @@
 /mob/living/basic/boss/super_jail
 	name = "NT-4 Superjail"
 	desc = "A massive cell, for only the most dangerous criminals. Has attack systems."
-	icon = 'icons/obj/machines/artillery.dmi'
-	icon_state="7"
-	icon_living="7"
+	icon = 'icons/mob/simple/superjail.dmi'
+	icon_state="jail"
+	icon_living="jail"
 	health = 1000
 	maxHealth = 1000
 	combat_mode = TRUE
@@ -59,11 +59,14 @@
 
 /mob/living/basic/boss/super_jail/Initialize(mapload)
 	. = ..()
-	ai_controller.set_ai_status(AI_STATUS_OFF) //when our shields are destroyed, start the fight
+	ai_controller.set_ai_status(AI_STATUS_OFF) //when we get hit and it deals damage, we start the fight
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, INNATE_TRAIT)
 	AddComponent(/datum/component/seethrough_mob)
 	add_traits(list(TRAIT_NO_TELEPORT, TRAIT_MARTIAL_ARTS_IMMUNE), MEGAFAUNA_TRAIT)
 	RegisterSignal(src, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(on_damaged))
+	AddComponent(/datum/component/appearance_on_aggro, aggro_state = "angy")
+	
+	//abilities
 	var/datum/action/cooldown/mob_cooldown/missile_burst/burst = new(src)
 	burst.Grant(src)
 	ai_controller.set_blackboard_key(BB_SUPERJAIL_MISSILEBURST_ABILITY, burst)

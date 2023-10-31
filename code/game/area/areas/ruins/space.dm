@@ -682,3 +682,10 @@
 //SYN-C Brutus, derelict frigate
 /area/ruin/space/has_grav/infested_frigate
 	name = "SYN-C Brutus"
+
+// superjail
+/area/ruin/space/has_grav/powered/superjail
+	name = "NT Superjail"
+
+/area/ruin/space/has_grav/powered/superjail/bossroom
+	name = "NT Superjail Supermax Cell"
