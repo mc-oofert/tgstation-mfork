@@ -198,3 +198,5 @@
 #define BB_SUPERJAIL_LASERBURST_ABILITY "laserburst"
 /// the superjail laser spiral key
 #define BB_SUPERJAIL_LASERSPIRAL_ABILITY "laserspiral"
+/// the syndicate juggernaut grapple key
+#define BB_SJUGGERNAUT_GRAPPLE_ABILITY "grapple"

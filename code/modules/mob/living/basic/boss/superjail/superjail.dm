@@ -16,19 +16,25 @@
 		return
 	beam = Beam(protected, icon_state="light_beam", time = INFINITY)
 	RegisterSignal(protected, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, PROC_REF(modify_damage))
+	RegisterSignals(protected, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING), PROC_REF(destroy_self))
 
+/obj/structure/superjail_generator/proc/destroy_self(datum/source)
+	SIGNAL_HANDLER
+	atom_destruction(BRUTE)
 
 /obj/structure/superjail_generator/proc/modify_damage(mob/source, list/damage_mods, damage_amount, damagetype, def_zone, sharpness, attack_direction, obj/item/attacking_item)
 	SIGNAL_HANDLER
-
 	damage_mods += 0
 	do_sparks(3, FALSE, src)
 
 /obj/structure/superjail_generator/atom_destruction(damage_flag)
-	qdel(beam)
 	visible_message(span_warning("[src] explodes!"))
 	explosion(get_turf(src), flame_range = 1, adminlog = FALSE)
 	return ..()
+
+/obj/structure/superjail_generator/Destroy(force)
+	. = ..()
+	qdel(beam)
 
 /mob/living/basic/boss/super_jail
 	name = "NT-4 Superjail"
@@ -55,6 +61,7 @@
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	speech_span = SPAN_COMMAND
+	basic_mob_flags = DEL_ON_DEATH
 	ai_controller = /datum/ai_controller/basic_controller/superjail
 
 /mob/living/basic/boss/super_jail/Initialize(mapload)
@@ -65,6 +72,7 @@
 	add_traits(list(TRAIT_NO_TELEPORT, TRAIT_MARTIAL_ARTS_IMMUNE), MEGAFAUNA_TRAIT)
 	RegisterSignal(src, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(on_damaged))
 	AddComponent(/datum/component/appearance_on_aggro, aggro_state = "angy")
+	AddElement(/datum/element/death_drops, string_list(list(/obj/effect/temp_visual/superjail_death)))
 	
 	//abilities
 	var/datum/action/cooldown/mob_cooldown/missile_burst/burst = new(src)
@@ -96,3 +104,31 @@
 	playsound(src, 'sound/machines/engine_alert2.ogg', 60, TRUE)
 	visible_message(span_danger("[src] lets out an alert as defense systems begin to activate!"))
 	say("COMBATANT DETECTED. ACTIVATING SYSTEMS.")
+
+/obj/effect/temp_visual/superjail_death
+	name = "NT-4 Superjail"
+	icon = 'icons/mob/simple/superjail.dmi'
+	icon_state = "angy"
+	desc = "Not a good sign."
+	duration = 4.5 SECONDS
+	/// on completion we spawn this
+	var/spawn_type = /mob/living/basic/boss/juggernaut
+
+/obj/effect/temp_visual/superjail_death/Initialize(mapload)
+	. = ..()
+	INVOKE_ASYNC(src, PROC_REF(cool_animation))
+
+/obj/effect/temp_visual/superjail_death/proc/cool_animation()
+	Shake(5, 5, 0.5 SECONDS)
+	playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
+	sleep(1 SECONDS)
+	Shake(5, 5, 0.5 SECONDS)
+	playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
+	sleep(1 SECONDS)
+	Shake(13,13, 1 SECONDS)
+	playsound(src, 'sound/effects/bang.ogg', 75, TRUE)
+	sleep(1 SECONDS)
+	playsound(src, 'sound/effects/explosion2.ogg', 75, TRUE)
+	explosion(loc, flame_range = 2, flash_range = 3, silent = TRUE, smoke = FALSE, explosion_cause = src)
+	new spawn_type(loc)
+	qdel(src)
