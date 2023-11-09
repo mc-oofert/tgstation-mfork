@@ -28,7 +28,8 @@
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	speech_span = SPAN_COMMAND
-	ai_controller = /datum/ai_controller/basic_controller/juggernaut
+	can_buckle = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/juggernaut_syndicate
 
 /mob/living/basic/boss/juggernaut/Initialize(mapload)
 	. = ..()

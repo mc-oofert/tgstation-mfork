@@ -26,7 +26,8 @@
 	StartCooldown()
 	return TRUE
 
-/obj/effect/temp_visual/telegraphing/short
+/obj/effect/temp_visual/telegraphing/missile
+	icon_state = "target_circle"
 	duration = 1 SECONDS
 
 /obj/effect/temp_visual/telegraphing/shorter
@@ -45,7 +46,7 @@
 
 /obj/effect/temp_visual/missile/Initialize(mapload)
 	. = ..()
-	new /obj/effect/temp_visual/telegraphing/short(loc)
+	new /obj/effect/temp_visual/telegraphing/missile(loc)
 	animate(src, pixel_z = 0, time = duration)
 	addtimer(CALLBACK(src, PROC_REF(explode)), duration)
 
@@ -95,7 +96,8 @@
 
 /obj/projectile/telegraph_tracer/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
 	. = ..()
-	new telegraph_type(loc)
+	if(ispath(telegraph_type))
+		new telegraph_type(loc)
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/spiral_shots/laser
 	name = "Spiral Lasers"
