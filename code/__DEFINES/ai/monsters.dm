@@ -198,6 +198,8 @@
 #define BB_SUPERJAIL_LASERSPIRAL_ABILITY "laserspiral"
 /// the syndicate juggernaut grapple key
 #define BB_SJUGGERNAUT_GRAPPLE_ABILITY "grapple"
+/// the syndicate juggernaut finisher key
+#define BB_SJUGGERNAUT_FINISHER_ABILITY "sfinisher"
 
 //leaper keys
 ///key holds our volley ability

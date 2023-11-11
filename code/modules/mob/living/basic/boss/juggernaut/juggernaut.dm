@@ -29,14 +29,17 @@
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	speech_span = SPAN_COMMAND
 	can_buckle = TRUE
+	max_buckled_mobs = 10
 	ai_controller = /datum/ai_controller/basic_controller/juggernaut_syndicate
 
 /mob/living/basic/boss/juggernaut/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/seethrough_mob)
+	AddElement(/datum/element/wall_tearer)
 	add_traits(list(TRAIT_NO_TELEPORT, TRAIT_MARTIAL_ARTS_IMMUNE), MEGAFAUNA_TRAIT)
 	AddComponent(/datum/component/basic_mob_attack_telegraph, telegraph_state = ATTACK_EFFECT_SMASH,telegraph_duration = 0.3 SECONDS)
 	//AddElement(/datum/element/death_drops, string_list(list(/obj/effect/temp_visual/superjail_death)))
-	var/datum/action/cooldown/mob_cooldown/charge/grapple/grapple = new(src)
-	grapple.Grant(src)
-	ai_controller.set_blackboard_key(BB_SJUGGERNAUT_GRAPPLE_ABILITY, grapple)
+	grant_actions_by_list(list(
+		/datum/action/cooldown/mob_cooldown/charge/grapple = BB_SJUGGERNAUT_GRAPPLE_ABILITY,
+		/datum/action/cooldown/mob_cooldown/forearm_drop = BB_SJUGGERNAUT_FINISHER_ABILITY,
+	))

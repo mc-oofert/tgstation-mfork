@@ -74,16 +74,11 @@
 	AddComponent(/datum/component/appearance_on_aggro, aggro_state = "angy")
 	AddElement(/datum/element/death_drops, string_list(list(/obj/effect/temp_visual/superjail_death)))
 	
-	//abilities
-	var/datum/action/cooldown/mob_cooldown/missile_burst/burst = new(src)
-	burst.Grant(src)
-	ai_controller.set_blackboard_key(BB_SUPERJAIL_MISSILEBURST_ABILITY, burst)
-	var/datum/action/cooldown/mob_cooldown/laser_burst/laserburst = new(src)
-	laserburst.Grant(src)
-	ai_controller.set_blackboard_key(BB_SUPERJAIL_LASERBURST_ABILITY, laserburst)
-	var/datum/action/cooldown/mob_cooldown/projectile_attack/spiral_shots/laser/spiral = new(src)
-	spiral.Grant(src)
-	ai_controller.set_blackboard_key(BB_SUPERJAIL_LASERSPIRAL_ABILITY, spiral)
+	grant_actions_by_list(list(
+		/datum/action/cooldown/mob_cooldown/missile_burst = BB_SUPERJAIL_MISSILEBURST_ABILITY,
+		/datum/action/cooldown/mob_cooldown/laser_burst = BB_SUPERJAIL_LASERBURST_ABILITY,
+		/datum/action/cooldown/mob_cooldown/projectile_attack/spiral_shots/laser = BB_SUPERJAIL_LASERSPIRAL_ABILITY,
+	))
 
 /mob/living/basic/boss/super_jail/emp_reaction(severity)
 	switch(severity)
