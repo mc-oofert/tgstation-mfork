@@ -200,6 +200,8 @@
 #define BB_SJUGGERNAUT_GRAPPLE_ABILITY "grapple"
 /// the syndicate juggernaut finisher key
 #define BB_SJUGGERNAUT_FINISHER_ABILITY "sfinisher"
+/// the syndicate juggernaut shock key
+#define BB_SJUGGERNAUT_SHOCKWAVE_ABILITY "shockwave"
 
 //leaper keys
 ///key holds our volley ability

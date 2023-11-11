@@ -197,6 +197,14 @@
 	inhand_icon_state = "arrestballoon"
 	random_color = FALSE
 
+/obj/item/toy/balloon/red
+	name = "red balloon"
+	icon_state = "balloon_red"
+	inhand_icon_state = "balloon_red"
+	random_color = FALSE
+	desc = "A half inflated balloon, probably lost some air over time. A memento of sorts?"
+	w_class = WEIGHT_CLASS_NORMAL
+
 #undef BALLOON_COLORS
 
 /*

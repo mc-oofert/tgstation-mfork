@@ -44,22 +44,11 @@
 	icon_living="jail"
 	health = 1000
 	maxHealth = 1000
-	combat_mode = TRUE
-	sentience_type = SENTIENCE_BOSS
 	mob_biotypes = MOB_ROBOTIC|MOB_SPECIAL
 	light_range = 3
 	faction = list(FACTION_BOSS)
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
-	unsuitable_cold_damage = 0
-	unsuitable_heat_damage = 0
-	unsuitable_atmos_damage = 0
-	move_force = MOVE_FORCE_OVERPOWERING
 	move_resist = INFINITY
-	pull_force = MOVE_FORCE_OVERPOWERING
-	mob_size = MOB_SIZE_HUGE
-	layer = LARGE_MOB_LAYER
-	plane = GAME_PLANE_UPPER_FOV_HIDDEN
-	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	speech_span = SPAN_COMMAND
 	basic_mob_flags = DEL_ON_DEATH
 	ai_controller = /datum/ai_controller/basic_controller/superjail
@@ -68,8 +57,6 @@
 	. = ..()
 	ai_controller.set_ai_status(AI_STATUS_OFF) //when we get hit and it deals damage, we start the fight
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, INNATE_TRAIT)
-	AddComponent(/datum/component/seethrough_mob)
-	add_traits(list(TRAIT_NO_TELEPORT, TRAIT_MARTIAL_ARTS_IMMUNE), MEGAFAUNA_TRAIT)
 	RegisterSignal(src, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(on_damaged))
 	AddComponent(/datum/component/appearance_on_aggro, aggro_state = "angy")
 	AddElement(/datum/element/death_drops, string_list(list(/obj/effect/temp_visual/superjail_death)))

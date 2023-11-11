@@ -4414,6 +4414,7 @@
 #include "code\modules\mob\living\basic\blob_minions\blob_spore.dm"
 #include "code\modules\mob\living\basic\blob_minions\blob_zombie.dm"
 #include "code\modules\mob\living\basic\blob_minions\blobbernaut.dm"
+#include "code\modules\mob\living\basic\boss\boss.dm"
 #include "code\modules\mob\living\basic\boss\juggernaut\abilities.dm"
 #include "code\modules\mob\living\basic\boss\juggernaut\ai.dm"
 #include "code\modules\mob\living\basic\boss\juggernaut\juggernaut.dm"

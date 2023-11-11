@@ -20,8 +20,8 @@
 	behavior_flags = AI_BEHAVIOR_CAN_PLAN_DURING_EXECUTION
 
 /datum/ai_behavior/basic_melee_attack/opportunistic/setup(datum/ai_controller/controller, target_key, targeting_strategy_key, hiding_location_key)
-	if (!controller.blackboard_key_exists(targeting_strategy_key))
-		CRASH("No target datum was supplied in the blackboard for [controller.pawn]")
+	if (isnull(GET_TARGETING_STRATEGY(controller.blackboard[targeting_strategy_key])))
+		CRASH("No targeting strategy was supplied in the blackboard for [controller.pawn]")
 	return controller.blackboard_key_exists(target_key)
 
 /datum/ai_behavior/basic_melee_attack/opportunistic/perform(seconds_per_tick, datum/ai_controller/controller, target_key, targeting_strategy_key, hiding_location_key)

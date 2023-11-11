@@ -30,6 +30,9 @@
 	icon_state = "target_circle"
 	duration = 1 SECONDS
 
+/obj/effect/temp_visual/telegraphing/short
+	duration = 1 SECONDS
+
 /obj/effect/temp_visual/telegraphing/shorter
 	duration = 0.5 SECONDS
 
@@ -82,6 +85,8 @@
 	name = ""
 	icon_state = ""
 	hitscan = TRUE
+	hitsound = null
+	suppressed = TRUE
 	damage = 0
 	projectile_phasing = PASSMOB|PASSVEHICLE
 	phasing_ignore_direct_target = TRUE

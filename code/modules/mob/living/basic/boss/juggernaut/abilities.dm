@@ -87,7 +87,7 @@
 	name = "Lethal Drop"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	desc = "Allows you to charge at a chosen position."
+	desc = "Allows you to jump at a chosen position. People near or under wherever you land are knocked down and damaged. Dead or hard crit people you land on are gibbed."
 	cooldown_time = 15 SECONDS
 	var/air_time = 2 SECONDS
 	var/damage = 15
@@ -95,13 +95,13 @@
 /datum/action/cooldown/mob_cooldown/forearm_drop/Activate(atom/target)
 	if(isarea(target))
 		return FALSE
-	var/target_turf = get_turf(target)
+	var/turf/target_turf = get_turf(target)
 	StartCooldown(360 SECONDS, 360 SECONDS)
 	owner.density = FALSE
 	playsound(owner.loc, 'sound/effects/gravhit.ogg', 75, TRUE)
 	new /obj/effect/temp_visual/mook_dust(get_turf(owner))
 
-	for(var/turf/open/telegraph_target in RANGE_TURFS(1, target_turf))
+	for(var/turf/open/telegraph_target in RANGE_TURFS(2, target_turf))
 		new /obj/effect/temp_visual/telegraphing(telegraph_target)
 
 	var/prior_transform = owner.transform
@@ -111,7 +111,7 @@
 	animate(transform = prior_transform, time = 1)
 	ADD_TRAIT(owner, TRAIT_IMMOBILIZED, REF(src))
 
-	var/datum/move_loop/new_loop = SSmove_manager.home_onto(owner, target_turf, delay = 0.25 SECONDS, timeout = air_time, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
+	var/datum/move_loop/new_loop = SSmove_manager.move_to(owner, target_turf, delay = min(1, get_dist(owner, target_turf)) / air_time, min_dist = 0, timeout = air_time, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
 	if(!new_loop)
 		return
 	addtimer(CALLBACK(src, PROC_REF(impact)), air_time)
@@ -137,4 +137,62 @@
 				victim.gib(DROP_ALL_REMAINS)
 
 	playsound(get_turf(owner), 'sound/effects/bang.ogg', 75, TRUE)
-	//target.gib(DROP_ALL_REMAINS)
+
+/datum/action/cooldown/mob_cooldown/ring_shockwaves
+	name = "Stomp"
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "sniper_zoom"
+	desc = "Allows you to charge at a chosen position."
+	cooldown_time = 10 SECONDS
+	shared_cooldown = NONE
+	var/max_dist = 5
+	var/delay = 1 SECONDS
+
+/datum/action/cooldown/mob_cooldown/ring_shockwaves/Activate(atom/target_atom)
+	StartCooldown(360 SECONDS, 360 SECONDS)
+	
+	animate(owner, pixel_y = owner.pixel_y + 48, time = delay / 2, easing = CIRCULAR_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(pixel_y = initial(owner.pixel_y), time = delay / 2, easing = CIRCULAR_EASING | EASE_IN)
+	ADD_TRAIT(owner, TRAIT_IMMOBILIZED, REF(src))
+	playsound(owner.loc, 'sound/effects/gravhit.ogg', 75, TRUE)
+	new /obj/effect/temp_visual/mook_dust(get_turf(owner))
+	
+	var/distance_is_even = get_dist(owner,target_atom) % 2 == 0 ? TRUE : FALSE
+	var/list/targets = list()
+	for(var/turf/open/possibility in RANGE_TURFS(max_dist, owner))
+		var/distance = get_dist(possibility, owner)
+		if((distance % 2 == 0) != distance_is_even) //we try to make rings actually hit the target
+			continue
+		targets += possibility
+		new /obj/effect/temp_visual/telegraphing/short(possibility)
+	addtimer(CALLBACK(src, PROC_REF(impact), targets), delay)
+	StartCooldown()
+	return TRUE
+
+/datum/action/cooldown/mob_cooldown/ring_shockwaves/proc/launch_victim(atom/movable/thing, delay = 1 SECONDS)
+	if(!istype(thing))
+		return
+	animate(thing, pixel_y = thing.pixel_y + 48, time = delay / 2, easing = CIRCULAR_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+	animate(pixel_y = initial(thing.pixel_y), time = delay / 2, easing = CIRCULAR_EASING | EASE_IN)
+	addtimer(CALLBACK(src, PROC_REF(on_victim_impact), thing), delay)
+
+/datum/action/cooldown/mob_cooldown/ring_shockwaves/proc/on_victim_impact(atom/movable/thing)
+	if(isliving(thing))
+		var/mob/living/victim = thing
+		victim.Paralyze(1 SECONDS)
+		victim.apply_damage(15, BRUTE)
+	else
+		thing.take_damage(30)
+
+/datum/action/cooldown/mob_cooldown/ring_shockwaves/proc/impact(list/turf/targets)
+	REMOVE_TRAIT(owner, TRAIT_IMMOBILIZED, REF(src))
+	for(var/turf/target as anything in targets)
+		for(var/atom/movable/victim in target)
+			if(victim == owner)
+				continue
+			if(victim.anchored)
+				continue
+			new /obj/effect/temp_visual/mook_dust(target)
+			launch_victim(victim)
+
+	playsound(get_turf(owner), 'sound/effects/bang.ogg', 75, TRUE)
