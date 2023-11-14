@@ -19,7 +19,7 @@
 	move_resist = INFINITY
 	speech_span = SPAN_COMMAND
 	can_buckle = TRUE
-	max_buckled_mobs = 10
+	max_buckled_mobs = 1
 	basic_mob_flags = REMAIN_DENSE_WHILE_DEAD | FLIP_ON_DEATH
 	ai_controller = /datum/ai_controller/basic_controller/juggernaut_syndicate
 
@@ -45,6 +45,7 @@
 	var/module = locate(/obj/item/mod/module/storage) in contents
 	new /obj/item/photo/juggernaut_grandma(module)
 	new /obj/item/toy/balloon/red(module)
+	new /obj/item/book/granter/martial/cqc(module)
 
 /obj/item/photo/juggernaut_grandma
 	scribble = "Hope to see you soon again! -Grandma 2.9.2543"

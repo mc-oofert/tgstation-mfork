@@ -11,10 +11,10 @@
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
+		/datum/ai_planning_subtree/random_speech/blackboard,
 		/datum/ai_planning_subtree/targeted_mob_ability/lethal_drop,
 		/datum/ai_planning_subtree/targeted_mob_ability/min_range/shockwaves,
 		/datum/ai_planning_subtree/targeted_mob_ability/grapple,
-		/datum/ai_planning_subtree/random_speech/blackboard,
 	)
 
 /datum/ai_planning_subtree/targeted_mob_ability/grapple
@@ -35,5 +35,8 @@
 	ability_key = BB_SJUGGERNAUT_FINISHER_ABILITY
 
 /datum/ai_planning_subtree/targeted_mob_ability/min_range/shockwaves
-	required_distance = 3
 	ability_key = BB_SJUGGERNAUT_SHOCKWAVE_ABILITY
+	use_ability_behaviour = /datum/ai_behavior/targeted_mob_ability/min_range/closer
+
+/datum/ai_behavior/targeted_mob_ability/min_range/closer
+	required_distance = 3

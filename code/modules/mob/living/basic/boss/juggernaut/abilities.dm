@@ -13,14 +13,14 @@
 		return
 	finish_callback?.InvokeAsync(hit)
 
-/obj/moveloop_abstraction
+/obj/moveloop_abstraction //L37
 	invisibility = INVISIBILITY_ABSTRACT
 
 /datum/action/cooldown/mob_cooldown/charge/grapple
 	cooldown_time = 2 SECONDS
 	charge_damage = 20
 	destroy_objects = FALSE //this fucks up in charge_end if the target is destroyed as a result idk how to fix
-	charge_delay = 1 SECONDS
+	charge_delay = 0.8 SECONDS
 	shared_cooldown = NONE
 	charge_past = 0
 
@@ -35,7 +35,7 @@
 
 /datum/action/cooldown/mob_cooldown/charge/grapple/proc/on_tracer_hit(atom/target)
 	var/abstraction = new /obj/moveloop_abstraction(owner.loc) //anyway so practically we need an invisible object since moveloops cant be predicted that good to my knowledge
-	var/datum/move_loop/new_loop = SSmove_manager.home_onto(abstraction, target, delay = 0.5, timeout = 5 SECONDS, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
+	var/datum/move_loop/new_loop = SSmove_manager.home_onto(abstraction, target, delay = 0.25, timeout = 5 SECONDS, priority = MOVEMENT_ABOVE_SPACE_PRIORITY)
 	if(!new_loop)
 		return
 	RegisterSignal(abstraction, COMSIG_MOVABLE_MOVED, PROC_REF(abstract_telegraph))
@@ -52,8 +52,13 @@
 	if(!istype(target))
 		return
 	source.forceMove(get_turf(target))
-	target.visible_message(span_danger("[owner] grapples [target]!"))
-	owner.buckle_mob(target, check_loc = FALSE)
+	if(!isnull(owner.buckled_mobs) && owner.buckled_mobs.len)
+		target.Paralyze(1 SECONDS)
+		target.throw_at(get_step_away(target, owner), 2, 1)
+		target.visible_message(span_danger("[owner] knocks [target] out of their path!"))
+	else
+		target.visible_message(span_danger("[owner] grapples [target]!"))
+		owner.buckle_mob(target, check_loc = FALSE)
 	target.apply_damage(damage_dealt, BRUTE)
 	playsound(get_turf(target), 'sound/effects/meteorimpact.ogg', 100, TRUE)
 	shake_camera(target, 2, 2)
@@ -89,11 +94,13 @@
 	button_icon_state = "sniper_zoom"
 	desc = "Allows you to jump at a chosen position. People near or under wherever you land are knocked down and damaged. Dead or hard crit people you land on are gibbed."
 	cooldown_time = 15 SECONDS
-	var/air_time = 2 SECONDS
+	var/air_time = 1.6 SECONDS
 	var/damage = 15
 
 /datum/action/cooldown/mob_cooldown/forearm_drop/Activate(atom/target)
 	if(isarea(target))
+		return FALSE
+	if(HAS_TRAIT(owner, TRAIT_IMMOBILIZED))
 		return FALSE
 	var/turf/target_turf = get_turf(target)
 	StartCooldown(360 SECONDS, 360 SECONDS)
@@ -145,7 +152,7 @@
 	desc = "Allows you to charge at a chosen position."
 	cooldown_time = 10 SECONDS
 	shared_cooldown = NONE
-	var/max_dist = 5
+	var/max_dist = 6
 	var/delay = 1 SECONDS
 
 /datum/action/cooldown/mob_cooldown/ring_shockwaves/Activate(atom/target_atom)
