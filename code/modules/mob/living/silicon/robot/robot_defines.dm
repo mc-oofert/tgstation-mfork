@@ -188,6 +188,10 @@
 	set_model = /obj/item/robot_model/service
 	icon_state = "brobot"
 
+/mob/living/silicon/robot/model/botany
+	set_model = /obj/item/robot_model/botanist
+	icon_state = "botany"
+
 /mob/living/silicon/robot/model/syndicate
 	icon_state = "synd_sec"
 	faction = list(ROLE_SYNDICATE)

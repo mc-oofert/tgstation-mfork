@@ -166,6 +166,7 @@
 		"Miner" = /obj/item/robot_model/miner,
 		"Janitor" = /obj/item/robot_model/janitor,
 		"Service" = /obj/item/robot_model/service,
+		"Hydroponics" = /obj/item/robot_model/botanist,
 	)
 	if(!CONFIG_GET(flag/disable_peaceborg))
 		model_list["Peacekeeper"] = /obj/item/robot_model/peacekeeper
