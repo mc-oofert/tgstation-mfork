@@ -93,8 +93,8 @@
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
 	desc = "Allows you to jump at a chosen position. People near or under wherever you land are knocked down and damaged. Dead or hard crit people you land on are gibbed."
-	cooldown_time = 15 SECONDS
-	var/air_time = 1.6 SECONDS
+	cooldown_time = 8 SECONDS
+	var/air_time = 1.1 SECONDS
 	var/damage = 15
 
 /datum/action/cooldown/mob_cooldown/forearm_drop/Activate(atom/target)
@@ -150,10 +150,10 @@
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
 	desc = "Allows you to charge at a chosen position."
-	cooldown_time = 10 SECONDS
+	cooldown_time = 6 SECONDS
 	shared_cooldown = NONE
 	var/max_dist = 6
-	var/delay = 1 SECONDS
+	var/delay = 0.8 SECONDS
 
 /datum/action/cooldown/mob_cooldown/ring_shockwaves/Activate(atom/target_atom)
 	StartCooldown(360 SECONDS, 360 SECONDS)
