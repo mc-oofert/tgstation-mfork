@@ -203,6 +203,10 @@
 /// the syndicate juggernaut shock key
 #define BB_SJUGGERNAUT_SHOCKWAVE_ABILITY "shockwave"
 
+//gutlunch keys
+///the trough we will eat from
+#define BB_TROUGH_TARGET "trough_target"
+
 //leaper keys
 ///key holds our volley ability
 #define BB_LEAPER_VOLLEY "leaper_volley"
@@ -229,3 +233,7 @@
 #define BB_WIZARD_BLINK_SPELL "BB_wizard_blink_spell"
 /// Key for the next time we can cast a spell
 #define BB_WIZARD_SPELL_COOLDOWN "BB_wizard_spell_cooldown"
+
+//netguardians
+/// rocket launcher
+#define BB_NETGUARDIAN_ROCKET_ABILITY "netguardian_rocket"

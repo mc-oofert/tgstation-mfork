@@ -696,3 +696,14 @@
 
 /area/ruin/space/has_grav/powered/superjail/bossroom
 	name = "NT Superjail Supermax Cell"
+
+//garbage trucks
+/area/ruin/space/has_grav/garbagetruck
+	name = "decommissioned garbage truck"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience_index = AMBIENCE_MAINT
+
+/area/ruin/space/has_grav/garbagetruck/foodwaste
+/area/ruin/space/has_grav/garbagetruck/medicalwaste
+/area/ruin/space/has_grav/garbagetruck/squat
+/area/ruin/space/has_grav/garbagetruck/toystore
