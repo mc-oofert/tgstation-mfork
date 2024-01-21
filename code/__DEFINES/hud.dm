@@ -172,6 +172,7 @@
 #define ui_ai_multicam "BOTTOM+1:6,LEFT+1"
 #define ui_ai_add_multicam "BOTTOM+1:6,LEFT"
 #define ui_ai_take_picture "BOTTOM+2:6,LEFT"
+#define ui_ai_zoom "BOTTOM+1:6,LEFT+2"
 
 
 //pAI

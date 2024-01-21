@@ -160,6 +160,8 @@
 	if(..())
 		return
 	var/mob/living/silicon/ai/AI = usr
+	var/client/ai_client = AI.client
+	ai_client.view_size.resetToDefault(getScreenSize(ai_client.prefs.read_preference(/datum/preference/toggle/widescreen)))
 	AI.toggle_multicam()
 
 /atom/movable/screen/ai/add_multicam
@@ -172,6 +174,21 @@
 	var/mob/living/silicon/ai/AI = usr
 	AI.drop_new_multicam()
 
+/atom/movable/screen/ai/view_range
+	name = "Change Zoom"
+	icon_state = "zoom"
+
+/atom/movable/screen/ai/view_range/Click()
+	if(..())
+		return
+	var/client/ai_client = usr.client
+	var/selection = tgui_input_list(usr, "Select zoom:", "(Use again to reset)", list(1,2,3,4,5,6,7))) //static starts to bug out at 8 and above
+	if(!selection)
+		return
+	if(ai_client.view_size.getView() == ai_client.view_size.default)
+		ai_client.view_size.setTo(selection)
+	else
+		ai_client.view_size.resetToDefault(getScreenSize(ai_client.prefs.read_preference(/datum/preference/toggle/widescreen)))
 
 /datum/hud/ai
 	ui_style = 'icons/hud/screen_ai.dmi'
@@ -267,4 +284,9 @@
 //Add multicamera camera
 	using = new /atom/movable/screen/ai/add_multicam(null, src)
 	using.screen_loc = ui_ai_add_multicam
+	static_inventory += using
+
+// change view range
+	using = new /atom/movable/screen/ai/view_range(null, src)
+	using.screen_loc = ui_ai_zoom
 	static_inventory += using
