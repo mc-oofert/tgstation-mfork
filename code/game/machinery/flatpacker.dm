@@ -1,7 +1,7 @@
 #define CREATE_AND_INCREMENT(L, I, increment) if(!(I in L)) { L[I] = 0; } L[I] += increment;
 /obj/machinery/flatpacker
 	name = "flatpacker"
-	desc = "It produces items using iron, glass, plastic and maybe some more."
+	desc = "It compacts machines using materials."
 	icon = 'icons/obj/machines/lathes.dmi'
 	base_icon_state = "flatpacker"
 	icon_state = "flatpacker"
