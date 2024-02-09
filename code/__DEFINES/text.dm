@@ -53,7 +53,7 @@
 #define SANITIZE_FILENAME(text) (GLOB.filename_forbidden_chars.Replace(text, ""))
 
 /// Simply removes the < and > characters, and limits the length of the message.
-#define STRIP_HTML_SIMPLE(text, limit) (GLOB.angular_brackets.Replace(copytext(text, 1, limit), ""))
+#define STRIP_HTML_SIMPLE(text, limit) (GLOB.angular_brackets.Replace_char(copytext_char(text, 1, limit), "")) //MASSMETA EDIT
 
 /// Removes everything enclose in < and > inclusive of the bracket, and limits the length of the message.
 #define STRIP_HTML_FULL(text, limit) (GLOB.html_tags.Replace(copytext(text, 1, limit), ""))
@@ -63,7 +63,7 @@
 
 // JSON text files found in the tgstation/strings folder
 /// File location for brain damage traumas
-#define BRAIN_DAMAGE_FILE "traumas.json"
+#define BRAIN_DAMAGE_FILE "massmeta/traumas.json" //MASSMETA EDIT
 /// File location for AI ion laws
 #define ION_FILE "ion_laws.json"
 /// File location for pirate names
@@ -95,7 +95,7 @@
 /// File location for eigenstasium lines
 #define EIGENSTASIUM_FILE "eigenstasium.json"
 /// File location for hallucination lines
-#define HALLUCINATION_FILE "hallucination.json"
+#define HALLUCINATION_FILE "massmeta/hallucination.json" //MASSMETA EDIT
 /// File location for ninja lines
 #define NINJA_FILE "ninja.json"
 /// File loation for title splashes
