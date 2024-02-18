@@ -275,7 +275,7 @@
 		return
 	if (magazine.ammo_count())
 		chambered = magazine.get_round((bolt_type == BOLT_TYPE_OPEN && !bolt_locked) || bolt_type == BOLT_TYPE_NO_BOLT)
-		if (bolt_type != BOLT_TYPE_OPEN)
+		if (bolt_type != BOLT_TYPE_OPEN && !(internal_magazine && bolt_type == BOLT_TYPE_NO_BOLT))
 			chambered.forceMove(src)
 		else
 			RegisterSignal(chambered, COMSIG_MOVABLE_MOVED, PROC_REF(clear_chambered))
@@ -427,16 +427,12 @@
 	return TRUE
 
 /obj/item/gun/ballistic/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(magazine && chambered.loaded_projectile && can_misfire && misfire_probability > 0)
-		if(prob(misfire_probability))
-			if(blow_up(user))
-				to_chat(user, span_userdanger("[src] misfires!"))
+	if(target != user && chambered.loaded_projectile && can_misfire && prob(misfire_probability) && blow_up(user))
+		to_chat(user, span_userdanger("[src] misfires!"))
+		return
 
 	if (sawn_off)
 		bonus_spread += SAWN_OFF_ACC_PENALTY
-
-	if(magazine && !chambered.is_cased_ammo)
-		magazine.stored_ammo -= chambered
 
 	return ..()
 
@@ -487,11 +483,11 @@
 		if (empty_alarm && last_shot_succeeded)
 			playsound(src, empty_alarm_sound, empty_alarm_volume, empty_alarm_vary)
 			update_appearance()
-		if (last_shot_succeeded && bolt_type == BOLT_TYPE_LOCKING)
+		if (last_shot_succeeded && bolt_type == BOLT_TYPE_LOCKING && semi_auto)
 			bolt_locked = TRUE
 			update_appearance()
 
-/obj/item/gun/ballistic/afterattack()
+/obj/item/gun/ballistic/fire_gun(atom/target, mob/living/user, flag, params)
 	prefire_empty_checks()
 	. = ..() //The gun actually firing
 	postfire_empty_checks(.)
@@ -509,7 +505,6 @@
 			eject_magazine(user)
 			return
 	if(bolt_type == BOLT_TYPE_NO_BOLT)
-		chambered = null
 		var/num_unloaded = 0
 		for(var/obj/item/ammo_casing/CB as anything in get_ammo_list(FALSE))
 			CB.forceMove(drop_location())
@@ -701,11 +696,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 
 ///used for sawing guns, causes the gun to fire without the input of the user
 /obj/item/gun/ballistic/proc/blow_up(mob/user)
-	. = FALSE
-	for(var/obj/item/ammo_casing/AC in magazine.stored_ammo)
-		if(AC.loaded_projectile)
-			process_fire(user, user, FALSE)
-			. = TRUE
+	return chambered && process_fire(user, user, FALSE)
 
 /obj/item/gun/ballistic/proc/instant_reload()
 	SIGNAL_HANDLER

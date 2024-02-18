@@ -64,10 +64,10 @@
 		if("detach")
 			chassis.ui_selected_module_index = null
 			detach(get_turf(src))
-			return TRUE
+			. = TRUE
 		if("toggle")
 			set_active(!active)
-			return TRUE
+			. = TRUE
 		if("repair")
 			ui.close() // allow watching for baddies and the ingame effects
 			chassis.balloon_alert(usr, "starting repair")
@@ -75,7 +75,14 @@
 				repair_damage(30)
 			if(get_integrity() == max_integrity)
 				balloon_alert(usr, "repair complete")
-			return FALSE
+			. = FALSE
+	var/result = handle_ui_act(action,params,ui,state)
+	if(result) //if handle_ui_act returned anything at all lets just return that instead
+		. = result
+
+/// called after ui_act, for custom ui act handling
+/obj/item/mecha_parts/mecha_equipment/proc/handle_ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	SHOULD_CALL_PARENT(FALSE)
 
 /**
  * Checks whether this mecha equipment can be active
@@ -100,7 +107,7 @@
 	if(get_integrity() <= 1)
 		to_chat(chassis.occupants, span_warning("Error -- Equipment critically damaged."))
 		return FALSE
-	if(TIMER_COOLDOWN_CHECK(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
+	if(TIMER_COOLDOWN_RUNNING(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
 		return FALSE
 	return TRUE
 
@@ -114,7 +121,7 @@
  * Cooldown proc variant for using do_afters between activations instead of timers
  * Example of usage is mech drills, rcds
  * arguments:
- * * target: targetted atom for action activation
+ * * target: targeted atom for action activation
  * * user: occupant to display do after for
  * * interaction_key: interaction key to pass to [/proc/do_after]
  */
@@ -212,7 +219,7 @@
 /obj/item/mecha_parts/mecha_equipment/proc/set_active(active)
 	src.active = active
 
-/obj/item/mecha_parts/mecha_equipment/log_message(message, message_type=LOG_GAME, color=null, log_globally)
+/obj/item/mecha_parts/mecha_equipment/log_message(message, message_type=LOG_GAME, color=null, log_globally, list/data)
 	if(chassis)
 		return chassis.log_message("ATTACHMENT: [src] [message]", message_type, color)
 	return ..()

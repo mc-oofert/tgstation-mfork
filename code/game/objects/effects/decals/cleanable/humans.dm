@@ -115,6 +115,7 @@
 
 /obj/effect/decal/cleanable/blood/gibs/Initialize(mapload, list/datum/disease/diseases)
 	. = ..()
+	AddElement(/datum/element/squish_sound)
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, PROC_REF(on_pipe_eject))
 
 /obj/effect/decal/cleanable/blood/gibs/Destroy()
@@ -132,11 +133,6 @@
 
 /obj/effect/decal/cleanable/blood/gibs/ex_act(severity, target)
 	return FALSE
-
-/obj/effect/decal/cleanable/blood/gibs/on_entered(datum/source, atom/movable/L)
-	if(isliving(L) && has_gravity(loc))
-		playsound(loc, 'sound/effects/footstep/gib_step.ogg', HAS_TRAIT(L, TRAIT_LIGHT_STEP) ? 20 : 50, TRUE)
-	return ..()
 
 /obj/effect/decal/cleanable/blood/gibs/proc/on_pipe_eject(atom/source, direction)
 	SIGNAL_HANDLER
@@ -159,8 +155,9 @@
 		return
 	if(mapload)
 		for (var/i in 1 to range)
-			if(!isgroundlessturf(loc) || GET_TURF_BELOW(loc))
-				new /obj/effect/decal/cleanable/blood/splatter(loc)
+			var/turf/my_turf = get_turf(src)
+			if(!isgroundlessturf(my_turf) || GET_TURF_BELOW(my_turf))
+				new /obj/effect/decal/cleanable/blood/splatter(my_turf)
 			if (!step_to(src, get_step(src, direction), 0))
 				break
 		return

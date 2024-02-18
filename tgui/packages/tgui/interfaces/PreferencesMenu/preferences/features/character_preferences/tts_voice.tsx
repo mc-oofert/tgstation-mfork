@@ -1,8 +1,15 @@
-import { FeatureChoiced, FeatureChoicedServerData, FeatureDropdownInput, FeatureValueProps, FeatureNumeric, FeatureSliderInput } from '../base';
-import { Stack, Button } from '../../../../../components';
+import { Button, Stack } from '../../../../../components';
+import {
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureDropdownInput,
+  FeatureNumeric,
+  FeatureSliderInput,
+  FeatureValueProps,
+} from '../base';
 
 const FeatureTTSDropdownInput = (
-  props: FeatureValueProps<string, string, FeatureChoicedServerData>
+  props: FeatureValueProps<string, string, FeatureChoicedServerData>,
 ) => {
   return (
     <Stack>
@@ -41,9 +48,4 @@ export const tts_voice: FeatureChoiced = {
 export const tts_voice_pitch: FeatureNumeric = {
   name: 'Voice Pitch Adjustment',
   component: FeatureSliderInput,
-};
-
-export const tts_voice_style: FeatureChoiced = {
-  name: 'Voice Style',
-  component: FeatureDropdownInput,
 };
