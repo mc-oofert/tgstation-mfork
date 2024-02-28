@@ -16,6 +16,11 @@
 	armour_penetration = 100
 	projectile_phasing =  PASSTABLE | PASSGLASS | PASSGRILLE | PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS
 
+/obj/projectile/bullet/a223/highvelap
+	name = ".223 high-velocity armor-penetrating bullet"
+	speed = /obj/projectile/bullet/a223::speed - 0.6
+	armour_penetration = 60
+
 // .310 Strilka (Sakhno Rifle)
 
 /obj/projectile/bullet/strilka310

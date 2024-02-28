@@ -2579,6 +2579,7 @@
 #include "code\game\objects\structures\hivebot.dm"
 #include "code\game\objects\structures\holosign.dm"
 #include "code\game\objects\structures\janitor.dm"
+#include "code\game\objects\structures\killdrone.dm"
 #include "code\game\objects\structures\kitchen_spike.dm"
 #include "code\game\objects\structures\ladders.dm"
 #include "code\game\objects\structures\lattice.dm"
