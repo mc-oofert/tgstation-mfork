@@ -362,6 +362,9 @@
 /turf/open/floor/iron/smooth_large/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
+/turf/open/floor/iron/smooth_large/frozen
+	initial_gas_mix = FROZEN_ATMOS
+
 /turf/open/floor/iron/terracotta
 	icon_state = "terracotta"
 	base_icon_state = "terracotta"

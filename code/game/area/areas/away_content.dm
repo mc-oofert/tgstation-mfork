@@ -39,6 +39,32 @@ Unused icons for new areas are "awaycontent1" ~ "awaycontent30"
 	name = "Nanotrasen Museum Cafeteria"
 	sound_environment = SOUND_ENVIRONMENT_ROOM
 
+/area/awaymission/threat
+	name = "Dimensional Incursion"
+	icon_state = "awaycontent27"
+	sound_environment = SOUND_ENVIRONMENT_QUARRY
+
+/area/awaymission/threat/sewer
+	name = "Dimensional Incursion (Sewer)"
+	icon_state = "awaycontent25"
+	sound_environment = SOUND_ENVIRONMENT_STONEROOM
+
+/area/awaymission/threat/outdoors
+	name = "Dimensional Incursion (Outdoors)"
+	icon_state = "awaycontent26"
+	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
+	outdoors = TRUE
+
+/area/awaymission/threat/outdoors/Initialize(mapload)
+	. = ..()
+	//Taken (and changed, naturally) from weather code (code/datums/weather)
+	for(var/offset in 0 to SSmapping.max_plane_offset)
+		/*var/mutable_appearance/glow_overlay = mutable_appearance('icons/effects/glow_weather.dmi', "light_snow", AREA_LAYER, null, ABOVE_LIGHTING_PLANE, 100, offset_const = offset)
+		overlays += glow_overlay*/
+
+		var/mutable_appearance/weather_overlay = mutable_appearance('icons/effects/weather_effects.dmi', "light_snow", AREA_LAYER, plane = AREA_PLANE, offset_const = offset)
+		overlays += weather_overlay
+
 /area/awaymission/errorroom
 	name = "Super Secret Room"
 	static_lighting = FALSE
