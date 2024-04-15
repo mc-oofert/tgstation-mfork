@@ -955,59 +955,21 @@
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/extinguisher/mini,
-		/obj/item/reagent_containers/cup/bucket,
+		/obj/item/borg/apparatus/beaker/botany,
+		/obj/item/borg/apparatus/plant,
 		/obj/item/cultivator,
 		/obj/item/secateurs,
 		/obj/item/shovel/spade,
+		/obj/item/hatchet,
 		/obj/item/storage/bag/plants/portaseeder,
+		/obj/item/card/id/borg_charge_card,
 	)
 	radio_channels = list(RADIO_CHANNEL_SERVICE)
 	emag_modules = list(
 		/obj/item/reagent_containers/spray/cyborg_lube,
 	)
 	cyborg_base_icon = "botany"
-	model_select_icon = "botany"
-	/// inner tray (hydroponics component when?)
-	var/obj/machinery/hydroponics/cyborg/tray 
-
-/obj/item/robot_model/botanist/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
-	. = ..()
-	if(!.)
-		return
-	tray = new(src, robot)
-
-/obj/machinery/hydroponics/cyborg
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	var/mob/living/borg
-
-/obj/machinery/hydroponics/cyborg/Initialize(mapload, cyborg)
-	. = ..()
-	borg = cyborg
-	layer = borg.layer // this should make the plant layered above the borg
-	RegisterSignal(borg, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
-	RegisterSignal(borg, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attack))
-	RegisterSignal(borg, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_overlay_update))
-	
-/obj/machinery/hydroponics/cyborg/proc/on_overlay_update(datum/source, list/overlays)
-	SIGNAL_HANDLER
-	to_chat(world, "HI")
-	overlays += update_plant_overlay()
-
-/obj/machinery/hydroponics/cyborg/Destroy()
-	. = ..()
-	borg = null
-
-/obj/machinery/hydroponics/cyborg/proc/on_examine(datum/source, mob/user, list/examine_list)
-	SIGNAL_HANDLER
-	examine_list += examine(user)
-
-/obj/machinery/hydroponics/cyborg/proc/on_attack(datum/source, obj/item/item, mob/living/user, params)
-	SIGNAL_HANDLER
-	if(attackby(item, user, params))
-		return COMPONENT_NO_AFTERATTACK
-
-/obj/machinery/hydroponics/cyborg/update_status_light_overlays()
-	return
+	model_select_icon = "hydroponics"
 
 // ------------------------------------------ Storages
 /datum/robot_energy_storage

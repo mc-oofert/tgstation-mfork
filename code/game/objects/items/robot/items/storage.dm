@@ -361,3 +361,36 @@
 	if(stored)
 		. += "The apparatus currently has [stored] secured."
 	. += span_notice("<i>Alt-click</i> will drop the currently secured item.")
+
+/obj/item/borg/apparatus/beaker/botany
+	name = "hydroponics storage apparatus"
+	desc = "A special apparatus for carrying beakers, bottles, test tubes, buckets, and watering cans."
+	icon_state = "borg_beaker_apparatus"
+	storable = list(
+		/obj/item/reagent_containers/cup/beaker,
+		/obj/item/reagent_containers/cup/bottle,
+		/obj/item/reagent_containers/cup/tube,
+		/obj/item/reagent_containers/cup/bucket,
+		/obj/item/reagent_containers/cup/watering_can,
+	)
+
+/obj/item/borg/apparatus/beaker/botany/add_glass()
+	stored = new /obj/item/reagent_containers/cup/watering_can(src)
+
+/obj/item/borg/apparatus/plant
+	name = "plant manipulation apparatus"
+	desc = "A special apparatus that can carry seeds and plants."
+	icon_state = "borg_beaker_apparatus"
+
+/obj/item/borg/apparatus/plant/pre_attack(atom/atom, mob/living/user, params)
+	if(!stored && (istype(atom, /obj/item/seeds) || istype(atom, /obj/item/food/grown)))
+		var/obj/item/item = atom
+		item.forceMove(src)
+		stored = item
+		RegisterSignal(stored, COMSIG_ATOM_UPDATED_ICON, PROC_REF(on_stored_updated_icon))
+		update_appearance()
+		return TRUE
+	else
+		stored.melee_attack_chain(user, atom, params)
+		return TRUE
+	return ..()

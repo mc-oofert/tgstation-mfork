@@ -488,7 +488,7 @@
 		. += mutable_appearance(icon, self_sustaining_overlay_icon_state)
 
 /obj/machinery/hydroponics/proc/update_plant_overlay()
-	var/mutable_appearance/plant_overlay = mutable_appearance(myseed.growing_icon, layer = OBJ_LAYER + 0.01)
+	var/mutable_appearance/plant_overlay = mutable_appearance(myseed.growing_icon, layer = layer + 0.01)
 	switch(plant_status)
 		if(HYDROTRAY_PLANT_DEAD)
 			plant_overlay.icon_state = myseed.icon_dead
@@ -846,11 +846,11 @@
 
 		if(!reagent_source.reagents.total_volume)
 			to_chat(user, span_warning("[reagent_source] is empty!"))
-			return 1
+			return TRUE
 
 		if(reagents.total_volume >= reagents.maximum_volume && !reagent_source.reagents.has_reagent(/datum/reagent/water, 1))
 			to_chat(user, span_notice("[src] is full."))
-			return
+			return TRUE
 
 		var/list/trays = list(src)//makes the list just this in cases of syringes and compost etc
 		var/target = myseed ? myseed.plantname : src
@@ -894,11 +894,11 @@
 			if(IS_EDIBLE(reagent_source) || istype(reagent_source, /obj/item/reagent_containers/pill))
 				qdel(reagent_source)
 				H.update_appearance()
-				return 1
+				return TRUE
 			H.update_appearance()
 		if(reagent_source) // If the source wasn't composted and destroyed
 			reagent_source.update_appearance()
-		return 1
+		return TRUE
 
 	else if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/sample))
 		if(!myseed)
@@ -912,30 +912,30 @@
 			age = 1
 			set_plant_health(myseed.endurance)
 			lastcycle = world.time
-			return
+			return TRUE
 		else
 			to_chat(user, span_warning("[src] already has seeds in it!"))
-			return
+			return TRUE
 
 	else if(istype(O, /obj/item/cultivator))
 		if(weedlevel > 0)
 			user.visible_message(span_notice("[user] uproots the weeds."), span_notice("You remove the weeds from [src]."))
 			set_weedlevel(0)
-			return
+			return TRUE
 		else
 			to_chat(user, span_warning("This plot is completely devoid of weeds! It doesn't need uprooting."))
-			return
+			return TRUE
 
 	else if(istype(O, /obj/item/secateurs))
 		if(!myseed)
 			to_chat(user, span_notice("This plot is empty."))
-			return
+			return TRUE
 		else if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
 			to_chat(user, span_notice("This plant must be harvestable in order to be grafted."))
-			return
+			return TRUE
 		else if(myseed.grafted)
 			to_chat(user, span_notice("This plant has already been grafted."))
-			return
+			return TRUE
 		else
 			user.visible_message(span_notice("[user] grafts off a limb from [src]."), span_notice("You carefully graft off a portion of [src]."))
 			var/obj/item/graft/snip = myseed.create_graft()
@@ -945,15 +945,15 @@
 			snip.forceMove(drop_location())
 			myseed.grafted = TRUE
 			adjust_plant_health(-5)
-			return
+			return TRUE
 
 	else if(istype(O, /obj/item/geneshears))
 		if(!myseed)
 			to_chat(user, span_notice("The tray is empty."))
-			return
+			return TRUE
 		if(plant_health <= GENE_SHEAR_MIN_HEALTH)
 			to_chat(user, span_notice("This plant looks too unhealty to be sheared right now."))
-			return
+			return TRUE
 
 		var/list/current_traits = list()
 		for(var/datum/plant_gene/gene in myseed.genes)
@@ -964,13 +964,13 @@
 			current_traits[gene.name] = gene
 		var/removed_trait = tgui_input_list(user, "Trait to remove from the [myseed.plantname]", "Plant Trait Removal", sort_list(current_traits))
 		if(isnull(removed_trait))
-			return
+			return TRUE 
 		if(!user.can_perform_action(src))
-			return
+			return TRUE
 		if(!myseed)
-			return
+			return TRUE
 		if(plant_health <= GENE_SHEAR_MIN_HEALTH) //Check health again to make sure they're not keeping inputs open to get free shears.
-			return
+			return TRUE
 		for(var/datum/plant_gene/gene in myseed.genes)
 			if(gene.name == removed_trait)
 				if(myseed.genes.Remove(gene))
@@ -981,19 +981,19 @@
 		adjust_plant_health(-15)
 		to_chat(user, span_notice("You carefully shear the genes off of the [myseed.plantname], leaving the plant looking weaker."))
 		update_appearance()
-		return
+		return TRUE
 
 	else if(istype(O, /obj/item/graft))
 		var/obj/item/graft/snip = O
 		if(!myseed)
 			to_chat(user, span_notice("The tray is empty."))
-			return
+			return TRUE
 		if(myseed.apply_graft(snip))
 			to_chat(user, span_notice("You carefully integrate the grafted plant limb onto [myseed.plantname], granting it [snip.stored_trait.get_name()]."))
 		else
 			to_chat(user, span_notice("You integrate the grafted plant limb onto [myseed.plantname], but it does not accept the [snip.stored_trait.get_name()] trait from the [snip]."))
 		qdel(snip)
-		return
+		return TRUE
 
 	else if(istype(O, /obj/item/storage/bag/plants))
 		if(plant_status == HYDROTRAY_PLANT_HARVESTABLE)
@@ -1003,12 +1003,12 @@
 		else if(plant_status == HYDROTRAY_PLANT_DEAD)
 			to_chat(user, span_notice("You remove the dead plant from [src]."))
 			set_seed(null)
-		return
+		return TRUE
 
 	else if(O.tool_behaviour == TOOL_SHOVEL)
 		if(!myseed && !weedlevel)
 			to_chat(user, span_warning("[src] doesn't have any plants or weeds!"))
-			return
+			return TRUE
 		user.visible_message(span_notice("[user] starts digging out [src]'s plants..."),
 			span_notice("You start digging out [src]'s plants..."))
 		if(O.use_tool(src, user, 50, volume=50) || (!myseed && !weedlevel))
@@ -1019,24 +1019,24 @@
 				lastproduce = 0
 				set_seed(null)
 			set_weedlevel(0) //Has a side effect of cleaning up those nasty weeds
-			return
+			return TRUE
 	else if(istype(O, /obj/item/storage/part_replacer))
 		RefreshParts()
-		return
+		return TRUE
 	else if(istype(O, /obj/item/gun/energy/floragun))
 		var/obj/item/gun/energy/floragun/flowergun = O
 		if(flowergun.cell.charge < flowergun.cell.maxcharge)
 			to_chat(user, span_notice("[flowergun] must be fully charged to lock in a mutation!"))
-			return
+			return TRUE
 		if(!myseed)
 			to_chat(user, span_warning("[src] is empty!"))
-			return
+			return TRUE
 		if(myseed.endurance <= FLORA_GUN_MIN_ENDURANCE)
 			to_chat(user, span_warning("[myseed.plantname] isn't hardy enough to sequence it's mutation!"))
-			return
+			return TRUE
 		if(!LAZYLEN(myseed.mutatelist))
 			to_chat(user, span_warning("[myseed.plantname] has nothing else to mutate into!"))
-			return
+			return TRUE
 		else
 			var/list/fresh_mut_list = list()
 			for(var/muties in myseed.mutatelist)
@@ -1054,7 +1054,7 @@
 			flowergun.cell.use(flowergun.cell.charge)
 			flowergun.update_appearance()
 			to_chat(user, span_notice("[myseed.plantname]'s mutation was set to [locked_mutation], depleting [flowergun]'s cell!"))
-			return
+			return TRUE
 	else
 		return ..()
 

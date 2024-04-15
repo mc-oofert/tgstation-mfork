@@ -1317,10 +1317,18 @@
 		return
 	if(onstation)
 		var/obj/item/card/id/card_used
+		var/pay_for_free = FALSE
 		if(isliving(usr))
 			var/mob/living/living_user = usr
 			card_used = living_user.get_idcard(TRUE)
-		if(!card_used)
+		if (iscyborg(usr) && istype(card_used, /obj/item/card/id/borg_charge_card))
+			var/obj/item/card/id/borg_charge_card/sillycon_card = card_used
+			if(!sillycon_card.pay_via_charge(usr, src, price_to_use))
+				flick(icon_deny,src)
+				vend_ready = TRUE
+				return
+			pay_for_free = TRUE
+		else if(!card_used)
 			speak("No card found.")
 			flick(icon_deny,src)
 			vend_ready = TRUE
@@ -1348,7 +1356,7 @@
 			vend_ready = TRUE
 			return
 
-		if(!proceed_payment(card_used, item_record, price_to_use))
+		if(!pay_for_free && !proceed_payment(card_used, item_record, price_to_use))
 			return
 
 	if(last_shopper != REF(usr) || purchase_message_cooldown < world.time)
@@ -1385,6 +1393,8 @@
  * passed_id - the id card that will be billed for the product
  */
 /obj/machinery/vending/proc/fetch_balance_to_use(obj/item/card/id/passed_id)
+	if(istype(passed_id, /obj/item/card/id/borg_charge_card))
+		return 400 // this also basically serves as a cap for how expensive a borg can buy
 	return passed_id.registered_account.account_balance
 
 /**

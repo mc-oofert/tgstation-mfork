@@ -1837,6 +1837,38 @@
 	. = ..()
 	. += span_notice("You could use a pen or crayon to forge a name, assignment or trim.")
 
+/obj/item/card/id/borg_charge_card
+	name = "borg payment card"
+	desc = "Allows cyborgs to pay with charge at their respective vendors."
+	icon_state = "budgetcard"
+	registered_age = null
+	var/charge_per_credit = 70 // 1 credit = charge_per_credit
+	var/static/list/allowed_vendors = list(
+		/obj/machinery/vending/hydroseeds,
+		/obj/machinery/vending/hydronutrients,
+	)
+
+/obj/item/card/id/borg_charge_card/examine(mob/user)
+	. = ..()
+	if(!.)
+		return
+	
+	. += span_notice("<b>This card is only authorized for:</b>")
+	for(var/obj/vendor_type as anything in allowed_vendors)
+		. += span_notice("[icon2html(initial(vendor_type.icon), user, initial(vendor_type.icon_state))] [initial(vendor_type.name)]")
+
+/obj/item/card/id/borg_charge_card/proc/pay_via_charge(mob/living/silicon/robot/user, atom/vendor, price)
+	. = FALSE
+	if(!(vendor.type in allowed_vendors))
+		say("Unauthorized vendor!")
+		return
+	if(!user.cell)
+		return
+	return user.cell.use(price * charge_per_credit)
+
+/obj/item/card/id/borg_charge_card/alt_click_can_use_id(mob/living/user)
+	return FALSE
+
 #undef INDEX_NAME_COLOR
 #undef INDEX_ASSIGNMENT_COLOR
 #undef INDEX_TRIM_COLOR
