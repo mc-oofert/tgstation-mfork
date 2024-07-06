@@ -342,6 +342,10 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 			message_admins("The gravity generator was brought online [ADMIN_VERBOSEJMP(src)]")
 		shake_everyone()
 
+	for(var/turf/turf as anything in get_area_turfs(get_area(src), z))
+		turf.set_explosion_block(turf.explosive_resistance + 10) //Hard to bomb indirectly so you gotta plant it up close and risk a confrontation with the crew
+
+
 
 /obj/machinery/gravity_generator/main/proc/disable()
 	charging_state = POWER_IDLE
@@ -358,6 +362,9 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 			investigate_log("was brought offline and there is now no gravity for this level.", INVESTIGATE_GRAVITY)
 			message_admins("The gravity generator was brought offline with no backup generator. [ADMIN_VERBOSEJMP(src)]")
 		shake_everyone()
+
+	for(var/turf/turf as anything in get_area_turfs(get_area(src), z))
+		turf.set_explosion_block(initial(turf.explosive_resistance))
 
 
 /obj/machinery/gravity_generator/main/proc/complete_state_update()

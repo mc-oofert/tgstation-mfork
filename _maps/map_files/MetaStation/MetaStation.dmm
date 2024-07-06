@@ -6903,6 +6903,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/prison/visit)
+"cwO" = (
+/obj/structure/girder/reinforced,
+/obj/structure/grille,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/plating/reinforced/airless,
+/area/station/engineering/gravity_generator)
 "cwP" = (
 /obj/structure/sign/poster/random/directional/west,
 /obj/effect/turf_decal/tile/neutral{
@@ -10156,6 +10162,13 @@
 /obj/effect/turf_decal/tile/purple,
 /turf/open/floor/iron/white,
 /area/station/science/explab)
+"dJI" = (
+/obj/structure/lattice,
+/obj/machinery/camera/motion/directional/south{
+	c_tag = "Gravity Generator Exterior - North"
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "dJK" = (
 /turf/open/floor/iron/stairs/right{
 	dir = 1
@@ -14293,6 +14306,11 @@
 /obj/structure/window/spawner/directional/south,
 /turf/open/floor/iron/white,
 /area/station/security/prison/mess)
+"fdo" = (
+/obj/effect/spawner/random/structure/grille,
+/obj/structure/lattice,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "fdH" = (
 /obj/machinery/atmospherics/pipe/smart/simple/purple/visible{
 	dir = 4
@@ -29104,6 +29122,10 @@
 /obj/effect/turf_decal/tile/brown/fourcorners,
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
+"kkG" = (
+/obj/structure/sign/warning,
+/turf/closed/wall/r_wall,
+/area/station/engineering/gravity_generator)
 "kkU" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera/directional/west{
@@ -36640,6 +36662,11 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/morgue,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"mXp" = (
+/obj/structure/girder/reinforced,
+/obj/structure/grille,
+/turf/open/floor/plating/reinforced/airless,
+/area/station/engineering/gravity_generator)
 "mXz" = (
 /obj/effect/landmark/generic_maintenance_landmark,
 /obj/effect/turf_decal/stripes/line,
@@ -48801,6 +48828,13 @@
 /obj/structure/table,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
+"rml" = (
+/obj/structure/lattice,
+/obj/machinery/camera/motion/directional/west{
+	c_tag = "Gravity Generator Exterior - East"
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "rmF" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Law Office Maintenance"
@@ -110830,18 +110864,18 @@ aaa
 ffP
 rLv
 rLv
-aWl
-aaa
-aox
-tCS
-tCS
-tCS
-tCS
-tCS
-tCS
-tCS
-tCS
-tCS
+fdo
+nqL
+cwO
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
 jhD
 pql
 nqL
@@ -111087,9 +111121,9 @@ lMJ
 ciU
 blx
 blx
-aWl
-aaa
-aox
+fdo
+nqL
+mXp
 nqL
 hHK
 hHK
@@ -111343,10 +111377,10 @@ aaa
 aaa
 aaa
 aaa
+lMJ
 aaa
-aaa
-aaa
-aox
+nqL
+mXp
 nqL
 oHC
 wdK
@@ -111600,10 +111634,10 @@ aaa
 aaa
 aaa
 aaa
+lMJ
 aaa
-aaa
-aaa
-aox
+nqL
+mXp
 nqL
 sdW
 hHK
@@ -111857,10 +111891,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aox
+cpH
+dJI
+nqL
+mXp
 nqL
 tdP
 wdK
@@ -112114,10 +112148,10 @@ aaa
 aaa
 aaa
 aaa
+lMJ
 aaa
-aaa
-aaa
-aox
+nqL
+mXp
 nqL
 hHK
 hHK
@@ -112373,8 +112407,8 @@ lMJ
 lMJ
 lMJ
 lMJ
-lMJ
-aox
+nqL
+mXp
 nqL
 nqL
 nqL
@@ -112628,16 +112662,16 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aox
 lMJ
 aaa
-aaa
-aaa
-aaa
-gTh
+nqL
+mXp
+mXp
+mXp
+mXp
+mXp
+mXp
+nqL
 rMJ
 oww
 xvR
@@ -112885,19 +112919,19 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aox
+cpH
 lMJ
-aaa
-aaa
-aav
-sxo
-qSh
-qSh
-tCS
-tCS
+kkG
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
+nqL
 qXB
 mSB
 tCS
@@ -113142,11 +113176,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
+lMJ
 aaa
 aaa
 aox
-lMJ
+rml
 aav
 sxo
 sxo
