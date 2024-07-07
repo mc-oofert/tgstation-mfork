@@ -3017,6 +3017,7 @@
 #include "code\modules\antagonists\blob\structures\resource.dm"
 #include "code\modules\antagonists\blob\structures\shield.dm"
 #include "code\modules\antagonists\bloodroot\bloodroot.dm"
+#include "code\modules\antagonists\bloodroot\bloodroot_hivemind.dm"
 #include "code\modules\antagonists\bloodroot\bloodroot_team.dm"
 #include "code\modules\antagonists\bloodroot\infection.dm"
 #include "code\modules\antagonists\brainwashing\brainwashing.dm"

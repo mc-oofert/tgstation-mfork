@@ -378,6 +378,21 @@
 	ph = 3
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
+/datum/reagent/toxin/plantbgone/weedkiller/on_mob_add(mob/living/affected_mob, amount)
+	. = ..()
+	if(IS_CULTIST(affected_mob))
+		to_chat(affected_mob, span_userdanger("The herbicide in your blood is killing the roots! Get rid of it!"))
+
+/datum/reagent/toxin/plantbgone/weedkiller/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	if(!IS_BLOODROOT(affected_mob))
+		return
+	if(current_cycle > 20)
+		affected_mob.Unconscious(10 SECONDS)
+		affected_mob.emote("begins to convulse!")
+		affected_mob.mind.remove_antag_datum(/datum/antagonist/bloodroot)
+		holder?.remove_reagent(type, volume)
+
 //Weed Spray
 /datum/reagent/toxin/plantbgone/weedkiller/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
 	mytray.adjust_toxic(round(volume * 0.5))

@@ -302,6 +302,7 @@
 		blood_data["features"] = dna.features
 		blood_data["factions"] = faction
 		blood_data["quirks"] = list()
+		blood_data["heatsensitive"] = IS_BLOODROOT(src)
 		for(var/V in quirks)
 			var/datum/quirk/T = V
 			blood_data["quirks"] += T.type

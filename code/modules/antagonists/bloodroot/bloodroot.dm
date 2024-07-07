@@ -5,17 +5,33 @@
 	antagpanel_category = ANTAG_GROUP_BIOHAZARDS
 	prevent_roundtype_conversion = FALSE
 	antag_hud_name = "bloodroot"
+	/// our team
 	var/datum/team/bloodroot/our_team
+	/// Our infection field
 	var/datum/proximity_monitor/advanced/bloodroot/infection_field
+	/// Time since we got infected, independent of bloodroot effect
+	var/time_since_infection = 0
+	/// Have we started being visibly deformed?
+	var/blooming = FALSE
 
 /datum/antagonist/bloodroot/get_preview_icon()
 	var/icon/icon = icon(/obj/item/food/sandwich/cheese/grilled::icon, /obj/item/food/sandwich/cheese/grilled::icon_state)
 	return finish_preview_icon(icon)
 
 /datum/antagonist/bloodroot/greet()
+	forge_objectives()
 	. = ..()
 	to_chat(owner, span_warning("You should not kill the uninfected nor sabotage the station, or do anything that would prevent infection or hinder your fellow infectees."))
 	owner.announce_objectives()
+
+/datum/antagonist/bloodroot/forge_objectives()
+	var/datum/objective/survive/objective = new
+	objective.explanation_text = "Spread the infestation by being close to the uninfected."
+	objective.owner = owner
+	objectives += objective
+	var/datum/objective/survive/objective = new
+	objective.owner = owner
+	objectives += objective
 
 /datum/antagonist/bloodroot/create_team(datum/team/bloodroot/new_team)
 	if(!new_team)
@@ -37,7 +53,44 @@
 /datum/antagonist/bloodroot/apply_innate_effects(mob/living/mob_override)
 	add_team_hud(mob_override || owner.current)
 	infection_field = new(mob_override || owner.current, range = 2, team = get_team())
+	var/datum/action/_ability = new /datum/action/cooldown/bloodroot_hivemind(mob_override || owner.current)
+	_ability.Grant(mob_override || owner.current)
 
 /datum/antagonist/bloodroot/remove_innate_effects(mob/living/mob_override)
 	QDEL_NULL(infection_field)
+	var/mob/living/the_guy = mob_override || owner.current
+	qdel(locate(/datum/action/cooldown/bloodroot_hivemind) in the_guy.actions)
+	revert_bloom()
 
+/datum/antagonist/bloodroot/proc/bloom()
+	if(bloomed)
+		return
+	bloomed = TRUE
+	var/mob/living/carbon/human/human_owner = owner.current
+	var/datum/physiology/owner_physiology = human_owner.physiology
+	owner_physiology.burn_mod += 0.5
+	owner_physiology.stamina_mod -= 0.5
+
+/datum/antagonist/bloodroot/proc/revert_bloom()
+	if(!bloomed)
+		return
+	bloomed = FALSE
+	var/mob/living/carbon/human/human_owner = owner.current
+	var/datum/physiology/owner_physiology = human_owner.physiology
+	owner_physiology.burn_mod -= 0.5
+	owner_physiology.stamina_mod += 0.5
+
+// HORRIBLE idea but
+/datum/antagonist/bloodroot/process(seconds_per_tick)
+	if(!ishuman(owner.current))
+		return
+	time_since_infection += seconds_per_tick SECONDS
+	if(time_since_infection >= 10 MINUTES && !bloomed)
+		bloom()
+		to_chat(owner.current, span_userdanger("Your form begins to decay and bloom..."))
+		to_chat(owner.current, span_notice("You are now slightly more resistant to stamina damage."))
+		to_chat(owner.current, span_warning("You are weaker to burns."))
+		to_chat(owner.current, span_danger("Your form will continue to decay. Its only a matter of time before youre forced to shed your own."))
+	else if(time_since_infection >= 35 MINUTES)
+		pass()
+		//gib + make monster

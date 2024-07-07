@@ -314,7 +314,19 @@
 		if(D)
 			D.Neuter()
 
+/datum/chemical_reaction/root_blood_heated_up
+	required_reagents = list(/datum/reagent/blood = 1)
+	reaction_flags = REACTION_INSTANT
+	required_other = TRUE
+	mix_message = "The blood starts forming thin strands and tries to escape out of the container!"
+	mob_react = FALSE
+	required_temp = 474
 
+/datum/chemical_reaction/root_blood_heated_up/pre_reaction_other_checks(datum/reagents/holder)
+	. = FALSE
+	var/datum/reagent/blood = holder.has_reagent(required_reagents[length(required_reagents)])
+	if(blood?.data["heatsensitive"])
+		return TRUE
 
 ////////////////////////////////// foam and foam precursor ///////////////////////////////////////////////////
 

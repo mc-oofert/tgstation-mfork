@@ -1,6 +1,3 @@
-/datum/atom_hud/alternate_appearance/basic/has_antagonist/bloodroot_infection
-
-
 //This infection is gained by being around the infected. The mindshielded gain it slower and lose it faster.
 /datum/status_effect/bloodroot_infection
 	id = "bloodroot"
@@ -74,7 +71,7 @@
 	team = null
 	return ..()
 
-/datum/proximity_monitor/advanced/bloodroot/field_turf_crossed(mob/living/carbon/entered, turf/old_location, turf/new_location)
+/datum/proximity_monitor/advanced/bloodroot/field_turf_crossed(mob/living/carbon/human/entered, turf/old_location, turf/new_location)
 	if (!istype(entered) || !entered.mind)
 		return
 
@@ -113,6 +110,19 @@
 	if (former_mob in tracked_mobs)
 		tracked_mobs -= former_mob
 
+/datum/proximity_monitor/advanced/bloodroot/proc/can_we_convert_this_dude(mob/living/carbon/human/carbon)
+	if(!istype(carbon))
+		return FALSE
+	if(!carbon.has_dna())
+		return FALSE // gtfo people with blood only
+	if(IS_BLOODROOT(carbon))
+		return FALSE // i mean we also check it in the process but in process its needed to remove them from the list
+	if(IS_CHANGELING(carbon) || IS_CULTIST(carbon))
+		return FALSE //the biological horror and the bloodcult is immune
+	if(carbon.head?.get_armor_rating(BIO) + carbon.wear_suit?.get_armor_rating(BIO) > 200)
+		return FALSE //biosuit
+	return TRUE
+
 /datum/proximity_monitor/advanced/bloodroot/process(seconds_per_tick)
 	var/mob/living/our_host = host
 	if(our_host.stat == DEAD)
@@ -121,6 +131,8 @@
 	for(var/mob/living/carbon/carbon as anything in tracked_mobs)
 		if(IS_BLOODROOT(carbon))
 			tracked_mobs -= carbon //theyve just been infected
+			continue
+		if(!can_we_convert_this_dude(carbon))
 			continue
 		var/datum/status_effect/bloodroot_infection/infection = carbon.has_status_effect(/datum/status_effect/bloodroot_infection)
 		if(!istype(infection))
