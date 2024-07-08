@@ -13,6 +13,8 @@
 	var/time_since_infection = 0
 	/// Have we started being visibly deformed?
 	var/blooming = FALSE
+	/// bloom overlay
+	var/mutable_appearance/bloom_overlay
 
 /datum/antagonist/bloodroot/get_preview_icon()
 	var/icon/icon = icon(/obj/item/food/sandwich/cheese/grilled::icon, /obj/item/food/sandwich/cheese/grilled::icon_state)
@@ -29,7 +31,8 @@
 	objective.explanation_text = "Spread the infestation by being close to the uninfected."
 	objective.owner = owner
 	objectives += objective
-	var/datum/objective/survive/objective = new
+
+	objective = new
 	objective.owner = owner
 	objectives += objective
 
@@ -55,37 +58,46 @@
 	infection_field = new(mob_override || owner.current, range = 2, team = get_team())
 	var/datum/action/_ability = new /datum/action/cooldown/bloodroot_hivemind(mob_override || owner.current)
 	_ability.Grant(mob_override || owner.current)
+	START_PROCESSING(SSobj, src)
 
 /datum/antagonist/bloodroot/remove_innate_effects(mob/living/mob_override)
 	QDEL_NULL(infection_field)
 	var/mob/living/the_guy = mob_override || owner.current
 	qdel(locate(/datum/action/cooldown/bloodroot_hivemind) in the_guy.actions)
 	revert_bloom()
+	STOP_PROCESSING(SSobj, src)
 
 /datum/antagonist/bloodroot/proc/bloom()
-	if(bloomed)
+	if(blooming)
 		return
-	bloomed = TRUE
+	blooming = TRUE
 	var/mob/living/carbon/human/human_owner = owner.current
 	var/datum/physiology/owner_physiology = human_owner.physiology
-	owner_physiology.burn_mod += 0.5
+	owner_physiology.burn_mod += 0.3
 	owner_physiology.stamina_mod -= 0.5
+	bloom_overlay = mutable_appearance('icons/mob/effects/bloodroot_veins.dmi', "veins", -BODY_ADJ_LAYER)
+	bloom_overlay.blend_mode = BLEND_INSET_OVERLAY
+	owner.current.add_overlay(bloom_overlay)
 
 /datum/antagonist/bloodroot/proc/revert_bloom()
-	if(!bloomed)
+	if(!blooming)
 		return
-	bloomed = FALSE
+	blooming = FALSE
 	var/mob/living/carbon/human/human_owner = owner.current
 	var/datum/physiology/owner_physiology = human_owner.physiology
-	owner_physiology.burn_mod -= 0.5
+	owner_physiology.burn_mod -= 0.3
 	owner_physiology.stamina_mod += 0.5
+	human_owner.cut_overlay(bloom_overlay)
 
 // HORRIBLE idea but
 /datum/antagonist/bloodroot/process(seconds_per_tick)
 	if(!ishuman(owner.current))
 		return
+	var/mob/living/carbon/human/us = owner.current
+	if(us.stat == DEAD)
+		return
 	time_since_infection += seconds_per_tick SECONDS
-	if(time_since_infection >= 10 MINUTES && !bloomed)
+	if(time_since_infection >= 10 MINUTES && !blooming)
 		bloom()
 		to_chat(owner.current, span_userdanger("Your form begins to decay and bloom..."))
 		to_chat(owner.current, span_notice("You are now slightly more resistant to stamina damage."))

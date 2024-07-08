@@ -22,8 +22,7 @@
 		return
 
 	var/mob/living/carbon/carbon_owner = owner
-	input[1] = uppertext(input[1]) //uppercase first letter
-	var/message = span_mind_control("(Rootmind) [istype(carbon_owner) ? carbon_owner.real_name : owner]: [input]")
+	var/message = span_mind_control("(Rootmind) [istype(carbon_owner) ? carbon_owner.real_name : owner]: [capitalize(input)]")
 	for(var/member in root_team.members)
 		to_chat(member, message)
 	for(var/ghost in GLOB.dead_mob_list)
