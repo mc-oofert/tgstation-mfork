@@ -104,5 +104,6 @@
 		to_chat(owner.current, span_warning("You are weaker to burns."))
 		to_chat(owner.current, span_danger("Your form will continue to decay. Its only a matter of time before youre forced to shed your own."))
 	else if(time_since_infection >= 35 MINUTES)
-		pass()
-		//gib + make monster
+		var/horror = new /mob/living/basic/root_monster(owner.current.loc)
+		owner.transfer_to(horror)
+		owner.current.gib()
