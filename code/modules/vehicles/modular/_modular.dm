@@ -1,4 +1,6 @@
 /obj/vehicle/sealed/modular_car
+	icon = 'icons/mob/rideables/vehicles.dmi'
+	icon_state = "error" // you NEED an icon for it to be clickable in testing
 	/// car slot to max amount of equipment in that slot
 	var/list/slot_max = list(
 		CAR_ENGINE = 1, //duh
@@ -9,6 +11,16 @@
 	var/list/obj/item/modcar_equipment/equipment = list()
 	/// Is the hood open?
 	var/hood_open = FALSE
+
+//todo put this in some sort of action button or UI button
+/obj/vehicle/sealed/modular_car/proc/toggle_hood()
+	hood_open = !hood_open
+	if(hood_open)
+		playsound(src, 'sound/effects/bin_open.ogg', 50, TRUE)
+	else
+		playsound(src, 'sound/effects/bin_close.ogg', 50, TRUE)
+
+	update_appearance()
 
 /// Returns the mutually exclusive part
 /obj/vehicle/sealed/modular_car/proc/is_mutually_excluded(obj/item/modcar_equipment/the_item)
@@ -27,7 +39,7 @@
 		return
 
 	if(!hood_open)
-		balloon_alert("open hood!")
+		balloon_alert(user ,"open hood!")
 		return ITEM_INTERACT_BLOCKING
 
 	if(length(equipment[new_equipment.slot]) >= slot_max[new_equipment.slot])
@@ -44,6 +56,23 @@
 		balloon_alert(user, "equipped")
 		return ITEM_INTERACT_SUCCESS
 
+/obj/vehicle/sealed/modular_car/crowbar_act(mob/living/user, obj/item/tool)
+	if(user.combat_mode)
+		return
+
+	if(!hood_open)
+		balloon_alert(user, "open hood!")
+		return ITEM_INTERACT_BLOCKING
+
+	var/chosen_part = tgui_input_list(user, "Remove what?", "Equipment Removal", equipment)
+	if(!chosen_part || !can_interact(user))
+		return ITEM_INTERACT_BLOCKING
+
+	if(unequip_item(user, chosen_part))
+		tool.play_tool_sound(src)
+		return ITEM_INTERACT_SUCCESS
+	else
+		return ITEM_INTERACT_BLOCKING
 
 /obj/vehicle/sealed/modular_car/proc/equip_item(mob/living/user, obj/item/modcar_equipment/new_equipment)
 	. = FALSE
@@ -65,5 +94,19 @@
 	LAZYADD(equipment[new_equipment.slot], new_equipment)
 	new_equipment.chassis = src
 	new_equipment.on_attach()
+
+	return TRUE
+
+/obj/vehicle/sealed/modular_car/proc/unequip_item(mob/living/user, obj/item/modcar_equipment/to_remove)
+	. = FALSE
+	if(!istype(to_remove))
+		CRASH("somehow tried to unequip nonequipment from a modular car") //stop
+
+	if(!isnull(user) || user.put_in_hands(to_remove))
+		to_remove.forceMove(drop_location())
+
+	LAZYREMOVE(equipment[to_remove.slot], to_remove)
+	to_remove.chassis = null
+	to_remove.on_detach()
 
 	return TRUE
