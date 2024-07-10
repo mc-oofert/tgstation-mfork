@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/modular_car
-	icon = 'icons/mob/rideables/vehicles.dmi'
-	icon_state = "error" // you NEED an icon for it to be clickable in testing
+	icon = 'icons/mob/rideables/dynamic_car/chassis.dmi'
+	icon_state = "basic_car"
 	/// car slot to max amount of equipment in that slot
 	var/list/slot_max = list(
 		CAR_ENGINE = 1, //duh
