@@ -64,7 +64,10 @@
 		balloon_alert(user, "open hood!")
 		return ITEM_INTERACT_BLOCKING
 
-	var/chosen_part = tgui_input_list(user, "Remove what?", "Equipment Removal", equipment)
+	var/list/all_parts = list()
+	for(var/the_slot as anything in equipment)
+		all_parts += equipment[the_slot]
+	var/chosen_part = tgui_input_list(user, "Remove what?", "Equipment Removal", all_parts)
 	if(!chosen_part || !can_interact(user))
 		return ITEM_INTERACT_BLOCKING
 
@@ -102,7 +105,7 @@
 	if(!istype(to_remove))
 		CRASH("somehow tried to unequip nonequipment from a modular car") //stop
 
-	if(!isnull(user) || user.put_in_hands(to_remove))
+	if(isnull(user) || !user.put_in_hands(to_remove))
 		to_remove.forceMove(drop_location())
 
 	LAZYREMOVE(equipment[to_remove.slot], to_remove)
