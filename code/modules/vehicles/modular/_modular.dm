@@ -1,5 +1,5 @@
 /obj/vehicle/sealed/modular_car
-	icon = 'icons/mob/rideables/dynamic_car/chassis.dmi'
+	icon = 'icons/mob/rideables/modular_car/chassis.dmi'
 	icon_state = "basic_car"
 	/// car slot to max amount of equipment in that slot
 	var/list/slot_max = list(
