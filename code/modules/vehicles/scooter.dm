@@ -66,7 +66,7 @@
 		QDEL_NULL(sparks)
 	return ..()
 
-/obj/vehicle/ridden/scooter/skateboard/relaymove(mob/living/user, direction)
+/obj/vehicle/ridden/scooter/skateboard/relaydrive(mob/living/user, direction)
 	if (grinding || world.time < next_crash)
 		return FALSE
 	return ..()

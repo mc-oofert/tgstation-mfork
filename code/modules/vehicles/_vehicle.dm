@@ -183,11 +183,7 @@
 	UnregisterSignal(trailer, COMSIG_QDELETING)
 	trailer = null
 
-/obj/vehicle/Move(newloc, dir)
-	// It is unfortunate, but this is the way to make it not mess up
-	var/atom/old_loc = loc
-	// When we do this, it will set the loc to the new loc
+/obj/vehicle/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
 	. = ..()
 	if(trailer && .)
-		var/dir_to_move = get_dir(trailer.loc, old_loc)
-		step(trailer, dir_to_move)
+		trailer.Move(old_loc)
