@@ -4,7 +4,7 @@
  * Mechs are now (finally) vehicles, this means you can make them multicrew
  * They can also grant select ability buttons based on occupant bitflags
  *
- * Movement is handled through vehicle_move() which is called by relaymove
+ * Movement is handled through vehicle_move() which is called by relaydrive
  * Clicking is done by way of signals registering to the entering mob
  * NOTE: MMIS are NOT mobs but instead contain a brain that is, so you need special checks
  * AI also has special checks becaus it gets in and out of the mech differently

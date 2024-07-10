@@ -84,7 +84,7 @@
 		power_cell = null
 	return ..()
 
-/obj/vehicle/ridden/wheelchair/motorized/relaymove(mob/living/user, direction)
+/obj/vehicle/ridden/wheelchair/motorized/relaydrive(mob/living/user, direction)
 	if(!power_cell)
 		to_chat(user, span_warning("There seems to be no cell installed in [src]."))
 		canmove = FALSE

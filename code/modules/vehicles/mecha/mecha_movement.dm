@@ -59,11 +59,9 @@
 	SIGNAL_HANDLER
 	return COMSIG_IGNORE_MOVEMENT_LOCK
 
-/obj/vehicle/sealed/mecha/relaymove(mob/living/user, direction)
-	. = TRUE
-	if(!canmove || !(user in return_drivers()))
-		return
-	if (!vehicle_move(direction))
+/obj/vehicle/sealed/mecha/relaydrive(mob/living/user, direction)
+	. = ..()
+	if(!.)
 		return
 	SEND_SIGNAL(user, COMSIG_MOB_DROVE_MECH, src)
 

@@ -1,6 +1,11 @@
 /obj/vehicle/sealed/modular_car
 	icon = 'icons/mob/rideables/modular_car/chassis_64x64.dmi'
 	icon_state = "basic_car"
+	layer = ABOVE_MOB_LAYER
+	move_resist = MOVE_FORCE_VERY_STRONG
+	base_pixel_x = -16
+	pixel_x = -16
+	max_occupants = 4
 	/// car slot to max amount of equipment in that slot
 	var/list/slot_max = list(
 		CAR_ENGINE = 1, //duh

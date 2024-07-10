@@ -84,9 +84,8 @@
 	return ..()
 
 /obj/vehicle/sealed/car/relaymove(mob/living/user, direction)
-	if(is_driver(user) && canmove && (!key_type || istype(inserted_key, key_type)))
-		vehicle_move(direction)
-	return TRUE
+	if(!key_type || istype(inserted_key, key_type))
+		return ..()
 
 /obj/vehicle/sealed/car/vehicle_move(direction)
 	if(!COOLDOWN_FINISHED(src, cooldown_vehicle_move))

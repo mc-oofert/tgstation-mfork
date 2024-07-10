@@ -156,12 +156,13 @@
 /obj/vehicle/sealed/AllowDrop()
 	return FALSE
 
-/obj/vehicle/sealed/relaymove(mob/living/user, direction)
-	if(canmove)
-		vehicle_move(direction)
-	return TRUE
+/obj/vehicle/sealed/relaydrive(mob/living/user, direction)
+	. = ..() //signal
+	if(!.)
+		return
+	return vehicle_move(direction)
 
-/// Sinced sealed vehicles (cars and mechs) don't have riding components, the actual movement is handled here from [/obj/vehicle/sealed/proc/relaymove]
+/// Sinced sealed vehicles (cars and mechs) don't have riding components, the actual movement is handled here from [/obj/vehicle/sealed/relaydrive]
 /obj/vehicle/sealed/proc/vehicle_move(direction)
 	return FALSE
 
