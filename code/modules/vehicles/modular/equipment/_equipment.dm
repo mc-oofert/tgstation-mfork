@@ -12,6 +12,9 @@
 	. = ..()
 	chassis = null
 
+/// Return either the icon_state as a string or an overlay outright
+/obj/item/modcar_equipment/proc/get_overlay()
+
 /obj/item/modcar_equipment/proc/on_attach()
 
 /obj/item/modcar_equipment/proc/on_detach()

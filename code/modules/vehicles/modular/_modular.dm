@@ -12,6 +12,17 @@
 	/// Is the hood open?
 	var/hood_open = FALSE
 
+/obj/vehicle/sealed/modular_car/update_overlays()
+	. = ..()
+
+	//hood goes here
+
+	for(var/obj/item/modcar_equipment/attachment as anything in get_all_parts())
+		var/overlay = attachment.get_overlay()
+		if(!overlay) //this probably handles nulls on its own but just to be safe
+			continue
+		. += overlay
+
 //todo put this in some sort of action button or UI button
 /obj/vehicle/sealed/modular_car/proc/toggle_hood()
 	hood_open = !hood_open
@@ -21,17 +32,6 @@
 		playsound(src, 'sound/effects/bin_close.ogg', 50, TRUE)
 
 	update_appearance()
-
-/// Returns the mutually exclusive part
-/obj/vehicle/sealed/modular_car/proc/is_mutually_excluded(obj/item/modcar_equipment/the_item)
-	. = FALSE
-	if(!istype(the_item))
-		return //bug
-	for(var/obj/item/modcar_equipment/attached as anything in equipment)
-		if(is_type_in_typecache(attached, the_item.mutually_exclusive_with))
-			return attached
-		if(is_type_in_typecache(the_item, attached.mutually_exclusive_with))
-			return attached
 
 /obj/vehicle/sealed/modular_car/item_interaction(mob/living/user, obj/item/modcar_equipment/new_equipment, list/modifiers)
 	. = NONE
@@ -64,10 +64,7 @@
 		balloon_alert(user, "open hood!")
 		return ITEM_INTERACT_BLOCKING
 
-	var/list/all_parts = list()
-	for(var/the_slot as anything in equipment)
-		all_parts += equipment[the_slot]
-	var/chosen_part = tgui_input_list(user, "Remove what?", "Equipment Removal", all_parts)
+	var/chosen_part = tgui_input_list(user, "Remove what?", "Equipment Removal", get_all_parts())
 	if(!chosen_part || !can_interact(user))
 		return ITEM_INTERACT_BLOCKING
 
@@ -98,6 +95,8 @@
 	new_equipment.chassis = src
 	new_equipment.on_attach()
 
+	update_appearance()
+
 	return TRUE
 
 /obj/vehicle/sealed/modular_car/proc/unequip_item(mob/living/user, obj/item/modcar_equipment/to_remove)
@@ -111,5 +110,7 @@
 	LAZYREMOVE(equipment[to_remove.slot], to_remove)
 	to_remove.chassis = null
 	to_remove.on_detach()
+
+	update_appearance()
 
 	return TRUE
