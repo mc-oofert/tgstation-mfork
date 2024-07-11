@@ -23,6 +23,14 @@
 			continue
 		. += overlay
 
+/obj/vehicle/sealed/modular_car/vehicle_move(direction)
+	if(!length(equipment[CAR_SLOT_ENGINE]))
+		return
+	if(!length(equipment[CAR_SLOT_WHEELS]))
+		return
+	var/obj/item/modcar_equipment/propulsion/propulsion = equipment[CAR_SLOT_ENGINE]
+	propulsion.vehicle_move(direction)
+
 //todo put this in some sort of action button or UI button
 /obj/vehicle/sealed/modular_car/proc/toggle_hood()
 	hood_open = !hood_open
