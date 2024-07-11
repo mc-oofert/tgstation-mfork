@@ -36,7 +36,7 @@
 	if(speed_multiplier <= 0)
 		return
 
-	if(!COOLDOWN_FINISHED(cooldown_vehicle_move))
+	if(!COOLDOWN_FINISHED(src, cooldown_vehicle_move))
 		return
 
 	COOLDOWN_START(src, cooldown_vehicle_move, movedelay * speed_multiplier)
