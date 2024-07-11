@@ -24,9 +24,9 @@
 		. += overlay
 
 /obj/vehicle/sealed/modular_car/vehicle_move(direction)
-	if(!length(equipment[CAR_SLOT_ENGINE]))
+	if(!equipment[CAR_SLOT_ENGINE])
 		return
-	if(!length(equipment[CAR_SLOT_WHEELS]))
+	if(!equipment[CAR_SLOT_WHEELS])
 		return
 	var/obj/item/modcar_equipment/propulsion/propulsion = equipment[CAR_SLOT_ENGINE]
 	return propulsion.vehicle_move(direction)
