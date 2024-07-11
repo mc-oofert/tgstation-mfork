@@ -47,16 +47,30 @@
 		balloon_alert(user ,"open hood!")
 		return ITEM_INTERACT_BLOCKING
 
-	if(length(equipment[new_equipment.slot]) >= slot_max[new_equipment.slot])
-		balloon_alert(user, "not enough space in the [new_equipment.slot]!")
-		return ITEM_INTERACT_BLOCKING
+	var/what_slot
+	if(islist(new_equipment.slot))
+		var/list/notfullslots = list()
+		for(var/slot in equipment)
+			if(length(equipment[slot] >= slot_max[slot]))
+				continue
+			notfullslots += slot
+
+		what_slot = length(notfullslots) >= 1 ? tgui_input_list(user, "What slot?", "What slot?", notfullslots) : pick(notfullslots)
+		if(!what_slot)
+			balloon_alert(user, "not enough space!")
+			return ITEM_INTERACT_BLOCKING
+	else
+		what_slot = new_equipment.slot
+		if(length(equipment[what_slot]) >= slot_max[what_slot])
+			balloon_alert(user, "not enough space in the [what_slot]!")
+			return ITEM_INTERACT_BLOCKING
 
 	var/exclusive_part = is_mutually_excluded(new_equipment)
 	if(exclusive_part)
 		balloon_alert(user, "exclusive with [exclusive_part]!")
 		return ITEM_INTERACT_BLOCKING
 
-	if(equip_item(user, new_equipment))
+	if(equip_item(user, new_equipment, what_slot))
 		to_chat(user, span_notice("You equip the car with [new_equipment]."))
 		balloon_alert(user, "equipped")
 		return ITEM_INTERACT_SUCCESS
@@ -79,15 +93,18 @@
 	else
 		return ITEM_INTERACT_BLOCKING
 
-/obj/vehicle/sealed/modular_car/proc/equip_item(mob/living/user, obj/item/modcar_equipment/new_equipment)
+/obj/vehicle/sealed/modular_car/proc/equip_item(mob/living/user, obj/item/modcar_equipment/new_equipment, slot)
 	. = FALSE
 	if(!istype(new_equipment))
 		CRASH("somehow tried to equip nonequipment into a modular car") //stop
 
+	if(!(slot in new_equipment.slot))
+		return
+
 	if(new_equipment.chassis)
 		CRASH("tried to equip equipped equipment into a modular car")
 
-	if(length(equipment[new_equipment.slot]) >= slot_max[new_equipment.slot])
+	if(length(equipment[slot]) >= slot_max[slot])
 		return
 
 	if(!isnull(user))
@@ -96,8 +113,9 @@
 	else
 		new_equipment.forceMove(src)
 
-	LAZYADD(equipment[new_equipment.slot], new_equipment)
+	LAZYADD(equipment[slot], new_equipment)
 	new_equipment.chassis = src
+	new_equipment.equipped_slot = slot
 	new_equipment.on_attach()
 
 	update_appearance()
@@ -114,6 +132,7 @@
 
 	LAZYREMOVE(equipment[to_remove.slot], to_remove)
 	to_remove.chassis = null
+	to_remove.equipped_slot = null
 	to_remove.on_detach()
 
 	update_appearance()

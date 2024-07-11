@@ -1,8 +1,10 @@
 /obj/item/modcar_equipment
 	name = "generic modcar equipment"
 	desc = "this is a bug call a coder"
-	/// the slot we go in
+	/// the slot we go in, may be a list if can be put in multiple slots
 	var/slot = CAR_MISC
+	/// equipped slot
+	var/equipped_slot
 	/// Typecache of parts we are exclusive with, this means if it and all subtypes are present you may not put this part in
 	var/list/mutually_exclusive_with
 	/// the chassis we are attached to, null if not
