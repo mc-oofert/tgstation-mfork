@@ -36,6 +36,8 @@
 	if(speed_multiplier <= 0)
 		return
 
+	return TRUE
+
 //todo put this in some sort of action button or UI button
 /obj/vehicle/sealed/modular_car/proc/toggle_hood()
 	hood_open = !hood_open
