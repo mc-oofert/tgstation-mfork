@@ -2,6 +2,8 @@
 	slot = CAR_SLOT_WHEELS
 
 /obj/item/modcar_equipment/propulsion/proc/vehicle_move(direction)
+	chassis.after_move(direction)
+	return chassis.try_step_multiz(direction)
 
 /obj/item/modcar_equipment/propulsion/wheels
 	name = "basic wheels"
