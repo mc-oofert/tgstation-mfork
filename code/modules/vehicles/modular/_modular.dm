@@ -118,5 +118,5 @@
 
 /obj/vehicle/sealed/modular_car/prebuilt/Initialize(mapload)
 	. = ..()
-	equip_item(new_equipment = new /obj/item/modcar_equipment/propulsion/wheels)
-	//todo line with the actual engine that we dont have
+	equip_item(new_equipment = new /obj/item/modcar_equipment/wheels)
+	equip_item(new_equipment = new /obj/item/modcar_equipment/engine)
