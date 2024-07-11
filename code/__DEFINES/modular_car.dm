@@ -1,3 +1,3 @@
-#define CAR_ENGINE "engine slot"
-#define CAR_PROPULSION "propulsion slot"
-#define CAR_MISC "miscellaneous slot"
+#define CAR_SLOT_ENGINE "engine slot"
+#define CAR_SLOT_BACK "back slot"
+#define CAR_SLOT_WHEELS "wheel slots"

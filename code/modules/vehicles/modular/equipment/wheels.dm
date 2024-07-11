@@ -1,7 +1,8 @@
 /obj/item/modcar_equipment/wheels
 	name = "basic wheels"
 	desc = "A regular set of car wheels."
-	slot = CAR_PROPULSION
+	slot = CAR_SLOT_WHEELS
+
 	var/wheel_icon_state = "basic_wheels"
 	var/wheel_height = 6
 

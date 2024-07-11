@@ -2,7 +2,7 @@
 	name = "generic modcar equipment"
 	desc = "this is a bug call a coder"
 	/// the slot we go in
-	var/slot = CAR_MISC
+	var/slot
 	/// the chassis we are attached to, null if not
 	var/obj/vehicle/sealed/modular_car/chassis
 
