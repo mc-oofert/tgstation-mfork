@@ -36,7 +36,12 @@
 	if(speed_multiplier <= 0)
 		return
 
-	return TRUE
+	if(!COOLDOWN_FINISHED(cooldown_vehicle_move))
+		return
+
+	COOLDOWN_START(src, cooldown_vehicle_move, movedelay * speed_multiplier)
+
+	try_step_multiz(direction)
 
 //todo put this in some sort of action button or UI button
 /obj/vehicle/sealed/modular_car/proc/toggle_hood()
