@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/modular_car
 	icon = 'icons/mob/rideables/modular_car/chassis_64x64.dmi'
-	icon_state = "basic_car"
+	icon_state = "basic_chassis"
 	layer = ABOVE_MOB_LAYER
 	move_resist = MOVE_FORCE_VERY_STRONG
 	base_pixel_x = -16
