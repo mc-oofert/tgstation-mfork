@@ -39,7 +39,7 @@
 	if(!COOLDOWN_FINISHED(src, cooldown_vehicle_move))
 		return
 
-	COOLDOWN_START(src, cooldown_vehicle_move, movedelay * speed_multiplier)
+	COOLDOWN_START(src, cooldown_vehicle_move, movedelay / speed_multiplier)
 
 	try_step_multiz(direction)
 
