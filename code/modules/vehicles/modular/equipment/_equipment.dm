@@ -19,3 +19,6 @@
 
 /obj/item/modcar_equipment/proc/unequip()
 	chassis?.unequip_item(null, src)
+
+/obj/item/modcar_equipment/wheels/proc/get_speed_multiplier()
+	return 1

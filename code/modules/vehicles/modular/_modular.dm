@@ -28,8 +28,13 @@
 		return
 	if(!equipment[CAR_SLOT_WHEELS])
 		return
-	var/obj/item/modcar_equipment/propulsion/propulsion = equipment[CAR_SLOT_ENGINE]
-	return propulsion.vehicle_move(direction)
+
+	var/speed_multiplier = 1
+	for(var/obj/item/modcar_equipment/mod_equipment as anything in get_all_parts())
+		speed_multiplier *= mod_equipment.get_speed_multiplier()
+
+	if(speed_multiplier <= 0)
+		return
 
 //todo put this in some sort of action button or UI button
 /obj/vehicle/sealed/modular_car/proc/toggle_hood()
