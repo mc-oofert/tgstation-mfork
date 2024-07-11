@@ -76,8 +76,11 @@
 /obj/vehicle/sealed/modular_car/proc/equip_item(mob/living/user, obj/item/modcar_equipment/new_equipment)
 	. = FALSE
 
-	if(!user.transferItemToLoc(new_equipment, src))
-		return
+	if(!isnull(user))
+		if(!user.transferItemToLoc(new_equipment, src))
+			return
+	else
+		new_equipment.forceMove(src)
 
 	equipment[new_equipment.slot] = new_equipment
 	new_equipment.chassis = src
@@ -105,6 +108,13 @@
 
 /obj/vehicle/sealed/modular_car/Destroy()
 	. = ..()
-	for(var/to_delete as anything in equipment)
-		qdel(to_delete)
-	equipment = list() // just in case *something* still runs (it shouldnt)
+	QDEL_LIST_ASSOC_VAL(equipment)
+
+// prebuilt
+
+/obj/vehicle/sealed/modular_car/prebuilt
+
+/obj/vehicle/sealed/modular_car/prebuilt/Initialize(mapload)
+	. = ..()
+	equip_item(new_equipment = new /obj/item/modcar_equipment/propulsion/wheels)
+	//todo line with the actual engine that we dont have
