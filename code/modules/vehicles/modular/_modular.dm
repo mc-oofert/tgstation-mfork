@@ -82,9 +82,9 @@
 	else if(!QDELING(to_remove))
 		to_remove.forceMove(drop_location())
 
-	equipment[to_remove.slot] = null
-	to_remove.chassis = null
 	to_remove.on_detach()
+	to_remove.chassis = null
+	equipment[to_remove.slot] = null
 
 	update_appearance()
 
