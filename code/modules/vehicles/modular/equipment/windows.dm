@@ -3,7 +3,7 @@
 
 	var/obj/item/stack/sheet/glass/glass_stack
 
-/obj/item/modcar_equipment/windows/set_stack(glass_stack)
+/obj/item/modcar_equipment/windows/proc/set_stack(glass_stack)
 	src.glass_stack = glass_stack
 
 /obj/item/modcar_equipment/windows/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
