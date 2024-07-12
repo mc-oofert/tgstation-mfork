@@ -126,7 +126,7 @@
 
 	if(user)
 		user.put_in_hands(drop_item) // this already handles drop_item being null and dropping it on the floor in case of failure
-	else if(!QDELING(drop_item))
+	else if(!QDELETED(drop_item))
 		drop_item.forceMove(drop_location())
 
 	to_remove.on_detach(user)

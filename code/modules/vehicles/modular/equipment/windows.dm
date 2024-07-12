@@ -17,7 +17,9 @@
 	qdel(src)
 
 /obj/item/modcar_equipment/windows/get_overlay()
-	var/icon_state = rolled_down ? glass_icon_state + "_down" : glass_icon_state
+	/*var/icon_state = rolled_down ? glass_icon_state + "_down" : glass_icon_state
+	var/mutable_appearance/overlay = mutable_appearance('icons/mob/rideables/modular_car/chassis_64x64.dmi', icon_state) fix this shit when we have the overlays*/
+	return overlay
 
 /obj/item/modcar_equipment/windows/get_drop_item()
 	return glass_stack
@@ -26,6 +28,6 @@
 
 /obj/item/modcar_equipment/windows/proc/roll_down()
 
-/obj/item/modcar_equipment/windows/proc/set_stack(glass_stack)
-	src.glass_stack = glass_stack
+/obj/item/modcar_equipment/windows/proc/set_stack(stack)
+	glass_stack = stack
 	glass_stack.forceMove(src)
