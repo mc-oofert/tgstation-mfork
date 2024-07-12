@@ -26,3 +26,7 @@
 
 /obj/item/modcar_equipment/proc/get_speed_multiplier()
 	return 1
+
+/// Return whatever item this should drop when detached (defaults to itself)
+/obj/item/modcar_equipment/proc/get_drop_item()
+	return src
