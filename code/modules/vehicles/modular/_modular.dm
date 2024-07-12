@@ -110,7 +110,7 @@
 	if(user)
 		if(!user.transferItemToLoc(new_equipment, src))
 			return
-		playsound(src, 'sounds/machines/click.ogg')
+		playsound(src, 'sound/machines/click.ogg')
 	else
 		new_equipment.forceMove(src)
 
