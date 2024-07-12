@@ -168,6 +168,9 @@
 		else if(loc)
 			loc.assume_air(air.remove_ratio(1))
 
+/// Toggles the hood of the car, if it has one.
+/obj/vehicle/sealed/modular_car/proc/toggle_hood(mob/user)
+
 /obj/vehicle/sealed/modular_car/remove_air(amount)
 	if(are_windows_up())
 		return air.remove(amount)

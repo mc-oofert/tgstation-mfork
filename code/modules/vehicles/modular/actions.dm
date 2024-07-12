@@ -15,8 +15,8 @@
 	car.toggle_headlights(owner)
 
 /datum/action/vehicle/sealed/modcar_hood
-	name = "Toggle Hood Lock"
-	desc = "Toggles your hood, necessary for removal and adding of parts."
+	name = "Toggle Hood"
+	desc = "Turns out you can't drill through solid metal to modify your engine."
 	background_icon = 'icons/mob/actions/actions_vehicle.dmi'
 	background_icon_state = "background"
 	button_icon_state = "modcar_hood"
@@ -24,17 +24,14 @@
 /datum/action/vehicle/sealed/modcar_hood/Trigger(trigger_flags)
 	. = ..()
 	var/obj/vehicle/sealed/modular_car/car = vehicle_entered_target
-	car.hood_open = !car.hood_open
-	if(car.hood_open)
-		playsound(car, 'sound/effects/bin_open.ogg', 50, TRUE)
-	else
-		playsound(car, 'sound/effects/bin_close.ogg', 50, TRUE)
 
-	car.update_appearance()
+	car.toggle_hood()
+
+	playsound(car, car.hood_open ? 'sound/effects/bin_open.ogg' : 'sound/effects/bin_close.ogg', 50, TRUE)
 
 /datum/action/vehicle/sealed/modcar_windows
 	name = "Toggle Windows"
-	desc = "Toggles your windows. If the windows are up, the car is airtight."
+	desc = "If the windows are up, the car is airtight, trapping a portion of the surrounding air inside. Said air is released if they are rolled down or removed."
 	background_icon = 'icons/mob/actions/actions_vehicle.dmi'
 	background_icon_state = "background"
 	button_icon_state = "modcar_windows"
