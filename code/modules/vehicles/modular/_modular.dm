@@ -163,23 +163,21 @@
 
 	var/datum/gas_mixture/environment_air = loc.return_air()
 	if(!isnull(environment_air))
-		if(windows_up)
+		if(windows.up)
 			environment_air.pump_gas_to(air, environment_air.return_pressure())
 		else if(loc)
 			loc.assume_air(air.remove_ratio(1))
 
 /obj/vehicle/sealed/modular_car/remove_air(amount)
-	if(equipment[CAR_SLOT_WINDOWS] && windows_up)
+	if(are_windows_up())
 		return air.remove(amount)
 	return ..()
 
 /obj/vehicle/sealed/modular_car/return_air()
-	if(equipment[CAR_SLOT_WINDOWS] && windows_up)
-		return air
-	return ..()
+	return are_windows_up() ? air : ..()
 
 /obj/vehicle/sealed/modular_car/return_analyzable_air()
-	return air
+	return are_windows_up() ? air : ..()
 
 /obj/vehicle/sealed/modular_car/return_temperature()
 	var/datum/gas_mixture/our_air = return_air()
