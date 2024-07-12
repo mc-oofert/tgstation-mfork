@@ -68,7 +68,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/vehicle/sealed/modular_car/proc/try_glass_act(mob/living/user, obj/item/stack/sheet/glass/stack)
-	if(!istype(stack))
+	if(!is_glass_sheet(stack))
 		return
 
 	if(stack.get_amount() < 6)
