@@ -22,7 +22,6 @@
 
 /obj/item/modcar_equipment/windows/proc/set_stack(glass_stack)
 	src.glass_stack = glass_stack
-	reinforced = is_glass_sheet
 	glass_stack.forceMove(src)
 
 /obj/item/modcar_equipment/windows/proc/get_overlay()
