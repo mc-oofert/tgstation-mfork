@@ -13,9 +13,9 @@
 /// Return either the icon_state as a string or an overlay outright
 /obj/item/modcar_equipment/proc/get_overlay()
 
-/obj/item/modcar_equipment/proc/on_attach()
+/obj/item/modcar_equipment/proc/on_attach(mob/user)
 
-/obj/item/modcar_equipment/proc/on_detach()
+/obj/item/modcar_equipment/proc/on_detach(mob/user)
 
 /obj/item/modcar_equipment/proc/unequip()
 	chassis?.unequip_item(null, src)
@@ -26,7 +26,3 @@
 
 /obj/item/modcar_equipment/proc/get_speed_multiplier()
 	return 1
-
-/// Return whatever item this should drop when detached (defaults to itself)
-/obj/item/modcar_equipment/proc/get_drop_item()
-	return src

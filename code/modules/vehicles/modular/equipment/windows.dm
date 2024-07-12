@@ -1,8 +1,6 @@
 /obj/item/modcar_equipment/windows
 	name = "windows"
 
-	var/obj/item/stack/sheet/glass/glass_stack
-
 	/// Current icon state for the glass overlay.
 	var/glass_icon_state
 
@@ -22,6 +20,3 @@
 
 /obj/item/modcar_equipment/windows/proc/get_overlay()
 	var/icon_state = rolled_down ? glass_icon_state : glass_icon_state + "_down"
-
-/obj/item/modcar_equipment/windows/get_drop_item()
-	return glass_stack

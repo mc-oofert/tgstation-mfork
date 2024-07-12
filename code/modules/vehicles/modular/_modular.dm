@@ -57,15 +57,18 @@
 	update_appearance()
 
 /obj/vehicle/sealed/modular_car/item_interaction(mob/living/user, obj/item/modcar_equipment/new_equipment, list/modifiers)
+	. = NONE
 	if(try_glass_act(user, new_equipment))
-		balloon_alert(user, "windows added!")
-		return ITEM_INTERACT_SUCCESS
+		return
 
 	if(!istype(new_equipment))
 		return
 
-	equip_item(user, new_equipment)
-	return ITEM_INTERACT_SUCCESS
+	if(equip_item(user, new_equipment))
+		return ITEM_INTERACT_SUCCESS
+	else
+		return ITEM_INTERACT_BLOCKING
+
 
 /obj/vehicle/sealed/modular_car/proc/try_glass_act(mob/living/user, obj/item/stack/sheet/glass/stack)
 	if(!is_glass_sheet(stack))
@@ -75,11 +78,10 @@
 		balloon_alert(user, "not enough!")
 		return TRUE
 
-	var/obj/item/modcar_equipment/windows/windows = new
+	var/obj/item/modcar_equipment/windows/windows = new(stack)
 	if(equip_item(user, windows))
 		stack = stack.split_stack(user, 6)
 		stack.forceMove(windows)
-		windows.set_stack(stack)
 
 	return TRUE
 
@@ -99,6 +101,7 @@
 		return ITEM_INTERACT_BLOCKING
 
 /obj/vehicle/sealed/modular_car/proc/equip_item(mob/living/user, obj/item/modcar_equipment/new_equipment)
+	. = FALSE
 	if(equipment[new_equipment.slot])
 		if(user)
 			balloon_alert(user, "slot occupied!")
@@ -112,23 +115,21 @@
 
 	equipment[new_equipment.slot] = new_equipment
 	new_equipment.chassis = src
-	new_equipment.on_attach()
+	new_equipment.on_attach(user)
 
 	update_appearance()
 
 	return TRUE
 
 /obj/vehicle/sealed/modular_car/proc/unequip_item(mob/living/user, obj/item/modcar_equipment/to_remove)
-	var/atom/movable/drop_item = to_remove.get_drop_item()
-
 	if(user)
-		user.put_in_hands(drop_item) // this already handles drop_item being null and dropping it on the floor in case of failure
-	else if(!QDELETED(drop_item))
-		drop_item.forceMove(drop_location())
+		user.put_in_hands(to_remove) // this already handles dropping it on the floor in case of failure
+	else if(!QDELING(to_remove))
+		to_remove.forceMove(drop_location())
 
-	to_remove.on_detach()
+	to_remove.on_detach(user)
 	to_remove.chassis = null
-	equipment -= to_remove.slot
+	equipment[to_remove.slot] = null
 
 	update_appearance()
 
