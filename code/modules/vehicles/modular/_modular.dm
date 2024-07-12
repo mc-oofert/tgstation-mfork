@@ -142,6 +142,32 @@
 	. = ..()
 	QDEL_LIST_ASSOC_VAL(equipment)
 
+/obj/vehicle/sealed/modular_car/proc/toggle_windows(mob/user)
+	windows_up = !windows_up
+	var/datum/gas_mixture/environment_air = loc.return_air()
+	if(!isnull(environment_air))
+		if(windows_up)
+			environment_air.pump_gas_to(air, environment_air.return_pressure())
+		else if(loc)
+			loc.assume_air(air.remove_ratio(1))
+
+/obj/vehicle/sealed/modular_car/remove_air(amount)
+	if(equipment[CAR_SLOT_WINDOWS] && windows_up)
+		return air.remove(amount)
+	return ..()
+
+/obj/vehicle/sealed/modular_car/return_air()
+	if(equipment[CAR_SLOT_WINDOWS] && windows_up)
+		return air
+	return ..()
+
+/obj/vehicle/sealed/modular_car/return_analyzable_air()
+	return air
+
+/obj/vehicle/sealed/modular_car/return_temperature()
+	var/datum/gas_mixture/our_air = return_air()
+	return our_air?.return_temperature()
+
 // prebuilt
 
 /obj/vehicle/sealed/modular_car/prebuilt
