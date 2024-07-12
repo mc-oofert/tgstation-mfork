@@ -1,6 +1,7 @@
 /obj/item/modcar_equipment
 	name = "generic modcar equipment"
 	desc = "this is a bug call a coder"
+	w_class = WEIGHT_CLASS_HUGE
 	/// the slot we go in
 	var/slot
 	/// the chassis we are attached to, null if not
