@@ -107,9 +107,10 @@
 			balloon_alert(user, "slot occupied!")
 		return
 
-	if(!isnull(user))
+	if(user)
 		if(!user.transferItemToLoc(new_equipment, src))
 			return
+		playsound(src, 'sounds/machines/click.ogg')
 	else
 		new_equipment.forceMove(src)
 
