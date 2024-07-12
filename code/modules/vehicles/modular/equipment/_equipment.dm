@@ -26,12 +26,3 @@
 
 /obj/item/modcar_equipment/proc/get_speed_multiplier()
 	return 1
-
-/obj/item/modcar_equipment/windows
-	name = "windows"
-
-/obj/item/modcar_equipment/windows/on_attach()
-
-/obj/item/modcar_equipment/windows/on_detach()
-	for(var/atom/movable/cont as anything in contents)
-		cont.forceMove(chassis.drop_location())
