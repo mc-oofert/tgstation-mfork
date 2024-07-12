@@ -73,10 +73,10 @@
 		balloon_alert(user, "not enough!")
 		return TRUE
 
-	/*var/obj/item/modcar_equipment/windows/windows = new(stack) once windows exist fix this shit
+	var/obj/item/modcar_equipment/windows/windows = new(stack)
 	if(equip_item(user, windows))
 		stack = stack.split_stack(user, 6)
-		stack.forceMove(windows)*/
+		stack.forceMove(windows)
 
 	return TRUE
 
