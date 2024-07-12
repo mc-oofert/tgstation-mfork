@@ -122,10 +122,12 @@
 	return TRUE
 
 /obj/vehicle/sealed/modular_car/proc/unequip_item(mob/living/user, obj/item/modcar_equipment/to_remove)
+	var/atom/movable/drop_item = to_remove.get_drop_item()
+
 	if(user)
-		user.put_in_hands(to_remove) // this already handles dropping it on the floor in case of failure
-	else if(!QDELING(to_remove))
-		to_remove.forceMove(drop_location())
+		user.put_in_hands(drop_item) // this already handles drop_item being null and dropping it on the floor in case of failure
+	else if(!QDELING(drop_item))
+		drop_item.forceMove(drop_location())
 
 	to_remove.on_detach(user)
 	to_remove.chassis = null
