@@ -8,9 +8,12 @@
 
 	/// list of attached equipment, format is "equipment[slot] = equipment"
 	var/list/obj/item/modcar_equipment/equipment = list()
-
 	/// Is the hood open?
 	var/hood_open = FALSE
+	/// are our windows up
+	var/windows_up = FALSE
+	/// our air
+	var/datum/gas_mixture/air = new(1000)
 
 /obj/vehicle/sealed/modular_car/update_overlays()
 	. = ..()
@@ -55,6 +58,15 @@
 
 /obj/vehicle/sealed/modular_car/item_interaction(mob/living/user, obj/item/modcar_equipment/new_equipment, list/modifiers)
 	. = NONE
+	if(istype(new_equipment, /obj/item/stack/sheet/glass) && !equipment[CAR_SLOT_WINDOWS])
+		var/obj/item/stack/sheet/glass/glass = new_equipment
+		if(glass.get_amount() < 6)
+			balloon_alert(user, "not enough!")
+			return ITEM_INTERACT_BLOCKING
+		new_equipment = new /obj/item/modcar_equipment/windows
+		var/atom/movable/split = glass.split_stack(user = null, amount = 6)
+		split.forceMove(new_equipment)
+
 
 	if(!istype(new_equipment))
 		return
@@ -116,6 +128,23 @@
 /obj/vehicle/sealed/modular_car/Destroy()
 	. = ..()
 	QDEL_LIST_ASSOC_VAL(equipment)
+
+/obj/vehicle/sealed/modular_car/remove_air(amount)
+	if(equipment[CAR_SLOT_WINDOWS] && windows_up)
+		return air.remove(amount)
+	return ..()
+
+/obj/vehicle/sealed/modular_car/return_air()
+	if(equipment[CAR_SLOT_WINDOWS] && windows_up)
+		return air
+	return ..()
+
+/obj/vehicle/sealed/modular_car/return_analyzable_air()
+	return air
+
+/obj/vehicle/sealed/modular_car/return_temperature()
+	var/datum/gas_mixture/our_air = return_air()
+	return our_air?.return_temperature()
 
 // prebuilt
 
