@@ -8,9 +8,12 @@
 
 	/// list of attached equipment, format is "equipment[slot] = equipment"
 	var/list/obj/item/modcar_equipment/equipment = list()
-
 	/// Is the hood open?
 	var/hood_open = FALSE
+	/// are our windows up
+	var/windows_up = FALSE
+	/// our air
+	var/datum/gas_mixture/air = new(1000)
 
 /obj/vehicle/sealed/modular_car/update_overlays()
 	. = ..()
@@ -66,8 +69,14 @@
 	if(!istype(stack))
 		return
 
-	if(stack.get_amount() >= 6)
-		equip_item(user, new /obj/item/modcar_equipment/windows(stack))
+	if(stack.get_amount() < 6)
+		balloon_alert(user, "not enough!")
+		return TRUE
+
+	var/obj/item/modcar_equipment/windows/windows = new(stack)
+	if(equip_item(user, windows))
+		stack = stack.split_stack(user, 6)
+		stack.forceMove(windows)
 
 	return TRUE
 
