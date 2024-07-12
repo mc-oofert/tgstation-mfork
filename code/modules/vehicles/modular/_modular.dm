@@ -79,10 +79,13 @@
 		balloon_alert(user, "not enough!")
 		return TRUE
 
-	var/obj/item/modcar_equipment/windows/windows
+	var/obj/item/modcar_equipment/windows/windows = new
 	if(equip_item(user, windows))
 		stack = stack.split_stack(user, 6)
 		windows.set_stack(stack)
+	else
+		qdel(windows)
+		return FALSE
 
 	return TRUE
 
@@ -144,6 +147,8 @@
 	QDEL_LIST_ASSOC_VAL(equipment)
 
 /obj/vehicle/sealed/modular_car/proc/toggle_windows(mob/user)
+	if(!equipment[CAR_SLOT_WINDOWS])
+		return FALSE
 	windows_up = !windows_up
 	var/datum/gas_mixture/environment_air = loc.return_air()
 	if(!isnull(environment_air))
@@ -151,6 +156,8 @@
 			environment_air.pump_gas_to(air, environment_air.return_pressure())
 		else if(loc)
 			loc.assume_air(air.remove_ratio(1))
+	update_appearance()
+	return TRUE
 
 /obj/vehicle/sealed/modular_car/remove_air(amount)
 	if(equipment[CAR_SLOT_WINDOWS] && windows_up)

@@ -1,5 +1,6 @@
 /obj/item/modcar_equipment/windows
 	name = "windows"
+	slot = CAR_SLOT_WINDOWS
 
 	/// The stack of glass used to make this.
 	var/obj/item/stack/sheet/glass/glass_stack
