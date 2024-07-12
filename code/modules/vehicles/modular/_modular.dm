@@ -57,13 +57,18 @@
 	update_appearance()
 
 /obj/vehicle/sealed/modular_car/item_interaction(mob/living/user, obj/item/modcar_equipment/new_equipment, list/modifiers)
+	. = NONE
 	if(try_glass_act(user, new_equipment))
 		return
 
 	if(!istype(new_equipment))
 		return
 
-	equip_item(user, new_equipment)
+	if(equip_item(user, new_equipment))
+		return ITEM_INTERACT_SUCCESS
+	else
+		return ITEM_INTERACT_BLOCKING
+
 
 /obj/vehicle/sealed/modular_car/proc/try_glass_act(mob/living/user, obj/item/stack/sheet/glass/stack)
 	if(!istype(stack))
@@ -96,6 +101,7 @@
 		return ITEM_INTERACT_BLOCKING
 
 /obj/vehicle/sealed/modular_car/proc/equip_item(mob/living/user, obj/item/modcar_equipment/new_equipment)
+	. = FALSE
 	if(equipment[new_equipment.slot])
 		if(user)
 			balloon_alert(user, "slot occupied!")
@@ -109,7 +115,7 @@
 
 	equipment[new_equipment.slot] = new_equipment
 	new_equipment.chassis = src
-	new_equipment.on_attach()
+	new_equipment.on_attach(user)
 
 	update_appearance()
 
@@ -121,7 +127,7 @@
 	else if(!QDELING(to_remove))
 		to_remove.forceMove(drop_location())
 
-	to_remove.on_detach()
+	to_remove.on_detach(user)
 	to_remove.chassis = null
 	equipment[to_remove.slot] = null
 

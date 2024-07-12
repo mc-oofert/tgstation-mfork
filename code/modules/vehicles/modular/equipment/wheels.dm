@@ -14,8 +14,8 @@
 	overlay.pixel_y = -wheel_height
 	return overlay
 
-/obj/item/modcar_equipment/wheels/on_attach()
+/obj/item/modcar_equipment/wheels/on_attach(mob/user)
 	chassis.pixel_y += wheel_height
 
-/obj/item/modcar_equipment/wheels/on_detach()
+/obj/item/modcar_equipment/wheels/on_detach(mob/user)
 	chassis.pixel_y -= wheel_height
