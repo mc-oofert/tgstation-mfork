@@ -29,6 +29,7 @@
 			/obj/item/organ = "ORGAN",
 			/obj/item/mod/control = "MODSUIT",
 			/obj/item/mod/module = "MODSUIT_MOD",
+			/obj/item/modcar_equipment = "MODCAR_EQUIP",
 			/obj/item/gun = "GUN",
 			/obj/item/gun/magic = "GUN_MAGIC",
 			/obj/item/gun/energy = "GUN_ENERGY",
