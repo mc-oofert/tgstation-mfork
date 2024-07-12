@@ -6,6 +6,7 @@
 	base_pixel_x = -16
 	pixel_x = -16
 	max_occupants = 4
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
 
 	/// list of attached equipment, format is "equipment[slot] = equipment"
 	var/list/obj/item/modcar_equipment/equipment = list()
@@ -16,10 +17,17 @@
 	/// our air
 	var/datum/gas_mixture/air = new(1000)
 
+/obj/vehicle/sealed/modular_car/generate_actions()
+	. = ..()
+	// physical switches so always present
+	initialize_controller_action_type(/datum/action/vehicle/sealed/headlights/modcar, VEHICLE_CONTROL_DRIVE)
+	initialize_controller_action_type(/datum/action/vehicle/sealed/modcar_hood, VEHICLE_CONTROL_DRIVE)
+	initialize_controller_action_type(/datum/action/vehicle/sealed/modcar_windows, VEHICLE_CONTROL_DRIVE)
+
 /obj/vehicle/sealed/modular_car/update_overlays()
 	. = ..()
 
-	//hood goes here
+	. += "carhood_[hood_open ? "open" : "closed"]"
 
 	for(var/obj/item/modcar_equipment/attachment as anything in get_all_parts())
 		var/overlay = attachment.get_overlay()
@@ -46,16 +54,6 @@
 	COOLDOWN_START(src, cooldown_vehicle_move, movedelay / speed_multiplier)
 
 	try_step_multiz(direction)
-
-//todo put this in some sort of action button or UI button
-/obj/vehicle/sealed/modular_car/proc/toggle_hood()
-	hood_open = !hood_open
-	if(hood_open)
-		playsound(src, 'sound/effects/bin_open.ogg', 50, TRUE)
-	else
-		playsound(src, 'sound/effects/bin_close.ogg', 50, TRUE)
-
-	update_appearance()
 
 /obj/vehicle/sealed/modular_car/item_interaction(mob/living/user, obj/item/modcar_equipment/new_equipment, list/modifiers)
 	. = NONE
@@ -183,3 +181,4 @@
 	. = ..()
 	equip_item(new_equipment = new /obj/item/modcar_equipment/wheels)
 	equip_item(new_equipment = new /obj/item/modcar_equipment/engine)
+	equip_item(new_equipment = new /obj/item/modcar_equipment/headlights)
