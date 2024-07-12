@@ -1,6 +1,6 @@
 /obj/vehicle/sealed/modular_car
 	icon = 'icons/mob/rideables/modular_car/chassis_64x64.dmi'
-	icon_state = "basic_chassis"
+	icon_state = "chassis"
 	layer = ABOVE_MOB_LAYER
 	move_resist = MOVE_FORCE_VERY_STRONG
 	base_pixel_x = -16
@@ -12,8 +12,6 @@
 	var/list/obj/item/modcar_equipment/equipment = list()
 	/// Is the hood open?
 	var/hood_open = FALSE
-	/// are our windows up
-	var/windows_up = FALSE
 	/// our air
 	var/datum/gas_mixture/air = new(1000)
 
@@ -143,18 +141,32 @@
 	. = ..()
 	QDEL_LIST_ASSOC_VAL(equipment)
 
+/// Toggles the headlights of the car, if it has any.
+/obj/vehicle/sealed/modular_car/proc/toggle_headlights(mob/user)
+	var/obj/item/modcar_equipment/headlights/headlights = equipment[CAR_SLOT_HEADLIGHTS]
+	if(!headlights)
+		return
+
+	/*headlights.toggle_state() fix this once headlights are done properly
+
+	playsound(owner, headlights.on ? 'sound/weapons/magin.ogg' : 'sound/weapons/magout.ogg', 50)*/
+
+/// Toggles the windows of the car, if it has any.
 /obj/vehicle/sealed/modular_car/proc/toggle_windows(mob/user)
-	if(!equipment[CAR_SLOT_WINDOWS])
-		return FALSE
-	windows_up = !windows_up
+	var/obj/item/modcar_equipment/windows/windows = equipment[CAR_SLOT_WINDOWS]
+	if(!windows)
+		return
+
+	windows.toggle_state()
+
+	playsound(src, 'sound/machines/windowdoor.ogg', 75)
+
 	var/datum/gas_mixture/environment_air = loc.return_air()
 	if(!isnull(environment_air))
 		if(windows_up)
 			environment_air.pump_gas_to(air, environment_air.return_pressure())
 		else if(loc)
 			loc.assume_air(air.remove_ratio(1))
-	update_appearance()
-	return TRUE
 
 /obj/vehicle/sealed/modular_car/remove_air(amount)
 	if(equipment[CAR_SLOT_WINDOWS] && windows_up)

@@ -3,14 +3,14 @@
 	desc = "A regular set of car wheels."
 	slot = CAR_SLOT_WHEELS
 
-	var/wheel_icon_state = "basic_wheels"
+	var/wheel_icon_state = "wheels"
 	var/wheel_height = 5
 
 /obj/item/modcar_equipment/wheels/get_speed_multiplier()
 	return chassis.has_gravity()
 
 /obj/item/modcar_equipment/wheels/get_overlay()
-	var/atom/overlay = mutable_appearance('icons/mob/rideables/modular_car/chassis_64x64.dmi', wheel_icon_state)
+	var/atom/overlay = mutable_appearance(chassis.icon, wheel_icon_state)
 	overlay.pixel_y = -wheel_height
 	return overlay
 
@@ -22,7 +22,7 @@
 
 /obj/item/modcar_equipment/wheels/thrusters
 	name = "basic thrusters"
-	desc = "A set of spaceworthy car thruster. Barely works in gravity."
+	desc = "A set of spaceworthy car thrusters. Barely works in gravity."
 
 /obj/item/modcar_equipment/wheels/thrusters/get_speed_multiplier()
 	return chassis.has_gravity() ? 0.2 : 1
