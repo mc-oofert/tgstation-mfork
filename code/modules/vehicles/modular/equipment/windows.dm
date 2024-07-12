@@ -13,8 +13,14 @@
 	/// Are the windows rolled down?
 	var/rolled_down
 
-/obj/item/modcar_equipment/windows/proc/on_detach(mob/user)
+/obj/item/modcar_equipment/windows/on_detach(mob/user)
 	qdel(src)
+
+/obj/item/modcar_equipment/windows/get_overlay()
+	var/icon_state = rolled_down ? glass_icon_state + "_down" : glass_icon_state
+
+/obj/item/modcar_equipment/windows/get_drop_item()
+	return glass_stack
 
 /obj/item/modcar_equipment/windows/proc/roll_up()
 
@@ -23,9 +29,3 @@
 /obj/item/modcar_equipment/windows/proc/set_stack(glass_stack)
 	src.glass_stack = glass_stack
 	glass_stack.forceMove(src)
-
-/obj/item/modcar_equipment/windows/proc/get_overlay()
-	var/icon_state = rolled_down ? glass_icon_state : glass_icon_state + "_down"
-
-/obj/item/modcar_equipment/windows/proc/get_drop_item()
-	return glass_stack
