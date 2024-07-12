@@ -4,7 +4,7 @@
 	slot = CAR_SLOT_WHEELS
 
 	var/wheel_icon_state = "basic_wheels"
-	var/wheel_height = 6
+	var/wheel_height = 5
 
 /obj/item/modcar_equipment/wheels/get_speed_multiplier()
 	return chassis.has_gravity()
