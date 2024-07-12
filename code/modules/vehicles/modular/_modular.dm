@@ -85,7 +85,6 @@
 		windows.set_stack(stack)
 	else
 		qdel(windows)
-		return FALSE
 
 	return TRUE
 
