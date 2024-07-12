@@ -37,4 +37,4 @@
 
 /obj/item/modcar_equipment/wheels/thrusters/proc/carmoved(atom/source, atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
-	new /obj/effect/particle_effect/ion_trails(old_loc)
+	QDEL_IN(new /obj/effect/particle_effect/ion_trails(old_loc), 1 SECONDS)
