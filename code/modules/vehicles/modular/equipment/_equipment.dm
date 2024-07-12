@@ -26,3 +26,7 @@
 
 /obj/item/modcar_equipment/proc/get_speed_multiplier()
 	return 1
+
+/// Returns what item the equipment should drop when removed. (usually itself)
+/obj/item/modcar_equipment/proc/get_drop_item()
+	return src
