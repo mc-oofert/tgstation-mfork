@@ -60,13 +60,11 @@
 	try_step_multiz(direction)
 
 /obj/vehicle/sealed/modular_car/item_interaction(mob/living/user, obj/item/modcar_equipment/new_equipment, list/modifiers)
-	. = NONE
-
 	if(try_glass_act(user, new_equipment))
 		return ITEM_INTERACT_SUCCESS
 
 	if(!istype(new_equipment))
-		return
+		return NONE
 
 	if(equip_item(user, new_equipment))
 		return ITEM_INTERACT_SUCCESS
