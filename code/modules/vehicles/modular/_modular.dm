@@ -54,16 +54,22 @@
 	update_appearance()
 
 /obj/vehicle/sealed/modular_car/item_interaction(mob/living/user, obj/item/modcar_equipment/new_equipment, list/modifiers)
-	. = NONE
+	if(try_glass_act(user, new_equipment))
+		return
 
 	if(!istype(new_equipment))
 		return
 
-	if(equipment[new_equipment.slot])
-		balloon_alert(user, "slot occupied!")
+	equip_item(user, new_equipment)
+
+/obj/vehicle/sealed/modular_car/proc/try_glass_act(mob/living/user, obj/item/stack/sheet/glass/stack)
+	if(!istype(stack))
 		return
 
-	equip_item(user, new_equipment)
+	if(stack.get_amount() >= 6)
+		equip_item(user, new /obj/item/modcar_equipment/windows(stack))
+
+	return TRUE
 
 /obj/vehicle/sealed/modular_car/crowbar_act(mob/living/user, obj/item/tool)
 	if(user.combat_mode)
@@ -81,7 +87,10 @@
 		return ITEM_INTERACT_BLOCKING
 
 /obj/vehicle/sealed/modular_car/proc/equip_item(mob/living/user, obj/item/modcar_equipment/new_equipment)
-	. = FALSE
+	if(equipment[new_equipment.slot])
+		if(user)
+			balloon_alert(user, "slot occupied!")
+		return
 
 	if(!isnull(user))
 		if(!user.transferItemToLoc(new_equipment, src))
@@ -98,8 +107,6 @@
 	return TRUE
 
 /obj/vehicle/sealed/modular_car/proc/unequip_item(mob/living/user, obj/item/modcar_equipment/to_remove)
-	. = FALSE
-
 	if(user)
 		user.put_in_hands(to_remove) // this already handles dropping it on the floor in case of failure
 	else if(!QDELING(to_remove))
