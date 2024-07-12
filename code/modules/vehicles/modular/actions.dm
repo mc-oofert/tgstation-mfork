@@ -24,10 +24,7 @@
 /datum/action/vehicle/sealed/modcar_hood/Trigger(trigger_flags)
 	. = ..()
 	var/obj/vehicle/sealed/modular_car/car = vehicle_entered_target
-
-	car.toggle_hood()
-
-	playsound(car, car.hood_open ? 'sound/effects/bin_open.ogg' : 'sound/effects/bin_close.ogg', 50, TRUE)
+	car.toggle_hood(owner)
 
 /datum/action/vehicle/sealed/modcar_windows
 	name = "Toggle Windows"

@@ -10,10 +10,16 @@
 
 	/// list of attached equipment, format is "equipment[slot] = equipment"
 	var/list/obj/item/modcar_equipment/equipment = list()
-	/// Is the hood open?
-	var/hood_open = FALSE
 	/// our air
 	var/datum/gas_mixture/air = new(1000)
+
+	/// Is the hood open?
+	var/hood_open = TRUE
+	var/mutable_appearance/hood_overlay
+
+/obj/vehicle/sealed/modular_car/Initialize(mapload)
+	. = ..()
+	hood_overlay = mutable_appearance(icon, get_hood_icon_state())
 
 /obj/vehicle/sealed/modular_car/generate_actions()
 	. = ..()
@@ -25,7 +31,7 @@
 /obj/vehicle/sealed/modular_car/update_overlays()
 	. = ..()
 
-	. += "carhood_[hood_open ? "open" : "closed"]"
+	. += hood_overlay
 
 	for(var/obj/item/modcar_equipment/attachment as anything in get_all_parts())
 		var/overlay = attachment.get_overlay()
@@ -55,8 +61,9 @@
 
 /obj/vehicle/sealed/modular_car/item_interaction(mob/living/user, obj/item/modcar_equipment/new_equipment, list/modifiers)
 	. = NONE
+
 	if(try_glass_act(user, new_equipment))
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	if(!istype(new_equipment))
 		return
@@ -65,7 +72,6 @@
 		return ITEM_INTERACT_SUCCESS
 	else
 		return ITEM_INTERACT_BLOCKING
-
 
 /obj/vehicle/sealed/modular_car/proc/try_glass_act(mob/living/user, obj/item/stack/sheet/glass/stack)
 	if(!is_glass_sheet(stack))
@@ -168,8 +174,17 @@
 		else if(loc)
 			loc.assume_air(air.remove_ratio(1))
 
+/obj/vehicle/sealed/modular_car/proc/get_hood_icon_state()
+	return "hood_[hood_open ? "open" : "closed"]"
+
 /// Toggles the hood of the car, if it has one.
 /obj/vehicle/sealed/modular_car/proc/toggle_hood(mob/user)
+	hood_open = !hood_open
+
+	hood_overlay.icon_state = get_hood_icon_state()
+	flick("hood_[hood_open ? "opening" : "closing"]", hood_overlay)
+
+	playsound(src, hood_open ? 'sound/effects/bin_open.ogg' : 'sound/effects/bin_close.ogg', 50, TRUE)
 
 /obj/vehicle/sealed/modular_car/remove_air(amount)
 	if(are_windows_up())
@@ -189,6 +204,7 @@
 // prebuilt
 
 /obj/vehicle/sealed/modular_car/prebuilt
+	hood_open = FALSE
 
 /obj/vehicle/sealed/modular_car/prebuilt/Initialize(mapload)
 	. = ..()
