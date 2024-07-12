@@ -6129,7 +6129,6 @@
 #include "code\modules\vehicles\modular\equipment\_equipment.dm"
 #include "code\modules\vehicles\modular\equipment\engine.dm"
 #include "code\modules\vehicles\modular\equipment\wheels.dm"
-#include "code\modules\vehicles\modular\equipment\windows.dm"
 #include "code\modules\vending\_vending.dm"
 #include "code\modules\vending\assist.dm"
 #include "code\modules\vending\autodrobe.dm"
