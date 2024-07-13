@@ -22,8 +22,10 @@
 	if(istype(E))
 		E.vehicle_entered_target = src
 
-/obj/vehicle/sealed/mouse_drop_receive(atom/dropping, mob/M, params)
+/obj/vehicle/sealed/mouse_drop_receive(atom/dropping, mob/living/M, params)
 	if(!istype(dropping) || !istype(M))
+		return ..()
+	if(!M.can_perform_action(src, NEED_HANDS))
 		return ..()
 	if(M == dropping)
 		mob_try_enter(M)
@@ -54,7 +56,7 @@
 	REMOVE_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 
 
-/obj/vehicle/sealed/proc/mob_try_enter(mob/rider)
+/obj/vehicle/sealed/proc/mob_try_enter(mob/living/rider)
 	if(!istype(rider))
 		return FALSE
 	var/enter_delay = get_enter_delay(rider)

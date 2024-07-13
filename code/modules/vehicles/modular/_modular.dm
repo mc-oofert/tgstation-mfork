@@ -1,12 +1,14 @@
 /obj/vehicle/sealed/modular_car
-	icon = 'icons/mob/rideables/modular_car/chassis_64x64.dmi'
-	icon_state = "chassis"
+	//icon = 'icons/mob/rideables/pod/chassis.dmi'
+	//icon_state = "chassis"
+	icon_state = "engineering_pod" //placeholder, again
 	layer = ABOVE_MOB_LAYER
 	move_resist = MOVE_FORCE_VERY_STRONG
 	base_pixel_x = -16
 	pixel_x = -16
 	max_occupants = 4
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
+	light_on = FALSE
 
 	/// list of attached equipment, format is "equipment[slot] = equipment"
 	var/list/obj/item/modcar_equipment/equipment = list()
@@ -42,7 +44,7 @@
 /obj/vehicle/sealed/modular_car/vehicle_move(direction)
 	if(!equipment[CAR_SLOT_ENGINE])
 		return
-	if(!equipment[CAR_SLOT_WHEELS])
+	if(!equipment[CAR_SLOT_PROPULSION])
 		return
 
 	var/speed_multiplier = 1
@@ -190,10 +192,10 @@
 	return ..()
 
 /obj/vehicle/sealed/modular_car/return_air()
-	return are_windows_up() ? air : ..()
+	return aequipment[CAR_SLOT_WINDOWS] ? air : ..()
 
 /obj/vehicle/sealed/modular_car/return_analyzable_air()
-	return are_windows_up() ? air : ..()
+	return equipment[CAR_SLOT_WINDOWS] ? air : ..()
 
 /obj/vehicle/sealed/modular_car/return_temperature()
 	var/datum/gas_mixture/our_air = return_air()
@@ -206,6 +208,6 @@
 
 /obj/vehicle/sealed/modular_car/prebuilt/Initialize(mapload)
 	. = ..()
-	equip_item(new_equipment = new /obj/item/modcar_equipment/wheels)
+	equip_item(new_equipment = new /obj/item/modcar_equipment/thrusters)
 	equip_item(new_equipment = new /obj/item/modcar_equipment/engine)
 	equip_item(new_equipment = new /obj/item/modcar_equipment/headlights)
