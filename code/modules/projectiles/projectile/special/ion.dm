@@ -14,3 +14,9 @@
 
 /obj/projectile/ion/weak
 	emp_radius = 0
+
+/obj/projectile/ion/hurts
+	name = "arc"
+	color = COLOR_RED
+	damage = 12
+	speed = 0.4

@@ -4923,6 +4923,8 @@
 #include "code\modules\mob\living\basic\space_fauna\demon\demon.dm"
 #include "code\modules\mob\living\basic\space_fauna\demon\demon_items.dm"
 #include "code\modules\mob\living\basic\space_fauna\demon\demon_subtypes.dm"
+#include "code\modules\mob\living\basic\space_fauna\exiles\exile.dm"
+#include "code\modules\mob\living\basic\space_fauna\exiles\exile_ai.dm"
 #include "code\modules\mob\living\basic\space_fauna\eyeball\_eyeball.dm"
 #include "code\modules\mob\living\basic\space_fauna\eyeball\eyeball_ability.dm"
 #include "code\modules\mob\living\basic\space_fauna\eyeball\eyeball_ai_behavior.dm"
