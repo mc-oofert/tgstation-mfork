@@ -67,6 +67,10 @@
 			set_anchored(TRUE)
 		connect_to_network()
 
+	if(ispath(gun))
+		gun = new gun(src)
+		integrate(gun)
+
 	sparks = new
 	sparks.attach(src)
 	sparks.set_up(5, TRUE, src)
@@ -350,8 +354,11 @@
 /obj/machinery/power/emitter/proc/integrate(obj/item/gun/energy/energy_gun, mob/user)
 	if(!istype(energy_gun, /obj/item/gun/energy))
 		return
-	if(!user.transferItemToLoc(energy_gun, src))
-		return
+	if(!isnull(user))
+		if(!user.transferItemToLoc(energy_gun, src))
+			return
+	else
+		energy_gun.forceMove(src)
 	gun = energy_gun
 	gun_properties = gun.get_turret_properties()
 	set_projectile()

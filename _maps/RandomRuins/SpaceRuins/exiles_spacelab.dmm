@@ -1,0 +1,1861 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"bW" = (
+/obj/structure/cable,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"cU" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"cV" = (
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"du" = (
+/turf/closed/wall/rock,
+/area/ruin/space)
+"dN" = (
+/obj/structure/fluff/giant_pipes,
+/obj/structure/fluff/giant_pipes{
+	dir = 10
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"dT" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 10
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"dV" = (
+/obj/effect/decal/cleanable/oil/streak,
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"fc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"gz" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"hj" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/structure/fluff{
+	icon = 'icons/obj/science/circuits.dmi';
+	density = 1;
+	name = "some sort of machine";
+	icon_state = "setup_large_terminal";
+	desc = "Some sort of entertainment? Its just a weird picture of text characters."
+	},
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"hw" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"ib" = (
+/obj/structure/fluff{
+	icon = 'icons/obj/science/circuits.dmi';
+	density = 1;
+	name = "some sort of machine";
+	icon_state = "setup_stationary";
+	desc = "Something tinkered with.";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/siding/thinplating/dark,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"ij" = (
+/obj/structure/sign/warning,
+/turf/closed/indestructible/survival_pod,
+/area/ruin/space/has_grav/powered/exiles)
+"iF" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/north,
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/siding/thinplating/dark,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"iK" = (
+/obj/structure/girder/displaced,
+/obj/structure/cable,
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/exiles)
+"jg" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"jT" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/siding/thinplating/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"kw" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"kS" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/oil/streak,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"lq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"lN" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/effect/mapping_helpers/apc/away_general_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"md" = (
+/obj/effect/turf_decal/stripes{
+	dir = 6
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"mr" = (
+/turf/template_noop,
+/area/template_noop)
+"mz" = (
+/obj/machinery/door/airlock/engineering,
+/obj/structure/cable,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"nz" = (
+/obj/machinery/door/airlock/engineering,
+/obj/structure/sign/warning/directional/west,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"nO" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"of" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"pn" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/basic/exile/dec,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"pS" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 10
+	},
+/obj/item/stock_parts/capacitor{
+	pixel_x = -9;
+	pixel_y = -1
+	},
+/obj/item/stock_parts/scanning_module{
+	pixel_x = 26;
+	pixel_y = 3
+	},
+/mob/living/basic/exile/bin,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"qa" = (
+/obj/structure/fluff{
+	icon = 'icons/obj/science/circuits.dmi';
+	density = 1;
+	name = "some sort of machine";
+	icon_state = "setup_stationary";
+	desc = "Something tinkered with.";
+	pixel_x = 8;
+	pixel_y = 0
+	},
+/obj/structure/fluff{
+	icon = 'icons/obj/science/circuits.dmi';
+	density = 1;
+	name = "some sort of machine";
+	icon_state = "setup_stationary";
+	desc = "Something tinkered with.";
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"rD" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"sl" = (
+/turf/open/floor/circuit,
+/area/ruin/space/has_grav/powered/exiles)
+"th" = (
+/obj/structure/fluff/giant_pipes,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"tB" = (
+/obj/machinery/door/airlock/engineering,
+/obj/structure/cable,
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"tO" = (
+/obj/structure/fluff{
+	icon = 'icons/obj/science/circuits.dmi';
+	density = 1;
+	name = "some sort of machine";
+	icon_state = "setup_large_terminal-open";
+	desc = "Something tinkered with."
+	},
+/obj/item/stock_parts/servo/nano{
+	pixel_x = -44;
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/oil/streak,
+/obj/effect/decal/cleanable/robot_debris,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"up" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/powered/exiles)
+"uT" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 5
+	},
+/obj/effect/spawner/structure/window/survival_pod,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"vl" = (
+/mob/living/basic/exile/hex,
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"vs" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 4
+	},
+/obj/machinery/light/cold/no_nightlight/directional/north,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"vL" = (
+/obj/structure/fluff{
+	icon = 'icons/obj/science/circuits.dmi';
+	density = 1;
+	name = "some sort of machine";
+	icon_state = "setup_medium_clam-open";
+	desc = "Something tinkered with."
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/obj/item/stock_parts/servo/nano{
+	pixel_x = 12;
+	pixel_y = -19
+	},
+/obj/effect/decal/cleanable/oil/streak,
+/obj/effect/decal/cleanable/robot_debris/limb,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"wk" = (
+/obj/structure/cable,
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"wI" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull,
+/area/ruin/space/has_grav/powered/exiles)
+"xb" = (
+/obj/machinery/computer/old{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/box,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"xd" = (
+/obj/structure/girder,
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/exiles)
+"yE" = (
+/turf/open/misc/asteroid/airless,
+/area/ruin/space)
+"yF" = (
+/obj/structure/railing{
+	dir = 9
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 9
+	},
+/obj/effect/spawner/random/structure/girder,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"yJ" = (
+/obj/effect/decal/cleanable/rubble,
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/exiles)
+"yN" = (
+/obj/structure/table/reinforced,
+/obj/item/mecha_parts/camera_kit{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Ay" = (
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"AB" = (
+/obj/structure/cable,
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/exiles)
+"AT" = (
+/obj/machinery/light/cold/no_nightlight/directional/south,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"BW" = (
+/obj/machinery/power/rtg/advanced{
+	icon = 'icons/obj/science/circuits.dmi';
+	icon_state = "setup_large_scope-open";
+	name = "electron diverter";
+	desc = "Its some sort of power generator.";
+	power_gen = 5000
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/oil/streak,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"CA" = (
+/obj/machinery/door/airlock/engineering,
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"CC" = (
+/obj/effect/decal/cleanable/oil/streak,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"CT" = (
+/obj/structure/girder,
+/obj/structure/cable,
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/exiles)
+"Dd" = (
+/turf/closed/mineral/asteroid,
+/area/ruin/space)
+"Dg" = (
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"DI" = (
+/obj/effect/turf_decal/siding/thinplating/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"DM" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"DN" = (
+/obj/effect/spawner/structure/window/survival_pod/indestructible,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/exiles)
+"Ea" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull,
+/area/ruin/space/has_grav/powered/exiles)
+"Ej" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull,
+/area/ruin/space/has_grav/powered/exiles)
+"EO" = (
+/obj/machinery/computer/old{
+	dir = 1
+	},
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"ER" = (
+/obj/machinery/power/rtg/advanced{
+	icon = 'icons/obj/science/circuits.dmi';
+	icon_state = "setup_large_scope-open";
+	name = "electron diverter";
+	desc = "Its some sort of power generator.";
+	pixel_x = -1;
+	power_gen = 5000
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"ES" = (
+/obj/structure/closet/crate/preopen,
+/obj/effect/turf_decal/siding/thinplating/dark,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"EV" = (
+/obj/structure/fluff/giant_pipes,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"Fz" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/thinplating/dark,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Gw" = (
+/obj/effect/spawner/structure/window/survival_pod,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/exiles)
+"GJ" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/effect/spawner/random/structure/girder,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"IL" = (
+/obj/structure/closet/crate/preopen,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"IN" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"JA" = (
+/obj/structure/flora/rock/style_random,
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/exiles)
+"Ku" = (
+/obj/item/stock_parts/capacitor{
+	pixel_x = -16;
+	pixel_y = 24
+	},
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"LF" = (
+/turf/closed/wall/mineral/titanium/survival,
+/area/ruin/space/has_grav/powered/exiles)
+"MY" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"Nv" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull,
+/area/ruin/space/has_grav/powered/exiles)
+"NI" = (
+/obj/structure/fluff/giant_pipes,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Oh" = (
+/obj/structure/closet/crate/preopen,
+/obj/item/disk/design_disk/bepis,
+/obj/machinery/light/cold/no_nightlight/directional/west,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"Pf" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"Pj" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/effect/spawner/structure/window/survival_pod,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Pz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"PQ" = (
+/obj/machinery/computer/old{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/box,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"Qh" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"Qn" = (
+/obj/machinery/door/airlock/public/glass,
+/turf/open/floor/circuit,
+/area/ruin/space/has_grav/powered/exiles)
+"Qr" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Qy" = (
+/obj/effect/decal/cleanable/robot_debris/up,
+/obj/effect/turf_decal/stripes{
+	dir = 9
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"QR" = (
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"Rd" = (
+/obj/structure/girder/reinforced,
+/obj/structure/grille,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"RT" = (
+/obj/machinery/computer/terminal{
+	dir = 4
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"RX" = (
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Sd" = (
+/obj/effect/decal/cleanable/oil/streak,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"Sy" = (
+/obj/machinery/power/floodlight,
+/obj/structure/cable,
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/exiles)
+"TC" = (
+/obj/item/toy/plush/lizard_plushie/space,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine/hull,
+/area/ruin/space/has_grav/powered/exiles)
+"TL" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"Uf" = (
+/turf/closed/wall/rock,
+/area/template_noop)
+"UM" = (
+/mob/living/basic/bot/firebot,
+/obj/structure/chair/sofa/corp/left{
+	dir = 4
+	},
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"UW" = (
+/obj/machinery/door/airlock/engineering,
+/obj/effect/mapping_helpers/airlock/inaccessible,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "exiles"
+	},
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"UX" = (
+/obj/effect/decal/cleanable/oil,
+/obj/structure/cable,
+/turf/open/floor/pod/light,
+/area/ruin/space/has_grav/powered/exiles)
+"Vj" = (
+/obj/effect/decal/cleanable/robot_debris/old,
+/obj/effect/turf_decal/stripes{
+	dir = 5
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"Vx" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 4
+	},
+/obj/machinery/light/cold/no_nightlight/directional/south,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"VL" = (
+/obj/effect/decal/cleanable/robot_debris/down,
+/obj/effect/turf_decal/stripes{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"VM" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"Wf" = (
+/turf/closed/indestructible/survival_pod,
+/area/ruin/space/has_grav/powered/exiles)
+"Wi" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"Wm" = (
+/turf/open/misc/asteroid,
+/area/ruin/space/has_grav/powered/exiles)
+"WV" = (
+/mob/living/basic/exile/brawn,
+/obj/structure/chair/sofa/corp/right{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/oil/streak,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Xo" = (
+/obj/structure/closet/crate/preopen,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+"XQ" = (
+/obj/machinery/power/emitter{
+	dir = 1;
+	gun = /obj/item/gun/energy/laser/hellgun;
+	welded = 1
+	},
+/obj/effect/turf_decal/stripes/end,
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"Ym" = (
+/obj/structure/fluff/giant_pipes{
+	dir = 10
+	},
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"YS" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Zc" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/engineering/tool{
+	spawn_all_loot = 1;
+	spawn_random_offset = 4
+	},
+/turf/open/floor/pod/dark,
+/area/ruin/space/has_grav/powered/exiles)
+"Zi" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/powered/exiles)
+"ZX" = (
+/obj/structure/railing/corner/end{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/open/floor/pod,
+/area/ruin/space/has_grav/powered/exiles)
+
+(1,1,1) = {"
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+Dd
+Dd
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(2,1,1) = {"
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+Dd
+Dd
+mr
+mr
+Dd
+Dd
+Dd
+mr
+Dd
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(3,1,1) = {"
+mr
+mr
+mr
+mr
+mr
+mr
+Dd
+Dd
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(4,1,1) = {"
+mr
+mr
+mr
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(5,1,1) = {"
+mr
+mr
+mr
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+yE
+yE
+yE
+mr
+mr
+mr
+mr
+mr
+"}
+(6,1,1) = {"
+mr
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Wf
+Wf
+Wf
+Dd
+LF
+LF
+LF
+LF
+LF
+Dd
+Dd
+Dd
+Dd
+Dd
+yE
+mr
+mr
+mr
+mr
+mr
+"}
+(7,1,1) = {"
+mr
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Wf
+Wf
+RT
+Wf
+Wf
+LF
+IL
+Oh
+Sd
+xb
+LF
+LF
+LF
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+"}
+(8,1,1) = {"
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+LF
+LF
+LF
+LF
+Wf
+yN
+Ay
+Ay
+nz
+Dg
+Dg
+Pf
+CC
+aW
+VM
+DM
+LF
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+"}
+(9,1,1) = {"
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+LF
+Ay
+Ay
+Ay
+Wf
+Zc
+bW
+bW
+mz
+wk
+UX
+wk
+RX
+YS
+kS
+ER
+LF
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+"}
+(10,1,1) = {"
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+LF
+Ay
+Ay
+Ay
+Wf
+DN
+vl
+DN
+ij
+Wf
+Dg
+wk
+Qh
+EV
+dN
+DM
+LF
+Dd
+Dd
+yE
+Dd
+Dd
+mr
+mr
+mr
+"}
+(11,1,1) = {"
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+LF
+Ay
+Ay
+Ay
+Wf
+Qy
+rD
+Zi
+VL
+Wf
+Dg
+lN
+LF
+Gw
+LF
+LF
+LF
+Dd
+Dd
+yE
+yE
+Dd
+Dd
+mr
+mr
+"}
+(12,1,1) = {"
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+LF
+LF
+LF
+Ay
+LF
+Wf
+up
+Pz
+lq
+XQ
+DN
+Dg
+wk
+Pj
+UM
+WV
+LF
+Dd
+Dd
+Dd
+yE
+yE
+Dd
+Dd
+mr
+mr
+"}
+(13,1,1) = {"
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+LF
+Ay
+QR
+Ay
+Ay
+Wf
+Vj
+hw
+hw
+md
+DN
+Dg
+wk
+iF
+CC
+AT
+LF
+Dd
+Dd
+yE
+yE
+yE
+mr
+mr
+mr
+mr
+"}
+(14,1,1) = {"
+mr
+Dd
+Dd
+LF
+LF
+LF
+LF
+of
+ZX
+MY
+of
+Wf
+Wf
+Wf
+DN
+DN
+Wf
+CA
+tB
+uT
+Qr
+hj
+LF
+LF
+LF
+yE
+yE
+mr
+mr
+mr
+mr
+mr
+"}
+(15,1,1) = {"
+mr
+Dd
+Dd
+LF
+Xo
+ES
+Dg
+Dg
+Dg
+Dg
+Dg
+Dg
+Dg
+CA
+Dg
+Dg
+Dg
+Ay
+bW
+Dg
+Dg
+Dg
+UW
+Dg
+UW
+yE
+yE
+yE
+yE
+mr
+mr
+mr
+"}
+(16,1,1) = {"
+mr
+Dd
+Dd
+LF
+TL
+DI
+Dg
+Dg
+Dg
+Dg
+Dg
+Dg
+Dg
+CA
+Dg
+Dg
+Dg
+Ay
+bW
+wk
+wk
+dV
+UW
+Dg
+UW
+yE
+yE
+yE
+yE
+mr
+mr
+mr
+"}
+(17,1,1) = {"
+mr
+Dd
+Dd
+LF
+TL
+DI
+Dg
+Dg
+Dg
+yF
+jg
+jg
+kw
+LF
+cU
+vL
+pS
+Dg
+wk
+Qh
+PQ
+Wi
+LF
+LF
+LF
+yE
+Dd
+Dd
+yE
+mr
+mr
+mr
+"}
+(18,1,1) = {"
+mr
+Dd
+Dd
+LF
+TL
+jT
+Dg
+Dg
+Dg
+GJ
+Ay
+Ay
+Ay
+LF
+vs
+tO
+ib
+Ku
+wk
+IN
+BW
+Vx
+LF
+Dd
+Dd
+Dd
+Dd
+Dd
+yE
+mr
+mr
+mr
+"}
+(19,1,1) = {"
+mr
+Dd
+Dd
+LF
+Rd
+DN
+DN
+Qn
+DN
+DN
+Ay
+Ay
+Ay
+LF
+Ym
+NI
+Fz
+Dg
+wk
+dT
+th
+LF
+LF
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+"}
+(20,1,1) = {"
+mr
+Dd
+Dd
+LF
+fc
+DN
+sl
+sl
+sl
+DN
+cV
+cV
+LF
+LF
+LF
+Gw
+LF
+gz
+nO
+LF
+LF
+LF
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+mr
+"}
+(21,1,1) = {"
+mr
+Dd
+Dd
+LF
+fc
+DN
+sl
+sl
+sl
+DN
+pn
+EO
+LF
+Dd
+JA
+Wm
+Wm
+xd
+CT
+Wm
+Wm
+Wm
+Dd
+Dd
+Dd
+du
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(22,1,1) = {"
+mr
+Dd
+Dd
+LF
+Xo
+DN
+sl
+sl
+sl
+DN
+qa
+qa
+LF
+Dd
+Dd
+Dd
+Wm
+Wm
+AB
+yJ
+Wm
+JA
+Dd
+Dd
+Dd
+du
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(23,1,1) = {"
+mr
+Dd
+Dd
+LF
+LF
+Wf
+DN
+DN
+DN
+DN
+DN
+LF
+LF
+Dd
+Dd
+Dd
+Wm
+Wm
+iK
+Wm
+Wm
+Dd
+Dd
+Dd
+du
+du
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(24,1,1) = {"
+mr
+Dd
+Dd
+Dd
+LF
+TC
+Ea
+Ej
+Nv
+Ea
+wI
+Wf
+Dd
+Dd
+Dd
+Dd
+Wm
+Wm
+Sy
+Wm
+Wm
+Dd
+Dd
+Dd
+du
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(25,1,1) = {"
+mr
+Dd
+Dd
+Dd
+LF
+LF
+Ea
+Ea
+Ej
+Nv
+LF
+LF
+Dd
+Dd
+Dd
+Dd
+Dd
+yJ
+Wm
+Wm
+Dd
+Dd
+Dd
+Dd
+du
+du
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(26,1,1) = {"
+mr
+mr
+Dd
+Dd
+Dd
+LF
+Wf
+Wf
+Wf
+LF
+LF
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+JA
+Wm
+Wm
+Dd
+Dd
+Dd
+Dd
+Dd
+du
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(27,1,1) = {"
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(28,1,1) = {"
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+du
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(29,1,1) = {"
+mr
+mr
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+du
+du
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(30,1,1) = {"
+mr
+mr
+mr
+mr
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+du
+du
+du
+du
+du
+du
+Uf
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(31,1,1) = {"
+mr
+mr
+mr
+mr
+mr
+mr
+Dd
+Dd
+Dd
+Dd
+Dd
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}
+(32,1,1) = {"
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+mr
+"}

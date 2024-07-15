@@ -327,6 +327,23 @@
 		return
 	return ..()
 
+/turf/closed/wall/mineral/titanium/survival/indestructible
+	name = "hardened pod window"
+	flags_1 = PREVENT_CLICK_UNDER_1
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+
+/turf/closed/wall/mineral/titanium/survival/indestructible/welder_act(mob/living/user, obj/item/tool)
+	return NONE
+
+/turf/closed/wall/mineral/titanium/survival/indestructible/screwdriver_act(mob/living/user, obj/item/tool)
+	return NONE
+
+/turf/closed/wall/mineral/titanium/survival/indestructible/wrench_act(mob/living/user, obj/item/tool)
+	return NONE
+
+/turf/closed/wall/mineral/titanium/survival/indestructible/crowbar_act(mob/living/user, obj/item/tool)
+	return NONE
+
 /////////////////////Plastitanium walls/////////////////////
 
 /turf/closed/wall/mineral/plastitanium

@@ -328,3 +328,11 @@
 	icon_state = "wallsign"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fluff/wallsign, 32)
+
+/obj/structure/fluff/giant_pipes
+	name = "giant piping"
+	desc = "Some sort of piping."
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "fakepipetwo"
+	density = TRUE
+	deconstructible = FALSE

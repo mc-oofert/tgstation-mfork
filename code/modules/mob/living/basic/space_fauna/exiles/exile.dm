@@ -2,6 +2,7 @@
 	icon = 'icons/mob/simple/animal.dmi'
 	mob_biotypes = MOB_ROBOTIC
 	basic_mob_flags = DEL_ON_DEATH
+	move_resist = PULL_FORCE_DEFAULT * 1.5
 	icon_state = "exile"
 	base_icon_state = "exile"
 	maxHealth = 300
@@ -13,6 +14,7 @@
 	minimum_survivable_temperature = 0
 	sentience_type = SENTIENCE_ARTIFICIAL
 	status_flags = NONE
+	pass_flags_self = NONE //no crawling under
 	pass_flags = PASSMOB
 	verb_say = "states"
 	verb_ask = "queries"
@@ -32,18 +34,18 @@
 	if(!floats)
 		ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, INNATE_TRAIT)
 	update_appearance()
-	AddElement(/datum/element/relay_attackers)
+	AddComponent(/datum/component/ai_retaliate_advanced, CALLBACK(src, PROC_REF(on_attacked)))
 	ai_controller.set_blackboard_key(BB_TRAVEL_DESTINATION, loc) //maintain our spawn location
 
-	RegisterSignal(target, COMSIG_ATOM_WAS_ATTACKED, PROC_REF(on_attacked))
-
-	ADD_TRAIT(target, TRAIT_SUBTREE_REQUIRED_OPERATIONAL_DATUM, type)
-
-/mob/living/basic/exile/proc/on_attacked(mob/victim, mob/living/attacker)
+/mob/living/basic/exile/proc/on_attacked(atom/movable/attacker)
 	SIGNAL_HANDLER
-	if(istype(attacker) && ("Exile" in attacker.faction))
+	if(!istype(attacker) || attacker == src || ("Exile" in attacker.faction))
 		return
-	victim.ai_controller?.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
+	for (var/mob/living/basic/basic_mob in oview(src, 7))
+		if (!faction_check_atom(basic_mob, exact_match = TRUE))
+			continue
+		basic_mob.ai_controller?.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
+	ai_controller?.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, attacker)
 
 /mob/living/basic/exile/update_overlays()
 	. = ..()

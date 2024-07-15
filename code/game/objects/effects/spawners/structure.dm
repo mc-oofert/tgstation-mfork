@@ -193,6 +193,10 @@ again.
 	icon_state = "podwindow_spawner"
 	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/shuttle/survival_pod)
 
+/obj/effect/spawner/structure/window/survival_pod/indestructible
+	name = "indestructible pod window spawner"
+	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/shuttle/survival_pod/indestructible)
+
 /obj/effect/spawner/structure/window/hollow/survival_pod
 	name = "hollow pod window spawner"
 	icon_state = "podwindow_spawner_full"

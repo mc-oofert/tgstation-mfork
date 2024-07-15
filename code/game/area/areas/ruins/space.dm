@@ -699,3 +699,8 @@
 /area/ruin/space/has_grav/garbagetruck/medicalwaste
 /area/ruin/space/has_grav/garbagetruck/squat
 /area/ruin/space/has_grav/garbagetruck/toystore
+
+/area/ruin/space/has_grav/powered/exiles
+	name = "\improper Exiles"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_flags = UNIQUE_AREA | NOTELEPORT

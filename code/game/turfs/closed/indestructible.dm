@@ -377,3 +377,13 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WALLS
 	canSmoothWith = SMOOTH_GROUP_WALLS
+
+
+/turf/closed/indestructible/survival_pod
+	icon = /turf/closed/wall/mineral/titanium/survival::icon
+	icon_state = /turf/closed/wall/mineral/titanium/survival::icon_state
+	base_icon_state = /turf/closed/wall/mineral/titanium/survival::base_icon_state
+	name = /turf/closed/wall/mineral/titanium/survival::name
+	desc = /turf/closed/wall/mineral/titanium/survival::desc
+	smoothing_flags = /turf/closed/wall/mineral/titanium/survival::smoothing_flags
+	canSmoothWith = /turf/closed/wall/mineral/titanium/survival::canSmoothWith
