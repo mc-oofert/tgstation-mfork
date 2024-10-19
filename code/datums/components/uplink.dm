@@ -84,7 +84,6 @@
 		uplink_handler.has_objectives = FALSE
 		uplink_handler.uplink_flag = uplink_flag
 		uplink_handler.telecrystals = starting_tc
-		uplink_handler.has_progression = has_progression
 		uplink_handler.purchase_log = purchase_log
 	else
 		uplink_handler = uplink_handler_override
@@ -184,42 +183,17 @@
 		return
 	var/list/data = list()
 	data["telecrystals"] = uplink_handler.telecrystals
-	data["progression_points"] = uplink_handler.progression_points
-	data["current_expected_progression"] = SStraitor.current_global_progression
-	data["maximum_active_objectives"] = uplink_handler.maximum_active_objectives
-	data["progression_scaling_deviance"] = SStraitor.progression_scaling_deviance
-	data["current_progression_scaling"] = SStraitor.current_progression_scaling
 
-	data["maximum_potential_objectives"] = uplink_handler.maximum_potential_objectives
-	if(uplink_handler.has_objectives)
-		var/list/primary_objectives = list()
-		for(var/datum/objective/task as anything in uplink_handler.primary_objectives)
-			var/list/task_data = list()
-			if(length(primary_objectives) > length(GLOB.phonetic_alphabet))
-				task_data["task_name"] = "DIRECTIVE [length(primary_objectives) + 1]" //The english alphabet is WEAK
-			else
-				task_data["task_name"] = "DIRECTIVE [uppertext(GLOB.phonetic_alphabet[length(primary_objectives) + 1])]"
-			task_data["task_text"] = task.explanation_text
-			primary_objectives += list(task_data)
-
-		var/list/potential_objectives = list()
-		for(var/index in 1 to uplink_handler.potential_objectives.len)
-			var/datum/traitor_objective/objective = uplink_handler.potential_objectives[index]
-			var/list/objective_data = objective.uplink_ui_data(user)
-			objective_data["id"] = index
-			potential_objectives += list(objective_data)
-
-		var/list/active_objectives = list()
-		for(var/index in 1 to uplink_handler.active_objectives.len)
-			var/datum/traitor_objective/objective = uplink_handler.active_objectives[index]
-			var/list/objective_data = objective.uplink_ui_data(user)
-			objective_data["id"] = index
-			active_objectives += list(objective_data)
-
-		data["primary_objectives"] = primary_objectives
-		data["potential_objectives"] = potential_objectives
-		data["active_objectives"] = active_objectives
-		data["completed_final_objective"] = uplink_handler.final_objective
+	var/list/primary_objectives = list()
+	for(var/datum/objective/task as anything in uplink_handler.primary_objectives)
+		var/list/task_data = list()
+		if(length(primary_objectives) > length(GLOB.phonetic_alphabet))
+			task_data["task_name"] = "DIRECTIVE [length(primary_objectives) + 1]" //The english alphabet is WEAK
+		else
+			task_data["task_name"] = "DIRECTIVE [uppertext(GLOB.phonetic_alphabet[length(primary_objectives) + 1])]"
+		task_data["task_text"] = task.explanation_text
+		primary_objectives += list(task_data)
+	data["primary_objectives"] = primary_objectives
 
 	var/list/stock_list = uplink_handler.item_stock.Copy()
 	var/list/extra_purchasable_stock = list()
@@ -254,17 +228,18 @@
 	data["shop_locked"] = uplink_handler.shop_locked
 	data["purchased_items"] = length(uplink_handler.purchase_log?.purchase_log)
 	data["can_renegotiate"] = user.mind == uplink_handler.owner && uplink_handler.can_replace_objectives?.Invoke() == TRUE
+	data["world_time"] = world.time
 	return data
 
 /datum/component/uplink/ui_static_data(mob/user)
 	var/list/data = list()
 	data["uplink_flag"] = uplink_handler.uplink_flag
-	data["has_progression"] = uplink_handler.has_progression
 	data["has_objectives"] = uplink_handler.has_objectives
 	data["lockable"] = lockable
 	data["assigned_role"] = uplink_handler.assigned_role
 	data["assigned_species"] = uplink_handler.assigned_species
 	data["debug"] = uplink_handler.debug_mode
+	data["ismartyr"] = uplink_handler.owner?.has_objective(/datum/objective/martyr)
 	return data
 
 /datum/component/uplink/ui_assets(mob/user)
@@ -305,45 +280,6 @@
 		if("renegotiate_objectives")
 			uplink_handler.replace_objectives?.Invoke()
 			SStgui.update_uis(src)
-
-	if(!uplink_handler.has_objectives)
-		return TRUE
-
-	if(uplink_handler.owner?.current != ui.user || !uplink_handler.can_take_objectives)
-		return TRUE
-
-	switch(action)
-		if("regenerate_objectives")
-			uplink_handler.generate_objectives()
-			return TRUE
-
-	var/list/objectives
-	switch(action)
-		if("start_objective")
-			objectives = uplink_handler.potential_objectives
-		if("objective_act", "finish_objective", "objective_abort")
-			objectives = uplink_handler.active_objectives
-
-	if(!objectives)
-		return
-
-	var/objective_index = round(text2num(params["index"]))
-	if(objective_index < 1 || objective_index > length(objectives))
-		return TRUE
-	var/datum/traitor_objective/objective = objectives[objective_index]
-
-	// Objective actions
-	switch(action)
-		if("start_objective")
-			uplink_handler.take_objective(ui.user, objective)
-		if("objective_act")
-			uplink_handler.ui_objective_act(ui.user, objective, params["objective_action"])
-		if("finish_objective")
-			if(!objective.finish_objective(ui.user))
-				return
-			uplink_handler.complete_objective(objective)
-		if("objective_abort")
-			uplink_handler.abort_objective(objective)
 	return TRUE
 
 /// Proc that locks uplinks

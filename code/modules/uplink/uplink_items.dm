@@ -80,7 +80,7 @@
 	var/list/restricted_roles = list()
 	/// The species able to purchase this uplink item.
 	var/list/restricted_species = list()
-	/// The minimum amount of progression needed for this item to be added to uplinks.
+	/// Minimum time passed from roundstart to be buyable. Martyrs ignore this.
 	var/progression_minimum = 0
 	/// Whether this purchase is visible in the purchase log.
 	var/purchase_log_vis = TRUE // Visible in the purchase log?

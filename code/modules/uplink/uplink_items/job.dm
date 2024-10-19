@@ -209,7 +209,7 @@
 	name = "Reverse Revolver"
 	desc = "A revolver that always fires at its user. \"Accidentally\" drop your weapon, then watch as the greedy corporate pigs blow their own brains all over the wall. \
 	The revolver itself is actually real. Only clumsy people, and clowns, can fire it normally. Comes in a box of hugs. Honk."
-	progression_minimum = 30 MINUTES
+	progression_minimum = 10 MINUTES
 	cost = 14
 	item = /obj/item/storage/box/hug/reverse_revolver
 	restricted_roles = list(JOB_CLOWN)
@@ -238,7 +238,6 @@
 /datum/uplink_item/role_restricted/laser_arm
 	name = "Laser Arm Implant"
 	desc = "An implant that grants you a recharging laser gun inside your arm. Weak to EMPs. Comes with a syndicate autosurgeon for immediate self-application."
-	progression_minimum = 20 MINUTES
 	cost = 10
 	item = /obj/item/autosurgeon/syndicate/laser_arm
 	restricted_roles = list(JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
@@ -247,7 +246,6 @@
 /datum/uplink_item/role_restricted/chemical_gun
 	name = "Reagent Dartgun"
 	desc = "A heavily modified syringe gun which is capable of synthesizing its own chemical darts using input reagents. Can hold 90u of reagents."
-	progression_minimum = 15 MINUTES
 	item = /obj/item/gun/chem
 	cost = 12
 	restricted_roles = list(JOB_CHEMIST, JOB_CHIEF_MEDICAL_OFFICER, JOB_BOTANIST)

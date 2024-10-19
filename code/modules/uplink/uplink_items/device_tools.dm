@@ -124,13 +124,6 @@
 	restricted = TRUE
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
-/datum/uplink_item/device_tools/frame/spawn_item(spawn_path, mob/user, datum/uplink_handler/uplink_handler, atom/movable/source)
-	. = ..()
-	var/obj/item/computer_disk/virus/frame/target = .
-	if(!target)
-		return
-	target.current_progression = uplink_handler.progression_points
-
 /datum/uplink_item/device_tools/failsafe
 	name = "Failsafe Uplink Code"
 	desc = "When entered the uplink will self-destruct immediately."

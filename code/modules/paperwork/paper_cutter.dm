@@ -114,7 +114,7 @@
 	if(istype(inserted_item, /obj/item/paper))
 		if(is_type_in_list(inserted_item, list(
 			/obj/item/paper/paperslip, /obj/item/paper/report, /obj/item/paper/fake_report,
-			/obj/item/paper/calling_card, /obj/item/paper/pamphlet, /obj/item/paper/holy_writ)
+			/obj/item/paper/pamphlet, /obj/item/paper/holy_writ)
 			))
 			balloon_alert(user, "won't fit!")
 			return

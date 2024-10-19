@@ -601,8 +601,6 @@
 		along with slurred speech, aggression, and the ability to infect others with this agent."
 	item = /obj/item/storage/box/syndie_kit/romerol
 	cost = 25
-	purchasable_from = UPLINK_ALL_SYNDIE_OPS
-	cant_discount = TRUE
 
 // Modsuits
 
