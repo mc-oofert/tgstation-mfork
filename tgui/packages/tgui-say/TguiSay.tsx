@@ -23,7 +23,7 @@ type State = {
   size: WINDOW_SIZES;
 };
 
-const CHANNEL_REGEX = /^:\w\s/;
+const CHANNEL_REGEX = /^[:.]\w\s/;
 
 export class TguiSay extends Component<{}, State> {
   private channelIterator: ChannelIterator;
@@ -162,7 +162,7 @@ export class TguiSay extends Component<{}, State> {
       ? prefix + currentValue
       : currentValue;
 
-    this.messages.forceSayMsg(grunt);
+    this.messages.forceSayMsg(grunt, this.channelIterator.current());
     this.reset();
   }
 
@@ -206,7 +206,8 @@ export class TguiSay extends Component<{}, State> {
     // Is it a valid prefix?
     const prefix = typed
       .slice(0, 3)
-      ?.toLowerCase() as keyof typeof RADIO_PREFIXES;
+      ?.toLowerCase()
+      ?.replace('.', ':') as keyof typeof RADIO_PREFIXES;
     if (!RADIO_PREFIXES[prefix] || prefix === this.currentPrefix) {
       return;
     }
@@ -274,6 +275,7 @@ export class TguiSay extends Component<{}, State> {
   };
 
   reset() {
+    this.currentPrefix = null;
     this.setValue('');
     this.setSize();
     this.setState({

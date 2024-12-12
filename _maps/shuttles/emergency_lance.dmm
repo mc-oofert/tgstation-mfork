@@ -968,8 +968,8 @@
 /obj/item/book/manual/wiki/surgery{
 	pixel_x = -15
 	},
-/obj/item/surgery_tray/full,
-/obj/item/surgery_tray/full{
+/obj/effect/spawner/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full{
 	pixel_x = 5
 	},
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
@@ -1285,7 +1285,7 @@
 "Nx" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners{
 	dir = 1
 	},
